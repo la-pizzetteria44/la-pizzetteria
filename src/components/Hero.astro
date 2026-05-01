@@ -8,11 +8,11 @@ const { infos } = Astro.props;
             <img src={infos.cover_image} alt="Restaurant - cuisine maison" />
             <div class="header_hero">
                 <h1>{infos.title}</h1>
-                <p>{infos.description}</p>
+                <p>{infos.subtitle}</p>
             </div>
-            <div class="cta_hero">
-                <a href="tel:0123456789" class="btn-cta primary"><Phone color="#fff" size={24}/><span>Réserver</span></a>
-                <a href="#plats" class="btn-cta secondary">Voir la carte</a>
+            <div class="cta cta_hero">
+                <a href="tel:0123456789" class="btn-cta primary"><Phone color="#fff" size={24}/><span>Commander</span></a>
+                <a href="#plats" class="btn-cta secondary">Voir le menu</a>
             </div>
         </div>
     </section>
@@ -79,6 +79,10 @@ const { infos } = Astro.props;
             text-align: center;
         }
 
+        .cta_hero svg {
+            stroke: #fff;
+        }
+
         .cta_hero a:hover {
             background-color: var(--color-primary-hover);
         }
@@ -88,11 +92,7 @@ const { infos } = Astro.props;
             align-items: center;   /* centre vertical */
             justify-content: center; /* centre horizontal */
             gap: 8px;              /* espace entre icône et texte */
-
-            /* padding: 12px 20px; */
             color: white;
-          
-            /* border-radius: 8px; */
             text-decoration: none;
             transition: all 0.2s ease;
         }
@@ -107,7 +107,6 @@ const { infos } = Astro.props;
             border: none;
         }
         .btn-cta.secondary {
-            /* background: rgba(0, 0, 0, 0.334); */
             border: 1.5px solid rgba(255,255,255,0.6);
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(2px);

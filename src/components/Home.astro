@@ -1,32 +1,36 @@
 ---
+import {marked} from 'marked';
+
 import hours from '../content/hours/hours.json';
 import infos from '../content/infos.json';
 
 import Hero from './Hero.astro';
-import Nav from './MenuNav.astro';
-import Starters from './sections/Starters.astro';
-import Plats from './sections/Plats.astro';
-import Desserts from './sections/Desserts.astro';
-import Drinks from './sections/Drinks.astro';
+
 import Map from './sections/Map.astro';
 import Hours from './sections/Hours.astro';
 import Footer from './Footer.astro';
+import Review from './Review.astro';
+import Highlight from './sections/Highlight.astro';
+import { Phone, Pizza } from '@lucide/astro';
 
-const starters = Object.values(import.meta.glob('../content/starters/*.json', { eager: true })).map(p => p.default);
-const plats = Object.values(import.meta.glob('../content/plats/*.json', { eager: true })).map(p => p.default);
-const drinks = Object.values(import.meta.glob('../content/drinks/*.json', { eager: true })).map(p => p.default);
-const desserts = Object.values(import.meta.glob('../content/desserts/*.json', { eager: true })).map(p => p.default);
 
-const dishOfTheMoment = plats.find(p => p.highlight) || null;
-console.log(starters);
+const starters = (Object.values(import.meta.glob('../content/starters/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
+const pizzas = (Object.values(import.meta.glob('../content/pizzas/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
+const drinks = (Object.values(import.meta.glob('../content/drinks/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
+const desserts = (Object.values(import.meta.glob('../content/desserts/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
+const reviews = (Object.values(import.meta.glob('../content/reviews/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
 
-function formatDay(day) {
+const dishOfTheMoment = pizzas.find(p => p.highlight) || null;
+console.log(dishOfTheMoment)
+const html = marked.parse(infos.description);
+
+function formatDay(day: { closed: any; slots?: any[]; }) {
   if (!day || day.closed) return "fermé";
 
   if (!day.slots || day.slots.length === 0) return "fermé";
 
   return day.slots
-    .map(slot =>
+    .map((slot: { open: { hour: any; minute: any; }; close: { hour: any; minute: any; }; }) =>
       `${slot.open.hour}:${slot.open.minute}-${slot.close.hour}:${slot.close.minute}`
     )
     .join(" / ");
@@ -37,7 +41,7 @@ const daysOrder = [
 ];
 
 const formattedDays = daysOrder.map(dayKey => {
-  const day = hours[dayKey] ?? { closed: true };
+  const day = hours[dayKey as keyof typeof hours] ?? { closed: true };
 
   return {
     day: dayKey,
@@ -47,7 +51,7 @@ const formattedDays = daysOrder.map(dayKey => {
 
 // tri
 starters.sort((a,b) => a.name.localeCompare(b.name));
-plats.sort((a,b) => a.name.localeCompare(b.name));
+pizzas.sort((a,b) => a.name.localeCompare(b.name));
 drinks.sort((a,b) => a.name.localeCompare(b.name));
 ---
 
@@ -55,26 +59,60 @@ drinks.sort((a,b) => a.name.localeCompare(b.name));
 
     <Hero infos={infos}/>
     
-	<!-- STICKY MENU-->
-	<Nav />
+	<hr/>
 
-	<!-- ENTRÉES -->
-    <Starters starters={starters} />
+    <!-- HIGHLIGHT -->
+    {dishOfTheMoment && (
+    <Highlight dishOfTheMoment={dishOfTheMoment} />
+    )}
 
-	<hr />
+	<hr/>
 
-	<!-- PLATS -->
-	<Plats plats={plats} />
+    <!-- SELECTION  -->
+     <section>
+        <h2>Et aussi pour se faire plaisir</h2>
+        <div class="selection-ctn">
+            {starters.slice(0,2).map((starter) => (
+                <article class="card">
+                    <img src={starter.image} alt={starter.name} />
+                    <h3>{starter.name}</h3>
+                </article>
+            ))}
 
-	<hr />
+            {drinks.slice(0,2).map((drink) => (
+                <article class="card">
+                    <img src={drink.image} alt={drink.name} />
+                    <h3>{drink.name}</h3>
+                </article>
+            ))}
 
-    <!-- DESSERTS -->
-    <Desserts desserts={desserts} />
-
-	<hr />
+            {desserts.slice(0,2).map((dessert) => (
+                <article class="card">
+                    <img src={dessert.image} alt={dessert.name} />
+                    <h3>{dessert.name}</h3>
+                </article>
+            ))}
+        </div>
     
-    <!-- BOISSONS -->
-    <Drinks drinks={drinks} /> 
+        <div class="cta cta_card">
+            <a href="tel:0123456789" class="btn-cta primary"><Phone color="#fff" size={24}/><span>Commander</span></a>
+            <a href="/menu" class="btn-cta secondary">Voir le menu</a>
+        </div>
+     </section>
+
+	<hr/>
+    <!-- REVIEWS -->
+    <Review reviews={reviews} />
+
+	<hr/>
+
+    <!-- PRESENTATION -->
+    <section id="presentation" class="container">
+        <h2>Benvenuti a {infos.title} !</h2>
+
+        {html && <div class="prose" set:html={html}></div>}
+
+    </section>
 	
     <hr />
 
@@ -221,3 +259,68 @@ document.querySelectorAll("#drinks .filters-tags button").forEach(button => {
 });
 
 </script>
+
+
+<style is:global>
+  .prose p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.prose p:first-child::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.prose ul {
+  list-style: ;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+
+.selection-ctn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.selection-ctn .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.selection-ctn .card h3{
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.cta .btn-cta {
+    color: #333;
+}
+.cta .btn-cta:hover, .cta .btn-cta:hover svg {
+    color: #fff;
+    stroke: #fff;
+}
+
+.cta .btn-cta.primary {   
+    box-shadow: 0 1px 5px var(--color-red);
+    opacity: 0.9;
+}
+.cta .btn-cta.secondary {   
+    box-shadow: 0 2px 5px rgba(34, 197, 94, 0.4);
+}
+.cta .btn-cta.secondary:hover { 
+    background-color: var(--color-green);  
+    box-shadow: 0 2px 5px rgba(34, 197, 94, 0.4);
+}
+
+</style>

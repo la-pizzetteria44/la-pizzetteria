@@ -54,28 +54,6 @@ import infos from '../content/infos.json';
         <slot />
         
 
-<!-- <script>
-  // @ts-ignore
-  import netlifyIdentity from "netlify-identity-widget";
-
-  if (typeof window !== "undefined") {
-    netlifyIdentity.init();
-
-    netlifyIdentity.on("login", () => {
-      document.location.href = "/admin/";
-    });
-
-    const url = new URL(window.location.href);
-    const params = url.searchParams;
-
-    if (
-      params.has("invite_token") ||
-      params.has("recovery_token")
-    ) {
-      netlifyIdentity.open();
-    }
-  }
-</script> -->
 <script is:inline>
   if (typeof window !== "undefined") {
     const script = document.createElement("script");
@@ -116,7 +94,9 @@ import infos from '../content/infos.json';
 
 :root {
   --color-primary: #EA580C;
-  --color-primary-hover: #E63946;
+  --color-primary-hover: #C70319;
+  --color-green: #0D8C2D;
+  --color-red: #C70319;
 
   --color-text: #1F2937;
   --color-bg: #ffffff;
@@ -133,6 +113,7 @@ body {
 	background-color: #F9FAFB;
 	color: #1F2937;
     padding-bottom: 42px;
+    min-width: 320px;
 }
 
 h1, h2{
@@ -203,7 +184,6 @@ img {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: all 0.2s ease;
   margin-bottom: 12px;
-  /* will-change: transform; */
 }
 
 .card:hover {
@@ -231,6 +211,36 @@ img {
   justify-content: space-between;
   gap: 4px;
   width: 100%;
+}
+
+.btn-cta{
+    display: inline-flex;
+    align-items: center;   /* centre vertical */
+    justify-content: center; /* centre horizontal */
+    gap: 8px;              /* espace entre icône et texte */
+
+    padding: 8px 16px;
+    color: var(--color-red);    
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.cta_hero .btn-cta:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-cta.primary {
+    background:  #fff;
+    border: 1px solid var(--color-red);
+}
+
+
+.btn-cta.secondary {
+    border: 1.5px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(2px);
 }
 
 /* TITRE */
@@ -265,5 +275,130 @@ img {
   margin-left: 6px;
 }
 
+/* REVIEWS */
+.reviews {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.review {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* petit guillemet stylé */
+.review::before {
+  content: "“";
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 3rem;
+  color: #f97316; /* orange pizza 🍕 */
+  opacity: 0.2;
+}
+
+.content {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author {
+  font-weight: 600;
+  color: #111;
+}
+
+.rating {
+  color: #facc15; /* jaune étoiles */
+  font-size: 1.5rem;
+}
+
+        .cta a {
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.5rem;
+            display: inline-block;
+            width: 120px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .cta svg {
+            stroke: #fff;
+        }
+
+        .cta a:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .cta .btn-cta{
+            display: inline-flex;
+            align-items: center;   /* centre vertical */
+            justify-content: center; /* centre horizontal */
+            gap: 8px;              /* espace entre icône et texte */
+            color: white;
+            text-decoration: none;
+            transition: all 3.2s ease;
+        }
+
+        .cta .btn-cta:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-1px);
+            color: #fff;
+        }
+
+.cta_card {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-cta.primary svg{
+    stroke: var(--color-red);
+}
+
+.btn-cta.secondary {
+    border: 1.5px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(2px);
+}
+
+.cta .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.cta a {
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.5rem;
+    display: inline-block;
+    width: 120px;
+    text-decoration: none;
+    text-align: center;
+}
   
 </style>

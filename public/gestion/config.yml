@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: main
-  # name: local_backend
+#   name: local_backend
 
 # local_backend: true
 
@@ -10,6 +10,7 @@ public_folder: "/images/"
 
 collections:
 
+  # 🔹 INFOS GÉNÉRALES (fichier unique)
   - name: "infos"
     label: "Informations générales"
     files:
@@ -20,62 +21,54 @@ collections:
           - { label: "Titre", name: "title", widget: "string", default: "Gastro-Resto" }
           - { label: "Ville", name: "city", widget: "string", default: "Nantes" }
           - { label: "URL", name: "site_url", widget: "string", default: "https://astro-decap-template.netlify.app" }
-          - { label: "Description", name: "description", widget: "string", default: "Cuisine maison • Produits frais • Sur place & à emporter" }
+          - { label: "Sous-titre", name: "subtitle", widget: "string", default: "Cuisine maison • Produits frais • Sur place & à emporter" }
+          - { label: "Description", name: "description", widget: "markdown", default: "Pizzaïolo Edmondo, dit Eddy, a mis son talent au service de vos papilles pour créer « La Pizzetteria » à Aigrefeuille-sur-Maine (44140).Aujourd’hui il passe la main à son jeune « padawan » Guillaume qu’il a su former et qui continuera à mettre en valeur les produits italien.Laissez vous tenter par nos pizzas et desserts faits maison dans la tradition transalpine, ainsi que par nos vins et bières importés directement d’Italie. Nous sommes très fiers de vous proposer vos pizzas italiennes préférées faites maison."
+          }
           - { label: "Image de couverture", name: "cover_image", widget: "image", required: false }
 
-  # 🔹 ENTRÉES
-  - name: "starters"
-    label: "Entrées"
-    folder: "src/content/starters"
+  # 🔹 PIZZAS
+  - name: "pizzas"
+    label: "Pizzas"
+    folder: "src/content/pizzas"
     create: true
-    media_folder: "/public/images/starters"
-    public_folder: "/images/starters"
-    extension: "json"
-    format: "json"
-    slug: "{{slug}}"
-    identifier_field: "name"
-    summary: "{{name}} - {{price}}€"
-    sortable_fields: ["name", "price"]
-    fields:
-      - { label: "Nom", name: "name", widget: "string" }
-      - { label: "Description", name: "description", widget: "string", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        required: false
-        field:
-          label: "Tag"
-          name: "tag"
-          widget: "select"
-          options:  
-            - { label: "Viande", value: "viande" }
-            - { label: "Poisson", value: "poisson" }
-            - { label: "Végétarien", value: "vegetarien" }
-
-  # 🔹 PLATS
-  - name: "plats"
-    label: "Plats"
-    folder: "src/content/dishes"
-    create: true
-    media_folder: "/public/images/dishes"
-    public_folder: "/images/dishes"
+    media_folder: "/public/images/pizzas"
+    public_folder: "/images/pizzas"
     extension: "json"
     format: "json"
     slug: "{{slug}}"
     identifier_field: "name"
     summary: "{{name}} - {{price}}€"
     fields:
-      - { label: "Nom", name: "name", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - label: "Catégorie"
-        name: "category"
+      - { label: "Nom de la pizza", name: "name", widget: "string" }
+      - label: "Base"
+        name: "base"
         widget: "select"
         options:
-          - { label: "Pizza", value: "pizza" }
-          - { label: "Pâtes", value: "pate" }
+            - { label: "Tomate", value: "tomate" }
+            - { label: "Mozzarella", value: "mozzarella" }
+        required: false
+      - label: "Ingrédients"
+        name: "ingredients"
+        widget: "list"
+        field:
+            label: "Ingrédient"
+            name: "ingredient"
+            widget: "select"
+            options:
+                - "Tomate"
+                - "Mozzarella"
+                - "Jambon"
+                - "Champignons"
+                - "Chèvre"
+                - "Parmesan"
+                - "Roquette"
+                - "Gorgonzola"
+                - "Olives"
+                - "Noix"
+                - "Basilic"
+                - "Pesto maison"
+
+      - { label: "Image", name: "image", widget: "image", required: true }
       - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
       - label: "Tags"
         name: "tags"
@@ -86,6 +79,93 @@ collections:
           name: "tag"
           widget: "select"
           options: ["Végétarien", "Poisson", "Viande", "Épicé"]
+      - {
+        label: "Mise en avant",
+        name: "highlight",
+        widget: "boolean",
+        default: false,
+        hint: "Cochez pour mettre cette pizza en avant sur la page d'accueil"}
+
+  # 🔹 SPÉCIALITÉS (antipasti, charcuterie, fromages, pâtes)
+  - name: "specialties"
+    label: "Spécialités"
+    folder: "src/content/specialties"
+    create: true
+    media_folder: "/public/images/specialties"
+    public_folder: "/images/specialties"
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "name" # 🔥 IMPORTANT
+    summary: "{{name}} ({{fields.formats.length}} formats)"
+    sortable_fields: ["name", "price"]
+    fields:
+        - { label: "Nom du produit", name: "name", widget: "string" }
+
+        - { label: "Description", name: "description", widget: "string" }
+        - { label: "Image", name: "image", widget: "image" }
+        - label: "Formats"
+          name: "formats"
+          widget: "list"
+          summary: "{{fields.label}} - {{fields.price}}€"
+          fields:
+            - label: "Nom du format"
+              name: "label"
+              widget: "select"
+              options:
+                  - "1 personne"
+                  - "8 personnes"   
+            - {
+                label: "Prix (€)",
+                name: "price",
+                widget: "number",
+                value_type: "float",
+                min: 0,
+                step: 0.1
+              }
+  # 🔹 PLATTER (assiettes de charcuterie/fromage à partager)
+  - name: "platters"
+    label: "Plateaux"
+    folder: "src/content/platters"
+    create: true
+    media_folder: "/public/images/platters"
+    public_folder: "/images/platters"
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "name" # 🔥 IMPORTANT
+    summary: "{{name}} - {{price}}€" # 🔥 IMPORTANT
+    sortable_fields: ["name", "price"]
+    fields:
+        - { label: "Nom du produit", name: "name", widget: "string" }
+
+        - { label: "Image", name: "image", widget: "image" }
+
+        - label: "Produits"
+          name: "product"
+          widget: "list"
+          field:
+              label: "Produit"
+              name: "product"
+              widget: "select"
+              multiple: true
+              options:
+                  - "Mozzarella"
+                  - "Jambon"
+                  - "Chèvre"
+                  - "Roquette"
+                  - "Beurre"
+                  - "olives"
+                  - "Parmesan"
+                  - "Gorgonzola"
+                  - "Scarmoza"
+                  - "Taleggio"
+                  - "Speck"
+                  - "Pancetta"
+                  - "Spaniata"
+                  - "Jambon cru"
+                  - "Tomates cerise"
+
 
   # 🔹 DESSERTS
   - name: "desserts"
@@ -138,54 +218,30 @@ collections:
           widget: "select"
           options: ["Avec alcool", "Sans alcool"]
 
-  # 🔹 FORMULES (menus combinés)
-  - name: "formules"
-    label: "Formules"
-    folder: "src/content/formules"
+  # AVIS GOOGLE
+  - name: "reviews"
+    label: "Avis clients"
+    folder: "src/content/reviews"
     create: true
     extension: "json"
     format: "json"
     slug: "{{slug}}"
-    identifier_field: "name"
-    summary: "{{name}} - {{price}}€"
+    identifier_field: "author"
+    summary: "{{author}} - {{rating}} étoiles"
     fields:
-      - { label: "Nom de la formule", name: "name", widget: "string" }
+      - { label: "Nom du client", name: "author", widget: "string" }
+      
+      - { label: "Note", name: "rating", widget: "number", value_type: "int", min: 1, max: 5 }
+      
+      - { label: "Contenu de l'avis", name: "content", widget: "markdown" }
+      
+      - { label: "Date", name: "date", widget: "datetime" }
+      
+      - { label: "Source", name: "source", widget: "select", options: ["Google", "Facebook", "Autre"], default: "Google" }
+      
+      - { label: "Mettre en avant", name: "featured", widget: "boolean", default: false }
 
-      - label: "Contenu"
-        name: "items"
-        widget: "list"
-        field:
-          label: "Élément"
-          name: "item"
-          widget: "string"
-          hint: "Ex: Entrée + Plat + Dessert"
-
-      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
-
-      - label: "Disponible le midi uniquement"
-        name: "lunch_only"
-        widget: "boolean"
-        default: false
-
-  # 🔹 MENU DU JOUR (fichier unique)
-  - name: "menu_du_jour"
-    label: "Menu du jour"
-    files:
-      - file: "src/content/menu-du-jour.json"
-        name: "menu"
-        label: "Menu du jour"
-        fields:
-          - { label: "Actif", name: "active", widget: "boolean", default: true }
-
-          - { label: "Titre", name: "title", widget: "string", default: "Menu du jour" }
-
-          - { label: "Entrée", name: "starter", widget: "string" }
-          - { label: "Plat", name: "main", widget: "string" }
-          - { label: "Dessert", name: "dessert", widget: "string" }
-
-          - { label: "Prix (€)", name: "price", widget: "number", value_type: "float" }
-
-  # 🔹 HORAIRES (je te garde ton système 👌)
+  # 🔹 HORAIRES
   - name: "hours"
     label: "Horaires"
     files:

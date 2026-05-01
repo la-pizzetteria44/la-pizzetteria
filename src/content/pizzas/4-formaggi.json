@@ -1,5 +1,5 @@
 {
-  "highlight": false,
+  "highlight": true,
   "name": "Rucola",
   "category": "pizza",
   "base": "tomate",
@@ -13,5 +13,5 @@
     "fromage"
   ],
   "price": 8.5,
-  "image": "/images/rucola.jpg"
+  "image": "/images/pizzas/rucola.jpg"
 }

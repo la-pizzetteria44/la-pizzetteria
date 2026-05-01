@@ -1,56 +1,114 @@
 {
   "lundi": {
-    "slots": [
-      {
-        "open": {
-          "hour": "09",
-          "minute": "15"
-        },
-        "close": {
-          "hour": "16",
-          "minute": "45"
-        }
-      },
-      {
-        "open": {
-          "hour": "17",
-          "minute": "30"
-        },
-        "close": {
-          "hour": "05",
-          "minute": "45"
-        }
-      }
-    ]
+    "slots": [],
+    "closed": true
   },
   "mardi": {
     "closed": true
   },
   "mercredi": {
-    "closed": true
+    "closed": false,
+    "slots": [
+      {
+        "open": {
+          "hour": "12",
+          "minute": "00"
+        },
+        "close": {
+          "hour": "13",
+          "minute": "30"
+        }
+      },
+      {
+        "open": {
+          "hour": "18",
+          "minute": "30"
+        },
+        "close": {
+          "hour": "21",
+          "minute": "30"
+        }
+      }
+    ]
   },
   "jeudi": {
-    "closed": true
+    "closed": false,
+    "slots": [
+      {
+        "open": {
+          "hour": "12",
+          "minute": "00"
+        },
+        "close": {
+          "hour": "13",
+          "minute": "30"
+        }
+      },
+      {
+        "open": {
+          "hour": "18",
+          "minute": "30"
+        },
+        "close": {
+          "hour": "21",
+          "minute": "30"
+        }
+      }
+    ]
   },
   "vendredi": {
-    "closed": true
+    "closed": false,
+    "slots": [
+      {
+        "open": {
+          "hour": "12",
+          "minute": "00"
+        },
+        "close": {
+          "hour": "13",
+          "minute": "30"
+        }
+      },
+      {
+        "open": {
+          "hour": "18",
+          "minute": "30"
+        },
+        "close": {
+          "hour": "21",
+          "minute": "30"
+        }
+      }
+    ]
   },
   "samedi": {
     "closed": false,
     "slots": [
       {
         "open": {
-          "hour": "16",
-          "minute": "15"
+          "hour": "18",
+          "minute": "30"
         },
         "close": {
-          "hour": "20",
-          "minute": "45"
+          "hour": "21",
+          "minute": "30"
         }
       }
     ]
   },
   "dimanche": {
-    "closed": true
+    "closed": false,
+    "slots": [
+      {
+        "open": {
+          "hour": "18",
+          "minute": "30"
+        },
+        "close": {
+          "hour": "21",
+          "minute": "30"
+        }
+      }
+    ]
   }
 }

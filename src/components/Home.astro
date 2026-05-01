@@ -1,0 +1,223 @@
+---
+import hours from '../content/hours/hours.json';
+import infos from '../content/infos.json';
+
+import Hero from './Hero.astro';
+import Nav from './MenuNav.astro';
+import Starters from './sections/Starters.astro';
+import Plats from './sections/Plats.astro';
+import Desserts from './sections/Desserts.astro';
+import Drinks from './sections/Drinks.astro';
+import Map from './sections/Map.astro';
+import Hours from './sections/Hours.astro';
+import Footer from './Footer.astro';
+
+const starters = Object.values(import.meta.glob('../content/starters/*.json', { eager: true })).map(p => p.default);
+const plats = Object.values(import.meta.glob('../content/plats/*.json', { eager: true })).map(p => p.default);
+const drinks = Object.values(import.meta.glob('../content/drinks/*.json', { eager: true })).map(p => p.default);
+const desserts = Object.values(import.meta.glob('../content/desserts/*.json', { eager: true })).map(p => p.default);
+
+const dishOfTheMoment = plats.find(p => p.highlight) || null;
+console.log(starters);
+
+function formatDay(day) {
+  if (!day || day.closed) return "fermé";
+
+  if (!day.slots || day.slots.length === 0) return "fermé";
+
+  return day.slots
+    .map(slot =>
+      `${slot.open.hour}:${slot.open.minute}-${slot.close.hour}:${slot.close.minute}`
+    )
+    .join(" / ");
+}
+
+const daysOrder = [
+  "lundi","mardi","mercredi","jeudi","vendredi","samedi","dimanche"
+];
+
+const formattedDays = daysOrder.map(dayKey => {
+  const day = hours[dayKey] ?? { closed: true };
+
+  return {
+    day: dayKey,
+    value: formatDay(day)
+  };
+});
+
+// tri
+starters.sort((a,b) => a.name.localeCompare(b.name));
+plats.sort((a,b) => a.name.localeCompare(b.name));
+drinks.sort((a,b) => a.name.localeCompare(b.name));
+---
+
+<main id="home">
+
+    <Hero infos={infos}/>
+    
+	<!-- STICKY MENU-->
+	<Nav />
+
+	<!-- ENTRÉES -->
+    <Starters starters={starters} />
+
+	<hr />
+
+	<!-- PLATS -->
+	<Plats plats={plats} />
+
+	<hr />
+
+    <!-- DESSERTS -->
+    <Desserts desserts={desserts} />
+
+	<hr />
+    
+    <!-- BOISSONS -->
+    <Drinks drinks={drinks} /> 
+	
+    <hr />
+
+	<!-- HORAIRES -->
+	<Hours formattedDays={formattedDays}/>
+
+    <!-- MAP -->
+    <Map />
+    
+    <!-- FOOTER -->
+    <Footer formattedDays={formattedDays} />
+
+</main>
+
+<script type="module">
+
+// 🔥 STATE
+const starterFilters = {
+    tag: "all"
+};
+
+const drinkFilters = {
+    category: "all",
+    tag: "all"
+};
+
+// 🔥 FILTER ENGINE
+function applyFilters(type) {
+    const items = document.querySelectorAll("." + type);
+
+    items.forEach(item => {
+        const tags = item.dataset.tags ? item.dataset.tags.split(",") : [];
+        const category = item.dataset.category;
+
+        let show = true;
+
+        // 🥗 STARTERS
+        if (type === "starter") {
+            if (starterFilters.tag === "all") {
+                show = true;
+            } else {
+                // const normalizedTags = tags.map(t => t.toLowerCase());
+                // const filter = starterFilters.tag;
+
+                show = tags.includes(starterFilters.tag);
+
+            }
+        }
+            
+        // 🥤 DRINKS
+        if (type === "drink") {
+            if (drinkFilters.category !== "all") {
+                show = show && category === drinkFilters.category;
+            }
+
+            if (drinkFilters.tag !== "all") {
+                show = show && tags.includes(drinkFilters.tag);
+            }
+        }
+
+        item.style.display = show ? "flex" : "none";
+    });
+}
+
+// 🥗 STARTERS TAG FILTER
+document.querySelectorAll("#starter .filters-tags button").forEach(button => {
+    button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        starterFilters.tag = starterFilters.tag === filter ? "all" : filter;
+
+        document.querySelectorAll("#starter .filters-tags button")
+            .forEach(btn => btn.classList.remove("active"));
+
+            button.classList.add("active");
+
+        applyFilters("starter");
+    });
+});
+
+// MENU NAV
+// SCROLL SPY
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute("id");
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + id) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}, {
+  threshold: 0.6,
+  rootMargin: "-42px 0px 0px 0px"
+});
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+// 🥤 DRINKS CATEGORY
+document.querySelectorAll("#drinks .filters-main button").forEach(button => {
+    button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        drinkFilters.category = filter;
+        drinkFilters.tag = "all";
+
+        document.querySelectorAll("#drinks .filters-main button")
+            .forEach(btn => btn.classList.remove("active"));
+
+        document.querySelectorAll("#drinks .filters-tags button")
+            .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        applyFilters("drink");
+    });
+});
+
+// 🥤 DRINKS TAGS
+document.querySelectorAll("#drinks .filters-tags button").forEach(button => {
+    button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        drinkFilters.tag = drinkFilters.tag === filter ? "all" : filter;
+
+        document.querySelectorAll("#drinks .filters-tags button")
+            .forEach(btn => btn.classList.remove("active"));
+
+        if (drinkFilters.tag !== "all") {
+            button.classList.add("active");
+        }
+
+        applyFilters("drink");
+    });
+});
+
+</script>

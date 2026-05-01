@@ -1,0 +1,24 @@
+---
+const { plats } = Astro.props;
+---
+
+<section id="plats">
+		<h2>Plats</h2>
+
+		<div class="ctn-items">
+			{plats.map((plat) => (
+				<article class="card plat">
+					<img src={plat.image} alt={plat.name} loading="lazy" />
+                    <div class="content">
+                        <h3>
+                            {plat.name}
+                            {plat.highlight && <span> ⭐</span>}
+                        </h3>
+                        <p>{plat.description}</p>
+                        <p class="price">{plat.price.toFixed(2)}€</p>
+                    </div>
+				</article>
+			))}
+		</div>
+	</section>
+

@@ -1,0 +1,17 @@
+{
+  "highlight": false,
+  "name": "Rucola",
+  "category": "pizza",
+  "base": "tomate",
+  "ingredients": [
+    "Mozzarella",
+    "Parmesan",
+    "Roquette"
+  ],
+  "tags": [
+    "vegetarien",
+    "fromage"
+  ],
+  "price": 8.5,
+  "image": "/images/rucola.jpg"
+}

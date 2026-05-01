@@ -1,0 +1,81 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Politique de confidentialité">
+<Header />
+<main id="policy">
+<h2>Politique de confidentialité</h2>
+
+<p>Ce site ne collecte aucune donnée personnelle.</p>
+
+<p>Aucun cookie de suivi ou de mesure d’audience n’est utilisé.</p>
+
+<p>Les seules données éventuellement transmises le sont directement par l’utilisateur (appel téléphonique, email).</p>
+
+<hr>
+
+<p>Pour toute question, vous pouvez contacter :
+📧 [email]</p>
+
+</main>
+</Layout>
+ <style>
+    .legal {
+  padding: 4rem 1.5rem;
+  background: #fafafa;
+}
+
+.legal-container {
+  max-width: 750px;
+  margin: 0 auto;
+  color: #222;
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+/* TITRE PRINCIPAL */
+.legal h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* SECTIONS */
+.legal section {
+  margin-bottom: 2rem;
+}
+
+/* TITRES */
+.legal h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* TEXTE */
+.legal p {
+  margin: 0.5rem 0;
+}
+
+/* LIENS */
+.legal a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.legal a:hover {
+  opacity: 0.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .legal {
+    padding: 3rem 1rem;
+  }
+
+  .legal h1 {
+    font-size: 1.6rem;
+  }
+}
+  </style>

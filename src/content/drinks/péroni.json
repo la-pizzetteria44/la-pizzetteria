@@ -1,0 +1,10 @@
+{
+  "name": "Péroni",
+  "description": "Bière blonde italienne sans alcool",
+  "category": "Bière",
+  "image": "/images/drinks/peroni.webp",
+  "price": 3.2,
+  "tags": [
+    "Sans alcool"
+  ]
+}

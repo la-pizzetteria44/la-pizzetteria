@@ -1,0 +1,229 @@
+backend:
+  name: git-gateway
+  branch: main
+  # name: local_backend
+
+# local_backend: true
+
+media_folder: "public/images/"
+public_folder: "/images/"
+
+collections:
+
+  - name: "infos"
+    label: "Informations générales"
+    files:
+      - file: "src/content/infos.json"
+        name: "infos"
+        label: "Informations générales"
+        fields:
+          - { label: "Titre", name: "title", widget: "string", default: "Gastro-Resto" }
+          - { label: "Ville", name: "city", widget: "string", default: "Nantes" }
+          - { label: "URL", name: "site_url", widget: "string", default: "https://astro-decap-template.netlify.app" }
+          - { label: "Description", name: "description", widget: "string", default: "Cuisine maison • Produits frais • Sur place & à emporter" }
+          - { label: "Image de couverture", name: "cover_image", widget: "image", required: false }
+
+  # 🔹 ENTRÉES
+  - name: "starters"
+    label: "Entrées"
+    folder: "src/content/starters"
+    create: true
+    media_folder: "/public/images/starters"
+    public_folder: "/images/starters"
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "{{name}} - {{price}}€"
+    sortable_fields: ["name", "price"]
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "select"
+          options:  
+            - { label: "Viande", value: "viande" }
+            - { label: "Poisson", value: "poisson" }
+            - { label: "Végétarien", value: "vegetarien" }
+
+  # 🔹 PLATS
+  - name: "plats"
+    label: "Plats"
+    folder: "src/content/dishes"
+    create: true
+    media_folder: "/public/images/dishes"
+    public_folder: "/images/dishes"
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "{{name}} - {{price}}€"
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Pizza", value: "pizza" }
+          - { label: "Pâtes", value: "pate" }
+      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "select"
+          options: ["Végétarien", "Poisson", "Viande", "Épicé"]
+
+  # 🔹 DESSERTS
+  - name: "desserts"
+    label: "Desserts"
+    folder: "src/content/desserts"
+    media_folder: "/public/images/desserts"
+    public_folder: "/images/desserts"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "{{name}} - {{price}}€"
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
+
+  # 🔹 BOISSONS
+  - name: "drinks"
+    label: "Boissons"
+    folder: "src/content/drinks"
+    media_folder: "/public/images/drinks"
+    public_folder: "/images/drinks"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "{{name}} - {{price}}€"
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options: ["Soft", "Vin", "Bière", "Cocktail", "Boisson chaude"]
+
+      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field:
+          label: "Tag"
+          name: "tag"
+          widget: "select"
+          options: ["Avec alcool", "Sans alcool"]
+
+  # 🔹 FORMULES (menus combinés)
+  - name: "formules"
+    label: "Formules"
+    folder: "src/content/formules"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "name"
+    summary: "{{name}} - {{price}}€"
+    fields:
+      - { label: "Nom de la formule", name: "name", widget: "string" }
+
+      - label: "Contenu"
+        name: "items"
+        widget: "list"
+        field:
+          label: "Élément"
+          name: "item"
+          widget: "string"
+          hint: "Ex: Entrée + Plat + Dessert"
+
+      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
+
+      - label: "Disponible le midi uniquement"
+        name: "lunch_only"
+        widget: "boolean"
+        default: false
+
+  # 🔹 MENU DU JOUR (fichier unique)
+  - name: "menu_du_jour"
+    label: "Menu du jour"
+    files:
+      - file: "src/content/menu-du-jour.json"
+        name: "menu"
+        label: "Menu du jour"
+        fields:
+          - { label: "Actif", name: "active", widget: "boolean", default: true }
+
+          - { label: "Titre", name: "title", widget: "string", default: "Menu du jour" }
+
+          - { label: "Entrée", name: "starter", widget: "string" }
+          - { label: "Plat", name: "main", widget: "string" }
+          - { label: "Dessert", name: "dessert", widget: "string" }
+
+          - { label: "Prix (€)", name: "price", widget: "number", value_type: "float" }
+
+  # 🔹 HORAIRES (je te garde ton système 👌)
+  - name: "hours"
+    label: "Horaires"
+    files:
+      - file: "src/content/hours/hours.json"
+        name: "hours"
+        label: "Horaires"
+        widget: "object"
+        fields:
+          - label: "Lundi"
+            name: "lundi"
+            widget: "object"
+            collapsed: true
+            fields: &day_fields
+              - { label: "Fermé", name: "closed", widget: "boolean", default: false }
+
+              - label: "Plages horaires"
+                name: "slots"
+                widget: "list"
+                max: 2
+                collapsed: true
+                fields:
+                  - label: "Ouverture"
+                    name: "open"
+                    widget: "object"
+                    fields:
+                      - { label: "Heure", name: "hour", widget: "select", options: ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"] }
+                      - { label: "Minute", name: "minute", widget: "select", options: ["00","15","30","45"] }
+
+                  - label: "Fermeture"
+                    name: "close"
+                    widget: "object"
+                    fields:
+                      - { label: "Heure", name: "hour", widget: "select", options: ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"] }
+                      - { label: "Minute", name: "minute", widget: "select", options: ["00","15","30","45"] }
+
+          - { label: "Mardi", name: "mardi", widget: "object", collapsed: true, fields: *day_fields }
+          - { label: "Mercredi", name: "mercredi", widget: "object", collapsed: true, fields: *day_fields }
+          - { label: "Jeudi", name: "jeudi", widget: "object", collapsed: true, fields: *day_fields }
+          - { label: "Vendredi", name: "vendredi", widget: "object", collapsed: true, fields: *day_fields }
+          - { label: "Samedi", name: "samedi", widget: "object", collapsed: true, fields: *day_fields }
+          - { label: "Dimanche", name: "dimanche", widget: "object", collapsed: true, fields: *day_fields }

@@ -1,0 +1,28 @@
+---
+import { Leaf, Fish, Ham } from "@lucide/astro";
+const {starters} = Astro.props;
+---
+
+<section id="starter">
+    <h2>Entrées</h2>
+
+    <div class="filters filters-tags">
+        <button data-filter="all" class="active">Tous</button>
+        <button data-filter="vegetarien"><Leaf size={16}/> Végé</button>
+        <button data-filter="poisson"><Fish size={16}/> Poisson</button>
+        <button data-filter="viande"><Ham size={16}/> Viande</button>
+    </div>
+
+    <div class="ctn-items">
+        {starters.map((item: { tags: any[]; image: string | null | undefined; name: string; description: unknown; price: number; }) => (
+            <article class="card starter" data-tags={item.tags?.join(",")}>
+                <img src={item.image} alt={item.name} loading="lazy" />
+                <div class="content">
+                    <h3 class="card-title">{item.name}</h3>
+                    <p class="card-description">{item.description}</p>
+                    <p class="card-price">{item.price.toFixed(2)}€</p>
+                </div>
+            </article>
+        ))}
+    </div>
+</section>

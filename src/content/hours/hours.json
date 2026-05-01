@@ -1,0 +1,56 @@
+{
+  "lundi": {
+    "slots": [
+      {
+        "open": {
+          "hour": "09",
+          "minute": "15"
+        },
+        "close": {
+          "hour": "16",
+          "minute": "45"
+        }
+      },
+      {
+        "open": {
+          "hour": "17",
+          "minute": "30"
+        },
+        "close": {
+          "hour": "05",
+          "minute": "45"
+        }
+      }
+    ]
+  },
+  "mardi": {
+    "closed": true
+  },
+  "mercredi": {
+    "closed": true
+  },
+  "jeudi": {
+    "closed": true
+  },
+  "vendredi": {
+    "closed": true
+  },
+  "samedi": {
+    "closed": false,
+    "slots": [
+      {
+        "open": {
+          "hour": "16",
+          "minute": "15"
+        },
+        "close": {
+          "hour": "20",
+          "minute": "45"
+        }
+      }
+    ]
+  },
+  "dimanche": {
+    "closed": true
+  }
+}

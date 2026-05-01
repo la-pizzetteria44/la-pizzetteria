@@ -1,0 +1,39 @@
+---
+const { drinks } = Astro.props;
+---
+ 
+<section id="drinks">
+    <h2>Boissons</h2>
+
+    <div class="filters filters-main">
+        <button data-filter="all" class="active">Tous</button>
+        <button data-filter="Vin">Vin</button>
+        <button data-filter="Bière">Bière</button>
+        <button data-filter="Soda">Soda</button>
+        <button data-filter="Eau">Eau</button>
+    </div>
+
+    <div class="filters filters-tags">
+        <button data-filter="Avec alcool">Avec alcool</button>
+        <button data-filter="Sans alcool">Sans alcool</button>
+    </div>
+
+    <div class="ctn-items">
+        {drinks.map((drink: { tags: any[]; category: unknown; image: string | null | undefined; name: string; description: unknown; price: number; }) => (
+            <article class="card drink" data-tags={drink.tags?.join(",")} data-category={drink.category}>
+                <img src={drink.image} alt={drink.name} loading="lazy" />
+                <div class="content">
+                    <h3>{drink.name}</h3>
+                    <p>{drink.description}</p>
+                    <p class="price">{drink.price.toFixed(2)}€</p>
+                </div>
+            </article>
+        ))}
+    </div>
+</section>
+
+
+<style>
+
+
+</style>

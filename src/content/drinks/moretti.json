@@ -1,0 +1,10 @@
+{
+  "name": "Moretti",
+  "description": "Bière blonde italienne",
+  "category": "Bière",
+  "image": "/images/drinks/moretti.webp",
+  "price": 3.2,
+  "tags": [
+    "Avec alcool"
+  ]
+}

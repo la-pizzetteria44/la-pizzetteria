@@ -1,0 +1,21 @@
+{
+  "ingredients": [
+    "Tomate",
+    "Mozzarella",
+    "Jambon blanc",
+    "Champignons",
+    "Artichauts",
+    "Poivrons",
+    "Olives"
+  ],
+  "price": 12.5,
+  "name": "4 Stagioni",
+  "base": "tomate",
+  "highlight": true,
+  "tags": [
+    "viande",
+    "legume"
+  ],
+  "image": "/images/pizzas/4-stagioni.jpg",
+  "category": "pizza"
+}

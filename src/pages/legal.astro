@@ -1,0 +1,120 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Mentions légales">
+
+    <Header />
+
+<main class="legal">
+    <div class="legal-container">
+      <h1>Mentions légales</h1>
+
+      <section>
+        <h2>Éditeur du site</h2>
+        <p>
+          Le présent site est édité par :
+          <br /><strong>[Nom de l’établissement]</strong><br />
+          [Adresse complète]<br />
+          📞 [Téléphone]<br />
+          📧 [Email]
+        </p>
+      </section>
+
+      <section>
+        <h2>Directeur de la publication</h2>
+        <p>[Nom du gérant]</p>
+      </section>
+
+      <section>
+        <h2>Hébergement</h2>
+        <p>Le site est hébergé par :<br />
+          [Nom hébergeur]<br />
+          [Adresse]<br />
+          <a href="#">Site web</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L’ensemble du contenu du site (textes, images, graphismes, logo, etc.) est la propriété exclusive de [Nom de l’établissement], sauf mention contraire. Toute reproduction, distribution, modification, adaptation, retransmission ou publication de ce contenu est strictement interdite sans l’accord écrit préalable de [Nom de l’établissement].
+        </p>
+      </section>
+
+      <section>
+        <h2>Responsabilité</h2>
+        <p>
+          Les informations présentes sur le site sont fournies à titre indicatif.
+L’éditeur ne saurait être tenu responsable des omissions, inexactitudes ou carences dans la mise à jour.
+        </p>
+      </section>
+
+      <section>
+        <h2>Crédits</h2>
+        <p>
+          Conception et développement du site : Romain Fournier
+        </p>
+      </section>
+    </div>
+  </main>
+</Layout>
+  <style>
+    .legal {
+  padding: 4rem 1.5rem;
+  background: #fafafa;
+}
+
+.legal-container {
+  max-width: 750px;
+  margin: 0 auto;
+  color: #222;
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+/* TITRE PRINCIPAL */
+.legal h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* SECTIONS */
+.legal section {
+  margin-bottom: 2rem;
+}
+
+/* TITRES */
+.legal h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* TEXTE */
+.legal p {
+  margin: 0.5rem 0;
+}
+
+/* LIENS */
+.legal a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.legal a:hover {
+  opacity: 0.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .legal {
+    padding: 3rem 1rem;
+  }
+
+  .legal h1 {
+    font-size: 1.6rem;
+  }
+}
+  </style>

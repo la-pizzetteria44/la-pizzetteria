@@ -1,0 +1,42 @@
+.filters {
+	display: flex;
+	gap: 0.5rem;
+	margin: 1.5rem 0;
+	flex-wrap: wrap;
+}
+
+.filters button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: inherit;
+	background: #f3f4f6;
+	border: 1px solid #e5e7eb;
+	padding: 0.4rem 0.8rem;
+	border-radius: 999px;
+	cursor: pointer;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.filters button svg {
+    stroke: currentColor;
+}
+
+.filters .active {
+	background: var(--color-primary-hover);
+	color: #fff;
+}
+
+.filters button:active {
+  transform: scale(0.97);
+}
+
+.filters button:hover {
+  background: #e5e7eb;
+  color: #333;
+}
+
+button.active svg {
+    transform: scale(1.1);
+}

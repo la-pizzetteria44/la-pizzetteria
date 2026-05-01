@@ -1,0 +1,10 @@
+{
+  "category": "pate",
+  "name": "tagliatelle bolognaise",
+  "description": "pate sauce tomate et boeuf",
+  "image": "/images/lasagne_bolognese.webp",
+  "price": 19.8,
+  "tags": [
+    "Viande"
+  ]
+}

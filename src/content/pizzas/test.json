@@ -1,0 +1,17 @@
+{
+  "name": "Diavola",
+  "category": "pizza",
+  "price": 11.49,
+  "base": "tomate",
+  "tags": [
+    "viande",
+    "fromage",
+    "piquante"
+  ],
+  "highlight": false,
+  "ingredients": [
+    "Tomate",
+    "Mozzarella"
+  ],
+  "image": "/images/diavola.jpg"
+}

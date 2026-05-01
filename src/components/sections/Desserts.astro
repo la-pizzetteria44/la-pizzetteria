@@ -1,0 +1,21 @@
+---
+const { desserts } = Astro.props;
+---
+
+    
+    <section id="desserts">
+		<h2>Desserts</h2>
+        
+		<div class="ctn-items">
+			{desserts.map((dessert) => (
+				<article class="card dessert">
+					<img src={dessert.image} alt={dessert.name} loading="lazy" />
+                    <div class="content">
+                        <h3>{dessert.name}</h3>
+                        <p>{dessert.description}</p>
+                        <p class="price">{dessert.price.toFixed(2)}€</p>
+                    </div>
+				</article>
+			))}
+		</div>
+	</section>

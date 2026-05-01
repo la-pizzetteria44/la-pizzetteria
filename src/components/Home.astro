@@ -57,19 +57,15 @@ drinks.sort((a,b) => a.name.localeCompare(b.name));
 
 <main id="home">
 
-    <Hero infos={infos}/>
-    
-	<hr/>
+    <Hero infos={infos}/>	
 
     <!-- HIGHLIGHT -->
     {dishOfTheMoment && (
     <Highlight dishOfTheMoment={dishOfTheMoment} />
     )}
-
-	<hr/>
-
+	
     <!-- SELECTION  -->
-     <section>
+     <section class="selection">
         <h2>Et aussi pour se faire plaisir</h2>
         <div class="selection-ctn">
             {starters.slice(0,2).map((starter) => (
@@ -96,31 +92,31 @@ drinks.sort((a,b) => a.name.localeCompare(b.name));
     
         <div class="cta cta_card">
             <a href="tel:0123456789" class="btn-cta primary"><Phone color="#fff" size={24}/><span>Commander</span></a>
-            <a href="/menu" class="btn-cta secondary">Voir le menu</a>
+            <a href="/menu" class="btn-cta secondary">Voir toute la carte</a>
         </div>
      </section>
 
-	<hr/>
+    <div class="container-secondary">
+   
     <!-- REVIEWS -->
     <Review reviews={reviews} />
 
-	<hr/>
-
-    <!-- PRESENTATION -->
+	<!-- PRESENTATION -->
     <section id="presentation" class="container">
         <h2>Benvenuti a {infos.title} !</h2>
 
         {html && <div class="prose" set:html={html}></div>}
 
     </section>
-	
-    <hr />
+	  
 
 	<!-- HORAIRES -->
 	<Hours formattedDays={formattedDays}/>
 
     <!-- MAP -->
     <Map />
+
+     </div>
     
     <!-- FOOTER -->
     <Footer formattedDays={formattedDays} />
@@ -281,13 +277,17 @@ document.querySelectorAll("#drinks .filters-tags button").forEach(button => {
   margin-bottom: 0.5rem;
 }
 
-
 .selection-ctn {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
 }
+.selection {
+    background: linear-gradient(135deg, #FFF7ED, #FFEDD5);
+}
+
+
 
 .selection-ctn .card {
     display: flex;
@@ -305,6 +305,7 @@ document.querySelectorAll("#drinks .filters-tags button").forEach(button => {
 
 .cta .btn-cta {
     color: #333;
+    border: none;
 }
 .cta .btn-cta:hover, .cta .btn-cta:hover svg {
     color: #fff;
@@ -312,11 +313,12 @@ document.querySelectorAll("#drinks .filters-tags button").forEach(button => {
 }
 
 .cta .btn-cta.primary {   
-    box-shadow: 0 1px 5px var(--color-red);
-    opacity: 0.9;
+    box-shadow: 0 1px 5px #333;
+    color: var(--color-red);
 }
 .cta .btn-cta.secondary {   
-    box-shadow: 0 2px 5px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 2px 5px  #333;
+    /* color: var(--color-green); */
 }
 .cta .btn-cta.secondary:hover { 
     background-color: var(--color-green);  

@@ -1,10 +1,12 @@
 ---
+import { MoveRight } from "@lucide/astro";
+
 const { reviews } = Astro.props;
 ---
 
 <section class="reviews">
     <h2>Avis clients</h2>
-  {reviews.map((review) => (
+    {reviews.map((review) => (
     <div class="review">
       <p class="content">"{review.content}"</p>
       
@@ -17,5 +19,23 @@ const { reviews } = Astro.props;
       <p>Avis posté sur {review.source}</p>
     </div>
   ))}
+<a href="https://www.google.com/search?sa=X&sca_esv=b493f18cdd742725&sxsrf=ANbL-n5CNew5IJ-6CjJ5aASChqDalo10Bg:1777635022464&q=La+Pizzetteria+Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI0srQ0MDAzNzG1NDM3NzYwMd7AyPiKUdgnUSEgs6oqtaQktSgzUcGxLLN4ESs2UQAm6UVERAAAAA&rldimm=29900674596773043&tbm=lcl&hl=fr-FR&ved=2ahUKEwjGn7fA_peUAxVKVqQEHV5VMkMQ9fQKegQIVRAG&biw=1920&bih=911&dpr=1#lkt=LocalPoiReviews" target="_blank" rel="noopener">Consulter nos avis clients <MoveRight size={20} /></a>
 </section>
-<a href="https://www.google.com/search?sa=X&sca_esv=b493f18cdd742725&sxsrf=ANbL-n5CNew5IJ-6CjJ5aASChqDalo10Bg:1777635022464&q=La+Pizzetteria+Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI0srQ0MDAzNzG1NDM3NzYwMd7AyPiKUdgnUSEgs6oqtaQktSgzUcGxLLN4ESs2UQAm6UVERAAAAA&rldimm=29900674596773043&tbm=lcl&hl=fr-FR&ved=2ahUKEwjGn7fA_peUAxVKVqQEHV5VMkMQ9fQKegQIVRAG&biw=1920&bih=911&dpr=1#lkt=LocalPoiReviews" target="_blank" rel="noopener">Voir tous les avis Google</a>
+
+<style>
+    a {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        font-weight: bold;
+        margin-top: 1rem;  
+        padding-right: 1rem; 
+        color: #333;
+        text-align: right;
+
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

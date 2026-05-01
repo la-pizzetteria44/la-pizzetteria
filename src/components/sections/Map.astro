@@ -1,4 +1,6 @@
-
+---
+import { MoveRight } from "@lucide/astro";
+---
 
 <section id="map">
 
@@ -8,7 +10,7 @@
     </div>
 
     <a href="https://maps.google.com/?q=La+Pizzetteria" target="_blank" class="footer-map">
-        Voir l'itinéraire
+        Voir l'itinéraire  <MoveRight size={20} />
     </a>
 
 </section>
@@ -28,4 +30,20 @@
         max-width: 600px;
         height: 300px;
     }
-</style>
+
+    a {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        font-weight: bold;
+        margin-top: 1rem;  
+        padding-right: 1rem; 
+        color: #333;
+        text-align: right;
+
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+    </style>

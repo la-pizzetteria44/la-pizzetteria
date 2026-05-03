@@ -1,112 +1,123 @@
 ---
 import logo from "../../public/images/logo.png";
-import { Phone } from '@lucide/astro';
+import { Phone, Menu } from '@lucide/astro';
+
+import hours from '../content/hours/hours.json';
 ---
 
-<header>
-	<div class="top-header">
+<header class="header">
 
-        <div class="logo">
+    <div class="header__logo">
+        <a href="/">
+            <img 
+                src={logo.src}
+                alt="Logo de la pizzetteria"
+                class="header__logo-img"
+            />
+        </a>
+    </div>
 
-            <h1>
-                <a href="/">
-                    <img
-					src={logo.src}
-					alt="Logo de la pizzetteria"
-                    />
-                </a>
-            </h1>
-        </div>
-		<a href="#openHours" title="voir nos horaires">
-			Fermé
-		</a>
+    <a href="#openHours" class="header__status" title="voir nos horaires" data-hours={JSON.stringify(hours)}>
+            <span class="header__status-text">Chargement...</span>
+    </a>
 
-		<p>
-			<a href="tel:0228028829" class="phone"><Phone color="#fff" size={20}/><span>Appeler</span></a>
-			<a href="tel:0228028829" title="nous appeler">
-				
-			</a>
-		</p>
+    <div class="header__call">
+        <a href="tel:0228028829" class="header__call-link" title="Nous appeler" aria-label="Appeler la pizzetteria">
+            <Phone class="header__call-icon" size={20} />
+            <span class="header__call-text">Commander</span>
+        </a>
+    </div>
 
-		<div class="social">
-            <a
-				href="https://www.facebook.com/lapizzetteria44/"
-				target="_blank"
-				title="aller sur notre page facebook">
-				<!-- Facebook SVG -->
-				<svg width="20" height="20" viewBox="0 0 24 24">
-					<path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.54 2 12.04c0 5 3.7 9.1 8.5 9.9v-7h-2.6v-2.9h2.6V9.4c0-2.6 1.5-4 3.8-4c1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.3 0-1.7.8-1.7 1.6v1.9h2.9l-.5 2.9h-2.4v7c4.8-.8 8.5-4.9 8.5-9.9c0-5.5-4.5-10-10-10Z"/>
-				</svg>
-			</a>
-		</div>
-	</div>
 
-	<!-- <div class="bottom-header">
-		
+    <!-- Burger toggle (no JS) -->
+    <input type="checkbox" id="nav-toggle" class="header__toggle" />
 
-		<nav>
-			<a href="/our-story">Notre histoire</a>
-		</nav>
-	</div> -->
+    <label for="nav-toggle" class="header__burger">
+        <Menu size={24} />
+    </label>
+
+    <nav class="header__nav">
+        <a href="/" class="header__link">Accueil</a>
+        <a href="/menu" class="header__link">Menu</a>
+        <a href="/contact" class="header__link">Contact</a>
+    </nav>
+
+    
+
 </header>
 
-<style>
-    header {
-	background-color: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
+<script>
+function getStatus(hours: any) {
+  const now = new Date();
 
-    }
-	.top-header {
-		background-color: var(--color-green);
-		color: #fff;
-        padding: 0.6rem 1rem ;
-		display: flex;
-		justify-content: space-between;
-        align-items: center;
-		gap: 1.5rem;
-	}
+  const daysOrder = [
+    "dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"
+  ];
 
-    	.top-header p{
-		padding: 0;
-	}
-    
-    .logo {
-        width: 45px;
-        margin: 0;
-    }
-    h1{
-        margin: 0;
-    }
-	.social {
-		display: flex;
-		gap: 3rem;
-	}
-	
-	img {
-		width: 100%;
-		height: auto;
-		border-radius: 50%;
-		box-shadow: 1px 1px 1px 2px #a9a8a8;
-	}
+  const todayKey = daysOrder[now.getDay()];
+  const today = hours[todayKey];
 
-	svg,
-	a {
-		color: #fff;
-	}
+  if (!today || today.closed || !today.slots?.length) {
+    return { label: "Fermé", open: false };
+  }
 
-    .phone {
-    color: #fff;
-    font-weight: 600;
-    display: flex;
-    text-decoration: none;
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  let isOpen = false;
+  let nextOpen = null;
+  let currentClose = null;
+
+  for (const slot of today.slots) {
+    const openMinutes =
+      parseInt(slot.open.hour) * 60 + parseInt(slot.open.minute);
+
+    const closeMinutes =
+      parseInt(slot.close.hour) * 60 + parseInt(slot.close.minute);
+
+    // ✅ actuellement ouvert
+    if (currentMinutes >= openMinutes && currentMinutes <= closeMinutes) {
+      isOpen = true;
+      currentClose = slot.close;
+      break;
     }
 
-    .phone span {
-        margin-left: 0.5rem;
-        align-self: flex-end;
+    // ⏳ prochain créneau aujourd’hui
+    if (currentMinutes < openMinutes && !nextOpen) {
+      nextOpen = slot.open;
     }
+  }
 
+  // 🎯 Cas 1 → ouvert maintenant
+  if (isOpen && currentClose) {
+    return {
+      label: `Ouvert · ferme à ${currentClose.hour}:${currentClose.minute}`,
+      open: true
+    };
+  }
 
-</style>
+  // 🎯 Cas 2 → fermé mais ouvre plus tard aujourd’hui
+  if (nextOpen) {
+    return {
+      label: `Fermé · ouvre à ${nextOpen.hour}:${nextOpen.minute}`,
+      open: false
+    };
+  }
+
+  // 🎯 Cas 3 → fermé toute la journée
+  return {
+    label: "Fermé",
+    open: false
+  };
+}
+
+const statusEl = document.querySelector<HTMLElement>(".header__status");
+
+if (statusEl) {
+  const status = getStatus(statusEl.dataset.hours ? JSON.parse(statusEl.dataset.hours) : {});
+
+  statusEl.textContent = status.label;
+
+  statusEl.classList.toggle("is-open", status.open);
+  statusEl.classList.toggle("is-closed", !status.open);
+}
+</script>

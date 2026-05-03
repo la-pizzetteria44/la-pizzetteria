@@ -1,0 +1,42 @@
+/* 1. Box sizing universel */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Supprimer marges par défaut */
+* {
+  margin: 0;
+}
+
+/* 3. Hauteur & scroll propre */
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 4. Médias fluides */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Héritage typo */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 6. Eviter les débordements */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 7. Root stacking context (optionnel mais clean) */
+#root, #__next {
+  isolation: isolate;
+}

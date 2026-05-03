@@ -1,0 +1,20 @@
+.presentation {
+	background: #fff;
+	padding: 2rem 1rem;
+	text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prose p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.prose p:first-child::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: bold;
+}
+

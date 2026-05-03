@@ -1,0 +1,66 @@
+
+.highlight {
+	background: linear-gradient(135deg, #FFF7ED, #FFEDD5);
+	padding: 2rem 1rem;
+	text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highlight__title {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight__title-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.highlight__title-inner svg{
+    color: var(--color-primary);
+}
+
+.highlight__card {
+    position: relative;
+	max-width: 500px;  
+	background: #fff;
+	border-radius: 1rem;
+	overflow: hidden;
+}
+
+.highlight__img {
+	max-width: 100%;
+    max-height: 300px;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.highlight__content {
+	padding: 1rem;
+    text-align: left;
+}
+
+.highlight__ingredients {
+    font-style: italic;
+    margin: 1rem 0;
+    color: #555;
+}
+
+.highlight__price {
+	font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    padding-bottom: 2rem;
+}
+
+.highlight__cta .btn--primary {
+    color: #fff;
+    background-color: var(--color-primary);
+}
+
+.highlight__cta .btn--secondary {
+    color: #333;
+    border: 2px solid var(--color-primary);
+}

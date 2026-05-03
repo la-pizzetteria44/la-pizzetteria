@@ -37,6 +37,3 @@
   color: #333;
 }
 
-button.active svg {
-    transform: scale(1.1);
-}

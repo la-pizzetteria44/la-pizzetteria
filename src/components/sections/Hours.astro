@@ -6,7 +6,7 @@ const { formattedDays } = Astro.props;
     <h2>Horaires</h2>
     <table>
         <tbody>
-            {formattedDays.map(d => (
+            {formattedDays.map((d: { day: unknown; value: unknown; }) => (
                 <tr>
                 <td><strong>{d.day}</strong></td>
                 <td>{d.value}</td>
@@ -15,12 +15,3 @@ const { formattedDays } = Astro.props;
         </tbody>
     </table>
 </section>
-
-<style>
-table {
-	margin: auto;
-	background: white;
-	padding: 1rem;
-	border-radius: 10px;
-}
-</style>

@@ -1,0 +1,65 @@
+/* 🔥 CARD */
+.card {
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.card:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Interaction mobile */
+.card:active {
+  transform: scale(0.98);
+}
+
+/* IMAGE */
+.card__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* CONTENU */
+.card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+}
+
+/* TITRE */
+.card__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1F2937;
+  margin: 0;
+  text-align: left;
+}
+
+/* DESCRIPTION */
+.card__description {
+  font-size: 1.3rem;
+  color: #6B7280;
+  font-style: italic;
+  margin: 0;
+  text-align: left;
+}
+
+/* PRIX */
+.card__price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+  margin-top: 4px;
+}

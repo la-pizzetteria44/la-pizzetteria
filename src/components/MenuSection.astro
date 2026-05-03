@@ -1,0 +1,34 @@
+---
+const { title, items, filters } = Astro.props;
+---
+
+<section class="menu-section">
+  <h2 class="menu-section__title">{title}</h2>
+
+  {filters && (
+    <div class="filters filters--tags">
+      {filters.map(filter => (
+        <button 
+          class="filters__btn" 
+          data-filter={filter.value}
+        >
+          {filter.label}
+        </button>
+      ))}
+    </div>
+  )}
+
+  <div class="menu-section__items">
+    {items.map(item => (
+      <article class="card" data-tags={item.tags?.join(",")}>
+        <img class="card__img" src={item.image} alt={item.name} loading="lazy" />
+
+        <div class="card__content">
+          <h3 class="card__title">{item.name}</h3>
+          <p class="card__description">{item.description}</p>
+          <p class="card__price">{item.price.toFixed(2)}€</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

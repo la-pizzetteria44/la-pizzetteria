@@ -5,37 +5,67 @@ const { reviews } = Astro.props;
 ---
 
 <section class="reviews">
-    <h2>Avis clients</h2>
-    {reviews.map((review) => (
-    <div class="review">
-      <p class="content">"{review.content}"</p>
-      
-      <div class="meta">
-        <span class="author">{review.author}</span>
-        <span class="rating">
-          {"⭐".repeat(review.rating)}
-        </span>
-      </div>
-      <p>Avis posté sur {review.source}</p>
-    </div>
-  ))}
-<a href="https://www.google.com/search?sa=X&sca_esv=b493f18cdd742725&sxsrf=ANbL-n5CNew5IJ-6CjJ5aASChqDalo10Bg:1777635022464&q=La+Pizzetteria+Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI0srQ0MDAzNzG1NDM3NzYwMd7AyPiKUdgnUSEgs6oqtaQktSgzUcGxLLN4ESs2UQAm6UVERAAAAA&rldimm=29900674596773043&tbm=lcl&hl=fr-FR&ved=2ahUKEwjGn7fA_peUAxVKVqQEHV5VMkMQ9fQKegQIVRAG&biw=1920&bih=911&dpr=1#lkt=LocalPoiReviews" target="_blank" rel="noopener">Consulter nos avis clients <MoveRight size={20} /></a>
+    <h2 class="reviews__title">Avis clients</h2>
+
+        <div class="reviews__carousel">
+            
+            <button class="reviews__nav reviews__nav--prev" aria-label="Précédent">
+                ←
+            </button>
+
+            <div class="reviews__track">
+                {reviews.map((review) => (
+                    <article class="card reviews__card">
+                        <blockquote class="reviews__content">
+                            {review.content.substring(0,50) + "..."}
+                        </blockquote>
+
+                        <div class="reviews__meta">
+                            <span class="reviews__author">{review.author}</span>
+                            <span class="reviews__rating">
+                                {"⭐".repeat(review.rating)}
+                            </span>
+                        </div>
+
+                        <p class="reviews__source">
+                            Avis posté sur {review.source}
+                        </p>
+                    </article>
+                ))}
+            </div>
+
+            <button class="reviews__nav reviews__nav--next" aria-label="Suivant">
+                →
+            </button>
+
+        </div>
+   
+
+    <a href="https://www.google.com/search?sa=X&sca_esv=b493f18cdd742725&sxsrf=ANbL-n5CNew5IJ-6CjJ5aASChqDalo10Bg:1777635022464&q=La+Pizzetteria+Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI0srQ0MDAzNzG1NDM3NzYwMd7AyPiKUdgnUSEgs6oqtaQktSgzUcGxLLN4ESs2UQAm6UVERAAAAA&rldimm=29900674596773043&tbm=lcl&hl=fr-FR&ved=2ahUKEwjGn7fA_peUAxVKVqQEHV5VMkMQ9fQKegQIVRAG&biw=1920&bih=911&dpr=1#lkt=LocalPoiReviews" target="_blank" rel="noopener" class="reviews__link">Consulter nos avis clients <MoveRight size={20} /></a>
 </section>
 
-<style>
-    a {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-        font-weight: bold;
-        margin-top: 1rem;  
-        padding-right: 1rem; 
-        color: #333;
-        text-align: right;
 
+
+<script>
+    const track = document.querySelector(".reviews__track");
+    const prev = document.querySelector(".reviews__nav--prev");
+    const next = document.querySelector(".reviews__nav--next");
+
+    if (!track || !prev || !next) {
+        throw new Error("Required review elements not found");
     }
 
-    a:hover {
-        text-decoration: underline;
-    }
-</style>
+    const scrollAmount = () => {
+        const card = track.querySelector(".reviews__card") as HTMLElement | null;
+        if (!card) return 0;
+        return card.offsetWidth + 16; // largeur + gap
+    };
+
+    next.addEventListener("click", () => {
+        track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+    });
+
+    prev.addEventListener("click", () => {
+        track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+    });
+</script>

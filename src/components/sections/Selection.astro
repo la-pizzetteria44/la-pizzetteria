@@ -1,0 +1,46 @@
+ ---
+ import { Phone } from '@lucide/astro';
+ 
+ const { starters, specialties, drinks, desserts } = Astro.props;
+ ---
+ 
+ <!-- SELECTION  -->
+     <section class="selection">
+        <h2>Complétez votre commande</h2>
+
+        <div class="selection-list">
+            {starters.slice(0,2).map((starter: { image: string | null | undefined; name: unknown; }) => (
+                <article class="card selection__card">
+                    <img src={starter.image} alt={starter.name} />
+                    <h3>{starter.name}</h3>
+                </article>
+            ))}
+            
+            {specialties.slice(0,2).map((specialty: { image: string | null | undefined; name: unknown; price: string | number }) => (
+                <article class="card selection__card">
+                    <img src={specialty.image} alt={specialty.name} />
+                    <h3>{specialty.name}</h3>
+                    <p>{specialty.price}</p>
+                </article>
+            ))}
+
+            {drinks.slice(0,2).map((drink: { image: string | null | undefined; name: unknown; }) => (
+                <article class="card selection__card">
+                    <img src={drink.image} alt={drink.name} />
+                    <h3>{drink.name}</h3>
+                </article>
+            ))}
+
+            {desserts.slice(0,2).map((dessert: { image: string | null | undefined; name: unknown; }) => (
+                <article class="card">
+                    <img src={dessert.image} alt={dessert.name} />
+                    <h3>{dessert.name}</h3>
+                </article>
+            ))}
+        </div>
+    
+        <div class="cta selection__cta">
+            <!-- <a href="tel:0123456789" class="btn btn--primary"><Phone color="#fff" size={24}/><span>Commander</span></a> -->
+            <a href="/menu" class="btn btn--secondary">Voir plus</a>
+        </div>
+     </section>

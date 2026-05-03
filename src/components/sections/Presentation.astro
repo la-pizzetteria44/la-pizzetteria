@@ -1,0 +1,10 @@
+---
+const { infos, html } = Astro.props;
+---
+
+<section class="presentation">
+    <h2>Benvenuti a {infos.title} !</h2>
+
+    {html && <div class="prose" set:html={html}></div>}
+
+</section>

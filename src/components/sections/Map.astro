@@ -2,48 +2,16 @@
 import { MoveRight } from "@lucide/astro";
 ---
 
-<section id="map">
+<section class="map">
 
     <h2>Où nous trouver ?</h2>
     <div>
         <img src="/images/loc.png" alt="Localisation du restaurant" />
     </div>
-
+    
     <a href="https://maps.google.com/?q=La+Pizzetteria" target="_blank" class="footer-map">
-        Voir l'itinéraire  <MoveRight size={20} />
+        Voir l'itinéraire <MoveRight size={20} />
     </a>
 
 </section>
 
-<style>
-    #map {
-        margin-top: 2rem;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    #map iframe {
-        border: none;
-        border-radius: 12px;
-        width: 100%;
-        max-width: 600px;
-        height: 300px;
-    }
-
-    a {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-        font-weight: bold;
-        margin-top: 1rem;  
-        padding-right: 1rem; 
-        color: #333;
-        text-align: right;
-
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-    </style>

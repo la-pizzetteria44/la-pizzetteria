@@ -1,5 +1,5 @@
 ---
-import { Pizza, Phone, Flame } from '@lucide/astro';
+import { Phone, Flame } from '@lucide/astro';
 
 const {dishOfTheMoment} = Astro.props;
 ---
@@ -7,130 +7,35 @@ const {dishOfTheMoment} = Astro.props;
 <!-- 🔥 PLAT DU MOMENT -->
     {dishOfTheMoment && (
     <section class="highlight">
-        <h2><Flame size={24}/>Notre pizza du moment <Flame size={24}/></h2>
+        <h2 class="highlight__title">
+            <span class="highlight__title-inner">
+                <Flame size={24} />
+                <span>Notre pizza du moment</span>
+                <Flame size={24} />
+            </span>
+        </h2>
 
-        <article class="highlight-card">
-            {/* <div class="info">
-                <p><Flame size={24}/> Suggestion du chef <Flame size={24}/></p>
-            </div> */}
-            <img src={dishOfTheMoment.image} alt={dishOfTheMoment.name} />
+        <article class="card highlight__card">
+            
+            <img class="highlight__img" src={dishOfTheMoment.image} alt={dishOfTheMoment.name} loading="lazy" width="400" height="300"/>
 
-            <div class="content">
+            <div class="highlight__content">
                 <h3>{dishOfTheMoment.name}</h3>
 
-                <p class="ingredient">
+                <p class="highlight__ingredients">
                     {dishOfTheMoment.ingredients?.join(", ")}
                 </p>
                 
-                <div class="footer_content">
-                    <p class="price">
-                        {dishOfTheMoment.price.toFixed(2)}€
-                    </p>
-                    <div class="cta cta_card">
-
-                        <a href="tel:0123456789" class="btn-cta primary"><Phone size={24}/><span>Commander</span></a>
-                        <a href="/menu" class="btn-cta secondary">Voir le menu</a>
-                    </div>
+                <p class="highlight__price">
+                    {dishOfTheMoment.price.toFixed(2)}€
+                </p>
+                
+                <div class="cta highlight__cta">
+                    <a href="tel:0123456789" class="btn btn--primary"><Phone size={24}/><span>Commander</span></a>
+                    <a href="/menu" class="btn btn--secondary">Voir le menu</a>
                 </div>
             </div>
         </article>
     </section>
     )} 
 
-<style>
-
-
-.highlight {
-	background: linear-gradient(135deg, #FFF7ED, #FFEDD5);
-	padding: 2rem 1rem;
-	text-align: center;
-}
-
-.highlight-card {
-    position: relative;
-	max-width: 500px;  
-	margin: auto;
-	background: white;
-	border-radius: 1rem;
-	overflow: hidden;
-	box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.highlight .info {
-    background-color: #fff;
-    color: var(--color-red);
-    font-weight: bold;
-    padding-top: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.info svg {
-    stroke: var(--color-red);
-    vertical-align: text-bottom;
-}
-
-.highlight-card img {
-	max-width: 100%;
-    max-height: 300px;
-    display: block;
-}
-
-.highlight-card .content {
-	padding: 1rem;
-    text-align: left;
-}
-
-.highlight h2, .highlight h3 {
-    margin-top: .5rem;
-	font-size: 2rem;
-	/* color: #1F2937; */
-}
-
-.highlight h3 {
-    /* color: #e6450b; */
-}
-
-.highlight .price {
-	font-size: 1.8rem;
-    font-weight: 600;
-    color: #333;
-    text-align: left;
-}
-
-.ingredient {
-    padding-bottom: 0.3rem;
-    font-style: italic;
-}
-.cta_card {
-    margin-top: 1rem;
-}
-
-.cta .btn-cta:hover, .cta .btn-cta:hover svg {
-    color: #fff;
-    stroke: #fff;
-}
-
-.cta .btn-cta.primary {   
-    /* box-shadow: 0 1px 5px var(--color-red); */
-    /* opacity: 0.9; */
-}
-.cta .btn-cta.secondary {   
-    /* box-shadow: 0 2px 5px rgba(34, 197, 94, 0.4); */
-}
-.cta .btn-cta.secondary:hover { 
-    background-color: var(--color-green);  
-    box-shadow: 0 2px 5px rgba(34, 197, 94, 0.4);
-}
-
-h2 svg{
-    stroke: var(--color-red);
-}
-
-img {
-    border-radius: 1rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-</style>

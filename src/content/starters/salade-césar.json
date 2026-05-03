@@ -1,9 +1,0 @@
-{
-  "name": "Salade César",
-  "description": "salade en provenance de Rome",
-  "price": 7.49,
-  "tags": [
-    "vegetarien"
-  ],
-  "image": "/images/starters/salade_cesar.avif"
-}

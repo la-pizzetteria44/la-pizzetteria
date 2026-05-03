@@ -1,9 +1,9 @@
 backend:
-  name: git-gateway
-  branch: main
-#   name: local_backend
+  # name: git-gateway
+  # branch: main
+  name: local_backend
 
-# local_backend: true
+local_backend: true
 
 media_folder: "public/images/"
 public_folder: "/images/"
@@ -39,7 +39,7 @@ collections:
     identifier_field: "name"
     summary: "{{name}} - {{price}}€"
     fields:
-      - { label: "Nom de la pizza", name: "name", widget: "string" }
+      - { label: "Nom", name: "name", widget: "string" }
       - label: "Base"
         name: "base"
         widget: "select"
@@ -96,14 +96,14 @@ collections:
     extension: "json"
     format: "json"
     slug: "{{slug}}"
-    identifier_field: "name" # 🔥 IMPORTANT
+    identifier_field: "name"
     summary: "{{name}} ({{fields.formats.length}} formats)"
     sortable_fields: ["name", "price"]
     fields:
-        - { label: "Nom du produit", name: "name", widget: "string" }
-
+        - { label: "Nom", name: "name", widget: "string" }
         - { label: "Description", name: "description", widget: "string" }
         - { label: "Image", name: "image", widget: "image" }
+        - { label: "Type", name: "type", widget: "select", options: ["Antipasti", "Pâtes"] }
         - label: "Formats"
           name: "formats"
           widget: "list"
@@ -235,7 +235,7 @@ collections:
       
       - { label: "Contenu de l'avis", name: "content", widget: "markdown" }
       
-      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Date", name: "date", widget: "datetime", time_format: false }
       
       - { label: "Source", name: "source", widget: "select", options: ["Google", "Facebook", "Autre"], default: "Google" }
       

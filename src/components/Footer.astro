@@ -25,7 +25,7 @@ const { formattedDays } = Astro.props;
 
         <!-- HORAIRES -->
         <div class="footer-block">
-            <h4>Horaires</h4>
+            <h3>Horaires</h3>
 
             {formattedDays.map((d: { day: string | any[]; value: unknown; }) => (
                 <p class="footer-hours">
@@ -36,7 +36,7 @@ const { formattedDays } = Astro.props;
 
         <!-- NAV -->
         <div class="footer-block">
-            <h4>Navigation</h4>
+            <h3>Navigation</h3>
             <a href="home">Accueil du site</a>
             <a href="menu">Nos produits</a>
             <a href="visit">Venir chez nous</a>

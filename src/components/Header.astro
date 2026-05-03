@@ -28,13 +28,16 @@ import hours from '../content/hours/hours.json';
         </a>
     </div>
 
-
     <!-- Burger toggle (no JS) -->
     <input type="checkbox" id="nav-toggle" class="header__toggle" />
-
     <label for="nav-toggle" class="header__burger">
-        <Menu size={24} />
+        <!-- <Menu size={24} /> -->
+        <span></span>
+        <span></span>
+        <span></span>
     </label>
+    <div class="header__overlay"></div>
+
 
     <nav class="header__nav">
         <a href="/" class="header__link">Accueil</a>

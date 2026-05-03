@@ -1,14 +1,44 @@
 ---
-import Header from "../components/Header.astro";
-import Layout from "../layouts/Layout.astro";
+import { Phone, Map } from "@lucide/astro";
+
+import Layout from '../layouts/Layout.astro';
+import Home from '../components/Home.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import hours from '../content/hours/hours.json';
+
+function formatDay(day: { closed: any; slots?: any[]; }) {
+  if (!day || day.closed) return "fermé";
+
+  if (!day.slots || day.slots.length === 0) return "fermé";
+
+  return day.slots
+    .map((slot: { open: { hour: any; minute: any; }; close: { hour: any; minute: any; }; }) =>
+      `${slot.open.hour}:${slot.open.minute}-${slot.close.hour}:${slot.close.minute}`
+    )
+    .join(" / ");
+}
+
+const daysOrder = [
+  "lundi","mardi","mercredi","jeudi","vendredi","samedi","dimanche"
+];
+
+const formattedDays = daysOrder.map(dayKey => {
+  const day = hours[dayKey as keyof typeof hours] ?? { closed: true };
+
+  return {
+    day: dayKey,
+    value: formatDay(day)
+  };
+});
+
 ---
 
 <Layout title="Mentions légales">
 
     <Header />
 
-<main class="legal">
-    <div class="legal-container">
+<main class="policy-legal">
       <h1>Mentions légales</h1>
 
       <section>
@@ -57,64 +87,8 @@ L’éditeur ne saurait être tenu responsable des omissions, inexactitudes ou c
           Conception et développement du site : Romain Fournier
         </p>
       </section>
-    </div>
   </main>
+<Footer formattedDays={formattedDays} />
+
 </Layout>
-  <style>
-    .legal {
-  padding: 4rem 1.5rem;
-  background: #fafafa;
-}
-
-.legal-container {
-  max-width: 750px;
-  margin: 0 auto;
-  color: #222;
-  font-family: system-ui, sans-serif;
-  line-height: 1.7;
-}
-
-/* TITRE PRINCIPAL */
-.legal h1 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* SECTIONS */
-.legal section {
-  margin-bottom: 2rem;
-}
-
-/* TITRES */
-.legal h2 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-/* TEXTE */
-.legal p {
-  margin: 0.5rem 0;
-}
-
-/* LIENS */
-.legal a {
-  color: #000;
-  text-decoration: underline;
-}
-
-.legal a:hover {
-  opacity: 0.7;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .legal {
-    padding: 3rem 1rem;
-  }
-
-  .legal h1 {
-    font-size: 1.6rem;
-  }
-}
-  </style>
+ 

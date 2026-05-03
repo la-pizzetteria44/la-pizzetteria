@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Playfair";
+  src: url("/fonts/playfair-var.woff2") format("woff2");
+  font-weight: 400 900; /* variable range */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair";
+  src: url("/fonts/playfair-italic-var.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 body {
     font-family: system-ui, -apple-system, sans-serif;
     font-size: 1.6rem;

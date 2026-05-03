@@ -43,10 +43,31 @@
   </head>
 
   <body>
-    <!-- <div class="logo">🍕 La Pizzetteria</div>
-    <div class="subtitle">Interface de gestion</div>
-    <div class="loader"></div> -->
+ 
 
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+       
+<script is:inline>
+  if (typeof window !== "undefined") {
+    const script = document.createElement("script");
+    script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.init();
+
+        window.netlifyIdentity.on("login", () => {
+          window.location.href = "/admin/";
+        });
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.has("invite_token") || params.has("recovery_token")) {
+          window.netlifyIdentity.open();
+        }
+      }
+    };
+  }
+</script>
   </body>
 </html>

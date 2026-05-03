@@ -4,10 +4,9 @@ import {marked} from 'marked';
 import infos from '../content/infos.json';
 
 import Hero from './Hero.astro';
-import Review from './Review.astro';
+import Review from './sections/Review.astro';
 import Highlight from './sections/Highlight.astro';
 import Selection from './sections/Selection.astro';
-import Presentation from './sections/Presentation.astro';
 
 const starters = (Object.values(import.meta.glob('../content/starters/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
 const pizzas = (Object.values(import.meta.glob('../content/pizzas/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);

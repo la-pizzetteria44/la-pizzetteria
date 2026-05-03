@@ -62,5 +62,5 @@
 
 .highlight__cta .btn--secondary {
     color: #333;
-    border: 2px solid var(--color-primary);
+    /* border: 2px solid var(--color-primary); */
 }

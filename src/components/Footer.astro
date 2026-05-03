@@ -26,12 +26,22 @@ const { formattedDays } = Astro.props;
         <!-- HORAIRES -->
         <div class="footer-block">
             <h3>Horaires</h3>
+            <table class="footer__hours">
+                <tbody>
+                    {formattedDays.map((d: { day: string | any[]; value: unknown; }) => (
+                        <tr>
+                            <th>{d.day}</th>
+                            <td>{d.value}</td>
+                        </tr>
+                    ))}
 
-            {formattedDays.map((d: { day: string | any[]; value: unknown; }) => (
+                </tbody>
+            </table>
+            <!-- {formattedDays.map((d: { day: string | any[]; value: unknown; }) => (
                 <p class="footer-hours">
                 <strong>{d.day.slice(0,3)}</strong> — {d.value}
             </p>
-            ))}
+            ))} -->
         </div>
 
         <!-- NAV -->

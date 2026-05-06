@@ -1,15 +1,43 @@
 ---
+import { Phone, Map } from "@lucide/astro";
+import hours from '../content/hours/hours.json';
+import infos from '../content/infos.json';
+
 import "../styles/base/reset.css";
 import "../styles/base/variables.css";
 import "../styles/base/global.css";
 import "../styles/base/typography.css";
-
 import "../styles/components/card.css";
 import "../styles/components/filter.css";
-
 import "../styles/layout.css";
 
-import infos from '../content/infos.json';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+function formatDay(day: { closed: any; slots?: any[]; }) {
+  if (!day || day.closed) return "fermé";
+
+  if (!day.slots || day.slots.length === 0) return "fermé";
+
+  return day.slots
+    .map((slot: { open: { hour: any; minute: any; }; close: { hour: any; minute: any; }; }) =>
+      `${slot.open.hour}:${slot.open.minute}-${slot.close.hour}:${slot.close.minute}`
+    )
+    .join(" / ");
+}
+
+const daysOrder = [
+  "lundi","mardi","mercredi","jeudi","vendredi","samedi","dimanche"
+];
+
+const formattedDays = daysOrder.map(dayKey => {
+  const day = hours[dayKey as keyof typeof hours] ?? { closed: true };
+
+  return {
+    day: dayKey,
+    value: formatDay(day)
+  };
+});
 
 
 ---
@@ -38,9 +66,6 @@ import infos from '../content/infos.json';
         as="font" 
         type="font/woff2" 
         crossorigin>
-        <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"> -->
         
         <link rel="canonical" href={infos.site_url} />
 
@@ -67,8 +92,21 @@ import infos from '../content/infos.json';
 		<title>{infos.title} - {infos.city}</title>
 	</head>
 	<body>
+        <Header />
+
         <slot />
         
+        <Footer formattedDays={formattedDays} />
+        
+        <div class="sticky-cta">
+            <a href="tel:0123456789"  class="cta call">
+                <Phone size={18} /> Commander
+            </a>
+                
+            <a href="https://maps.google.com/?q=La+Pizzetteria" target="_blank" class="cta map">
+                <Map size={18} /> Itinéraire
+            </a>
+        </div>
 
 
 	</body>

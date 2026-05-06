@@ -1,0 +1,79 @@
+---
+import { Leaf, Fish, Ham } from "@lucide/astro";
+const { title, items } = Astro.props;
+console.log(items.formats ? items.formats[0] : "pas de formats" );
+console.log(items.formats ? items.formats[1] : "pas de formats" );
+---
+
+
+<section id={title}>
+		<h2>{title}</h2>
+
+        {
+            title === "Pizzas" && (
+                <div class="filters filters-tags">
+                    <button data-filter="all" class="active">Tous</button>
+                    <button data-filter="vegetarien"><Leaf size={16}/> Végé</button>
+                    <button data-filter="poisson"><Fish size={16}/> Poisson</button>
+                    <button data-filter="viande"><Ham size={16}/> Viande</button>
+                </div>
+            )
+        }
+
+        {
+            title === "Boissons" && (
+                <>
+                    <div class="filters filters-main">
+                        <button data-filter="all" class="active">Tous</button>
+                        <button data-filter="Vin">Vin</button>
+                        <button data-filter="Bière">Bière</button>
+                        <button data-filter="Soda">Soda</button>
+                        <button data-filter="Eau">Eau</button>
+                    </div>
+
+                    <div class="filters filters-tags">
+                        <button data-filter="Avec alcool">Avec alcool</button>
+                        <button data-filter="Sans alcool">Sans alcool</button>
+                    </div>
+                </>
+            )
+        }
+
+		<div class="items-list">
+			{items.map((item: { tags: any[]; image: string | null | undefined; name: unknown; highlight: any; description: string , ingredients: string[] ; price: number; formats: { label: string; price: number }[] }) => (
+				<article class="card items-list__item" data-tags={item.tags?.join(",")}>
+					<img src={item.image} alt={item.name} loading="lazy" class="items-list__image" />
+                    <div class="items-list__content">
+                        <h3 class="items-list__title">
+                            {item.name}
+                            {item.highlight && <span> ⭐</span>}
+                        </h3>
+                        <p class="items-list__text">
+                            {title === "Pizzas" ? (
+                                <span>{item.ingredients.join(", ")}</span>
+                                ) : 
+                                <span>{item.description}</span>
+                                }</p>
+                        {
+                            title === "Spécialités" ? (
+                                
+                                    item.formats.map((format: { label: string; price: number }) => (
+                                        <div class="items-list__format">
+                                            <p>
+
+                                            <span class="items-list__format-name">{format.label}</span>
+                                            <span class="items-list__format-price">{format.price.toFixed(2)}€</span>
+                                            </p>
+                                        </div>
+                                    ))
+                                
+                            ) : (
+                                <p class="items-list__price">{item?.price?.toFixed(2)}€</p>
+
+                            )
+                        }
+                    </div>
+				</article>
+			))}
+		</div>
+	</section>

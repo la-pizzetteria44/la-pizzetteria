@@ -1,55 +1,13 @@
 ---
-import { Phone, Map } from "@lucide/astro";
 
 import Layout from '../layouts/Layout.astro';
 import Home from '../components/Home.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import hours from '../content/hours/hours.json';
 
-function formatDay(day: { closed: any; slots?: any[]; }) {
-  if (!day || day.closed) return "fermé";
-
-  if (!day.slots || day.slots.length === 0) return "fermé";
-
-  return day.slots
-    .map((slot: { open: { hour: any; minute: any; }; close: { hour: any; minute: any; }; }) =>
-      `${slot.open.hour}:${slot.open.minute}-${slot.close.hour}:${slot.close.minute}`
-    )
-    .join(" / ");
-}
-
-const daysOrder = [
-  "lundi","mardi","mercredi","jeudi","vendredi","samedi","dimanche"
-];
-
-const formattedDays = daysOrder.map(dayKey => {
-  const day = hours[dayKey as keyof typeof hours] ?? { closed: true };
-
-  return {
-    day: dayKey,
-    value: formatDay(day)
-  };
-});
 
 ---
 
 <Layout>
 
-    <Header/>
     <Home/>
-
-    <!-- FOOTER -->
-    <Footer formattedDays={formattedDays} />
-    
-    <div class="sticky-cta">
-        <a href="tel:0123456789"  class="cta call">
-            <Phone size={18} /> Commander
-        </a>
-            
-        <a href="https://maps.google.com/?q=La+Pizzetteria" target="_blank" class="cta map">
-            <Map size={18} /> Itinéraire
-        </a>
-    </div>
 
 </Layout>

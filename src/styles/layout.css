@@ -171,6 +171,26 @@ body:has(.header__toggle:checked) {
     padding: 1.5rem;
 } */
 
+.items-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.items-list__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    /* height: 100px; */
+}
+
+.items-list__image {
+    width: 80px;
+    height: 80px;
+}
+
 div.container-secondary {
     background: #F7F7F7;
     backdrop-filter: blur(4px);

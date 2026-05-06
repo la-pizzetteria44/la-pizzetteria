@@ -1,35 +1,48 @@
 ---
 import Nav from '../components/MenuNav.astro';
-import Starters from '../components/sections/Starters.astro';
-import Pizzas from '../components/sections/Pizzas.astro';
-import Desserts from '../components/sections/Desserts.astro';
-import Drinks from '../components/sections/Drinks.astro';
+// import Specialties from '../components/sections/Specialties.astro';
+// import Pizzas from '../components/sections/Pizzas.astro';
+// import Desserts from '../components/sections/Desserts.astro';
+// import Drinks from '../components/sections/Drinks.astro';
+import Layout from '../layouts/Layout.astro';
+import ItemList from '../components/sections/ItemList.astro';
 
-const starters = Object.values(import.meta.glob('../content/starters/*.json', { eager: true })).map(p => p.default);
+const specialties = Object.values(import.meta.glob('../content/specialties/*.json', { eager: true })).map(p => p.default);
 const pizzas = Object.values(import.meta.glob('../content/pizzas/*.json', { eager: true })).map(p => p.default);
 const drinks = Object.values(import.meta.glob('../content/drinks/*.json', { eager: true })).map(p => p.default);
 const desserts = Object.values(import.meta.glob('../content/desserts/*.json', { eager: true })).map(p => p.default);
+const platters = Object.values(import.meta.glob('../content/platters/*.json', { eager: true })).map(p => p.default);
+
+console.log(specialties[0]);
 ---
+
+<Layout title="Menu de la Pizzetteria" description="Découvrez notre menu varié de pizzas, entrées, desserts et boissons. Des saveurs authentiques pour tous les goûts." >
 
 <main>
     <!-- STICKY MENU-->
 	<Nav />
 
-	<!-- ENTRÉES -->
-    <Starters starters={starters} />
-
-	<hr />
-
 	<!-- PIZZAS -->
-	<Pizzas pizzas={pizzas} />
 
+	<ItemList title="Pizzas" items={pizzas} />
+    
+    <hr />
+    
+    <!-- PLATEAUX -->
+	<ItemList title="Plateaux" items={platters} />
+        
+    <hr />
+    
+    <!-- SPECIALITÉS -->
+	<ItemList title="Spécialités" items={specialties} />
 	<hr />
-
+    
     <!-- DESSERTS -->
-    <Desserts desserts={desserts} />
-
+	<ItemList title="Desserts" items={desserts} />
+    
 	<hr />
     
     <!-- BOISSONS -->
-    <Drinks drinks={drinks} /> 
+	<ItemList title="Boissons" items={drinks} />
+
 </main>

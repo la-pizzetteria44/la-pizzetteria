@@ -1,21 +1,23 @@
 ---
 import { Leaf, Fish, Ham } from "@lucide/astro";
 const { title, items } = Astro.props;
-console.log(items.formats ? items.formats[0] : "pas de formats" );
-console.log(items.formats ? items.formats[1] : "pas de formats" );
+console.log(items);
 ---
 
 
-<section id={title}>
+<section
+  id={title.toLowerCase()}
+  class={title.toLowerCase()}
+  data-menu
+>
 		<h2>{title}</h2>
 
         {
             title === "Pizzas" && (
                 <div class="filters filters-tags">
                     <button data-filter="all" class="active">Tous</button>
-                    <button data-filter="vegetarien"><Leaf size={16}/> Végé</button>
-                    <button data-filter="poisson"><Fish size={16}/> Poisson</button>
-                    <button data-filter="viande"><Ham size={16}/> Viande</button>
+                    <button data-filter="végétarien"><span class="icon">🌱</span> Végé</button>
+                    <button data-filter="épicé"><span class="icon">🌶️</span> Épicé</button>
                 </div>
             )
         }
@@ -40,22 +42,27 @@ console.log(items.formats ? items.formats[1] : "pas de formats" );
         }
 
 		<div class="items-list">
-			{items.map((item: { tags: any[]; image: string | null | undefined; name: unknown; highlight: any; description: string , ingredients: string[] ; price: number; formats: { label: string; price: number }[] }) => (
-				<article class="card items-list__item" data-tags={item.tags?.join(",")}>
+			{items.map((item: {
+[x: string]: unknown; tags: any[]; image: string | null | undefined; name: unknown; highlight: any; description: string , ingredients: string[] ; price: number; formats: { label: string; price: number }[] 
+}) => (
+				<article class="card items-list__item" data-tags={item.tags?.join(",")} data-category={item.category}>
 					<img src={item.image} alt={item.name} loading="lazy" class="items-list__image" />
                     <div class="items-list__content">
                         <h3 class="items-list__title">
                             {item.name}
                             {item.highlight && <span> ⭐</span>}
+                            {item.tags?.includes("végétarien") && <span class="icon">🌱</span>}
+                            {item.tags?.some(tag => tag.toLowerCase().includes("épicé")) && <span class="icon">🌶️</span>}
+                            {item.tags?.some(tag => tag.toLowerCase().includes("végétarien")) && <span class="icon">🌱</span>}
                         </h3>
                         <p class="items-list__text">
-                            {title === "Pizzas" ? (
-                                <span>{item.ingredients.join(", ")}</span>
+                            {title === "Pizzas" || title === "Plateaux" ? (
+                                <span> {item.ingredients.flat().map((i) => i.trim()).join(" · ")}</span>
                                 ) : 
                                 <span>{item.description}</span>
                                 }</p>
                         {
-                            title === "Spécialités" ? (
+                            title === "Spécialités" || title === "Plateaux" ? (
                                 
                                     item.formats.map((format: { label: string; price: number }) => (
                                         <div class="items-list__format">
@@ -75,5 +82,8 @@ console.log(items.formats ? items.formats[1] : "pas de formats" );
                     </div>
 				</article>
 			))}
+            <p class="no-results" hidden>Aucun résultat</p>
 		</div>
 	</section>
+
+<script type="module" src="/src/scripts/initMenu.ts"></script>

@@ -43,8 +43,9 @@ collections:
       - label: "Base"
         name: "base"
         widget: "select"
+        multiple: true
         options:
-            - { label: "Tomate", value: "tomate" }
+            - { label: "Sauce tomate", value: "tomate" }
             - { label: "Mozzarella", value: "mozzarella" }
         required: false
       - label: "Ingrédients"
@@ -54,6 +55,7 @@ collections:
             label: "Ingrédient"
             name: "ingredient"
             widget: "select"
+            multiple: true
             options:
                 - "Tomate"
                 - "Mozzarella"
@@ -67,6 +69,7 @@ collections:
                 - "Noix"
                 - "Basilic"
                 - "Pesto maison"
+                - "Spianata"
 
       - { label: "Image", name: "image", widget: "image", required: true }
       - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
@@ -134,19 +137,37 @@ collections:
     format: "json"
     slug: "{{slug}}"
     identifier_field: "name" # 🔥 IMPORTANT
-    summary: "{{name}} - {{price}}€" # 🔥 IMPORTANT
-    sortable_fields: ["name", "price"]
+    summary: "{{name}}" # 🔥 IMPORTANT
+    sortable_fields: ["name"]
     fields:
         - { label: "Nom du produit", name: "name", widget: "string" }
 
         - { label: "Image", name: "image", widget: "image" }
-
-        - label: "Produits"
-          name: "product"
+        - label: "Formats"
+          name: "formats"
+          widget: "list"
+          summary: "{{fields.label}} - {{fields.price}}€"
+          fields:
+            - label: "Nom du format"
+              name: "label"
+              widget: "select"
+              options:
+                  - "2 personnes"
+                  - "4 personnes"   
+            - {
+                label: "Prix (€)",
+                name: "price",
+                widget: "number",
+                value_type: "float",
+                min: 0,
+                step: 0.1
+              }
+        - label: "Ingrédients"
+          name: "ingredients"
           widget: "list"
           field:
-              label: "Produit"
-              name: "product"
+              label: "Ingrédient"
+              name: "ingredient"
               widget: "select"
               multiple: true
               options:

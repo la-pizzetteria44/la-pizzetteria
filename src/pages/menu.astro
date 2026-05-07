@@ -1,9 +1,5 @@
 ---
 import Nav from '../components/MenuNav.astro';
-// import Specialties from '../components/sections/Specialties.astro';
-// import Pizzas from '../components/sections/Pizzas.astro';
-// import Desserts from '../components/sections/Desserts.astro';
-// import Drinks from '../components/sections/Drinks.astro';
 import Layout from '../layouts/Layout.astro';
 import ItemList from '../components/sections/ItemList.astro';
 
@@ -18,7 +14,7 @@ console.log(specialties[0]);
 
 <Layout title="Menu de la Pizzetteria" description="Découvrez notre menu varié de pizzas, entrées, desserts et boissons. Des saveurs authentiques pour tous les goûts." >
 
-<main>
+<main id="menu">
     <!-- STICKY MENU-->
 	<Nav />
 

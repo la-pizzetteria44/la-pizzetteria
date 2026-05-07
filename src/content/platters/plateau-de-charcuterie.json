@@ -1,0 +1,23 @@
+{
+  "name": "Plateau de charcuterie",
+  "image": "/images/platters/tapas.jpg",
+  "formats": [
+    {
+      "label": "2 personnes",
+      "price": 18
+    },
+    {
+      "label": "4 personnes",
+      "price": 30.5
+    }
+  ],
+  "ingredients": [
+    [
+      "Scarmoza",
+      "Roquette",
+      "Pancetta",
+      "Spaniata",
+      "Jambon cru"
+    ]
+  ]
+}

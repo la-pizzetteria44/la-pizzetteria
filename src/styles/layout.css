@@ -175,7 +175,6 @@ body:has(.header__toggle:checked) {
 
 .items-list{
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.5rem;

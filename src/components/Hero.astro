@@ -7,7 +7,7 @@ const { infos } = Astro.props;
 ---
 
 <section class="hero">
-        <img class="hero__img" src={infos.cover_image} alt="Restaurant - cuisine maison" width="800" height="500" loading="eager" />
+        <img class="hero__img" src={infos.cover_image} alt="Restaurant - cuisine maison" width="800" height="500" loading="eager" fetchpriority="high"/>
 
         <div class="hero_overlay">
 

@@ -19,7 +19,7 @@ const {dishOfTheMoment} = Astro.props;
 
         <article class="card highlight__card">
             
-            <img class="highlight__img" src={dishOfTheMoment.image} alt={dishOfTheMoment.name} loading="lazy" width="400" height="300"/>
+            <img class="highlight__img" src={dishOfTheMoment.image} alt={dishOfTheMoment.name} fetchpriority="high"loading="eager" width="400" height="300"/>
 
             <div class="highlight__content">
                 <h3>{dishOfTheMoment.name}</h3>

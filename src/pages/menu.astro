@@ -9,7 +9,6 @@ const drinks = Object.values(import.meta.glob('../content/drinks/*.json', { eage
 const desserts = Object.values(import.meta.glob('../content/desserts/*.json', { eager: true })).map(p => p.default);
 const platters = Object.values(import.meta.glob('../content/platters/*.json', { eager: true })).map(p => p.default);
 
-console.log(specialties[0]);
 ---
 
 <Layout title="Menu de la Pizzetteria" description="Découvrez notre menu varié de pizzas, entrées, desserts et boissons. Des saveurs authentiques pour tous les goûts." >

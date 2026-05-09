@@ -3,7 +3,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 9999;
-    background-color: var(--color-green);
+    background-color: var(--color-secondary-hover);
     color: #fff;
     padding: 0.6rem 1rem ;
     display: flex;
@@ -222,6 +222,7 @@ body:has(.header__toggle:checked) {
     flex-direction: column;
     justify-content: space-evenly;
     gap: 0.5rem;
+    flex-basis: 100%;
 }
 
 .items-list__price {
@@ -373,6 +374,11 @@ div.container-secondary {
 .credit {
   margin-top: 0.5rem;
   opacity: 0.7;
+}
+
+.credit a {
+    color: #fff;
+    text-decoration: underline;
 }
 
 .sticky-cta {    

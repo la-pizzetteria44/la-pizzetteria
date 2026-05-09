@@ -1,5 +1,9 @@
 import { initFilters } from './filterEngine';
 
-document.querySelectorAll('[data-menu]').forEach((root) => {
-  initFilters(root as HTMLElement);
-});
+const menus = document.querySelectorAll('[data-menu]');
+
+if (menus.length) {
+  menus.forEach((root) => {
+    initFilters(root as HTMLElement);
+  });
+}

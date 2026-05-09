@@ -1,9 +1,7 @@
 ---
-import { Leaf, Fish, Ham } from "@lucide/astro";
+import { Leaf, Flame, Ham } from "@lucide/astro";
 const { title, items } = Astro.props;
-console.log(items);
 ---
-
 
 <section
   id={title.toLowerCase()}
@@ -16,8 +14,8 @@ console.log(items);
             title === "Pizzas" && (
                 <div class="filters filters-tags">
                     <button data-filter="all" class="active">Tous</button>
-                    <button data-filter="végétarien"><span class="icon">🌱</span> Végé</button>
-                    <button data-filter="épicé"><span class="icon">🌶️</span> Épicé</button>
+                    <button data-filter="végétarien"><span class="icon"><Leaf size={16}/></span> Végé</button>
+                    <button data-filter="épicé"><span class="icon"><Flame size={16}/></span> Épicé</button>
                 </div>
             )
         }
@@ -43,21 +41,21 @@ console.log(items);
 
 		<div class="items-list">
 			{items.map((item: {
-[x: string]: unknown; tags: any[]; image: string | null | undefined; name: unknown; highlight: any; description: string , ingredients: string[] ; price: number; formats: { label: string; price: number }[] 
-}) => (
+            [x: string]: unknown; tags: any[]; image: string | null | undefined; name: unknown; highlight: any; description: string , ingredients: string[] ; price: number; formats: { label: string; price: number }[] 
+            }) => (
 				<article class="card items-list__item" data-tags={item.tags?.join(",")} data-category={item.category}>
 					<img src={item.image} alt={item.name} loading="lazy" class="items-list__image" />
                     <div class="items-list__content">
                         <h3 class="items-list__title">
                             {item.name}
                             {item.highlight && <span> ⭐</span>}
-                            {item.tags?.includes("végétarien") && <span class="icon">🌱</span>}
-                            {item.tags?.some(tag => tag.toLowerCase().includes("épicé")) && <span class="icon">🌶️</span>}
-                            {item.tags?.some(tag => tag.toLowerCase().includes("végétarien")) && <span class="icon">🌱</span>}
+                            {item.tags?.includes("végétarien") && <span class="icon"><Leaf size={16}/></span>}
+                            {item.tags?.some(tag => tag.toLowerCase().includes("épicé")) && <span class="icon"><Flame size={16}/></span>}
+                            {item.tags?.some(tag => tag.toLowerCase().includes("végétarien")) && <span class="icon"><Leaf size={16}/></span>}
                         </h3>
                         <p class="items-list__text">
                             {title === "Pizzas" || title === "Plateaux" ? (
-                                <span> {item.ingredients.flat().map((i) => i.trim()).join(" · ")}</span>
+                                <span>{item.base} · {item.ingredients.flat().map((i) => i.trim()).join(" · ")}</span>
                                 ) : 
                                 <span>{item.description}</span>
                                 }</p>
@@ -86,4 +84,7 @@ console.log(items);
 		</div>
 	</section>
 
-<script type="module" src="/src/scripts/initMenu.ts"></script>
+<script>
+    import '../../scripts/initMenu';
+
+</script>

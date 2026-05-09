@@ -24,8 +24,9 @@
 }
 
 .filters .active {
-	background: var(--color-primary-hover);
+	background: var(--color-primary);
 	color: #fff;
+    border: 2px solid #fff;
 }
 
 .filters button:active {
@@ -33,7 +34,7 @@
 }
 
 .filters button:hover {
-  background: #e5e7eb;
-  color: #333;
+  background: var(--color-primary-hover);
+  color: #fff;
 }
 

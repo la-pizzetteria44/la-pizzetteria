@@ -45,8 +45,9 @@ collections:
         widget: "select"
         multiple: true
         options:
-            - { label: "Sauce tomate", value: "tomate" }
-            - { label: "Mozzarella", value: "mozzarella" }
+            - { label: "Base sauce tomate", value: "Base sauce tomate" }
+            - { label: "Base mozzarella", value: "Base mozzarella" }
+            - { label: "Base sauce tomate & mozzarella", value: "Base sauce tomate & mozzarella" }
         required: false
       - label: "Ingrédients"
         name: "ingredients"
@@ -57,19 +58,52 @@ collections:
             widget: "select"
             multiple: true
             options:
-                - "Tomate"
-                - "Mozzarella"
-                - "Jambon"
-                - "Champignons"
-                - "Chèvre"
-                - "Parmesan"
-                - "Roquette"
-                - "Gorgonzola"
-                - "Olives"
-                - "Noix"
-                - "Basilic"
-                - "Pesto maison"
-                - "Spianata"
+              - "Anchois"
+              - "Artichauts"
+              - "Aubergines"
+              - "Basilic"
+              - "Burrata"
+              - "Câpres"
+              - "Champignons"
+              - "Chèvre"
+              - "Chorizo"
+              - "Copeaux de Parmesan"
+              - "Crème carbonara (guanciale + œuf + pecorino)"
+              - "Crème ciboulette"
+              - "Crème de pistache maison"
+              - "Crème fraîche"
+              - "Gorgonzola"
+              - "Jambon blanc"
+              - "Jambon cru"
+              - "Jaune d'œuf"
+              - "Lardons"
+              - "Miel"
+              - "Mozzarella billes"
+              - "Noix"
+              - "œuf"
+              - "Oignons"
+              - "Olives"
+              - "Pancetta"
+              - "Parmesan"
+              - "Pecorino"
+              - "Pesto maison"
+              - "Pistaches"
+              - "Poivrons"
+              - "Pommes de terre"
+              - "Réduction balsamique"
+              - "Roquette"
+              - "Salade mixte"
+              - "Sauce bolognaise maison"
+              - "Sauce persillade"
+              - "Saumon"
+              - "Scarmoza fumée"
+              - "Spaniata"
+              - "Spianata"
+              - "Speck"
+              - "Taleggio"
+              - "Thon"
+              - "Thym"
+              - "Tomates cerise"
 
       - { label: "Image", name: "image", widget: "image", required: true }
       - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
@@ -81,6 +115,7 @@ collections:
           label: "Tag"
           name: "tag"
           widget: "select"
+          required: false
           options: ["Végétarien", "Poisson", "Viande", "Épicé"]
       - {
         label: "Mise en avant",

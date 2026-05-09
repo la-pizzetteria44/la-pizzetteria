@@ -1,0 +1,16 @@
+{
+  "highlight": false,
+  "name": "Della Casa",
+  "base": "sauce-tomate-mozzarella",
+  "image": "/images/pizzas/della-casa.jpg",
+  "ingredients": [
+    [
+      "Jambon blanc",
+      "Chorizo",
+      "Champignons",
+      "Oignons",
+      "œuf"
+    ]
+  ],
+  "price": 13.3
+}

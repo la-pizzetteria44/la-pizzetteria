@@ -1,5 +1,5 @@
 .presentation {
-	background: #fff;
+	background: url(/images/bcg.jpg);
 	padding: 2rem 1rem;
 	text-align: center;
     display: flex;
@@ -7,9 +7,16 @@
     align-items: center;
 }
 
+.presentation h2 {
+    color: #fff;
+}
+
+
+
 .prose p {
     margin-bottom: 1rem;
     line-height: 1.6;
+    color: #fff;
 }
 
 .prose p:first-child::first-letter {

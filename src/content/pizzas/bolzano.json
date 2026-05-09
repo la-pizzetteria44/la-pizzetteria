@@ -1,0 +1,13 @@
+{
+  "highlight": false,
+  "name": "Calzone",
+  "base": "sauce-tomate-mozzarella",
+  "image": "/images/pizzas/calzone.jpg",
+  "price": 11.2,
+  "ingredients": [
+    [
+      "Jambon blanc",
+      "Jaune d'œuf"
+    ]
+  ]
+}

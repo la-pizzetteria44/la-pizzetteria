@@ -1,0 +1,12 @@
+{
+  "highlight": false,
+  "name": "Diavola",
+  "base": "sauce-tomate-mozzarella",
+  "ingredients": [
+    [
+      "Spianata"
+    ]
+  ],
+  "image": "/images/pizzas/diavola.jpg",
+  "price": 10.8
+}

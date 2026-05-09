@@ -1,0 +1,15 @@
+{
+  "highlight": false,
+  "name": "Italia",
+  "base": "sauce-tomate-mozzarella",
+  "ingredients": [
+    [
+      "Gorgonzola",
+      "Jambon cru",
+      "Roquette",
+      "Parmesan"
+    ]
+  ],
+  "image": "/images/pizzas/italia.jpg",
+  "price": 13.4
+}

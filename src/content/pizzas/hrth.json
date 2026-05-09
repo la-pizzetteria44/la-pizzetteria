@@ -1,12 +1,15 @@
 {
   "highlight": false,
-  "name": "hrth",
+  "name": "4 Stagioni",
   "base": "sauce-tomate-mozzarella",
-  "image": "/images/pizzas/bolzano.jpg",
-  "price": 23,
+  "image": "/images/pizzas/4-stagioni.jpg",
+  "price": 13,
   "ingredients": [
     [
-      "Champignons"
+      "Champignons",
+      "Artichauts",
+      "Poivrons",
+      "Jambon blanc"
     ]
   ]
 }

@@ -1,15 +1,16 @@
 {
   "highlight": true,
   "base": "sauce-tomate-mozzarella",
-  "name": "ooo",
+  "name": "Al Salmone",
   "image": "/images/pizzas/al-Salmone.jpg",
-  "price": 44,
+  "price": 14,
   "tags": [
     "Épicé"
   ],
   "ingredients": [
     [
-      "Aubergines"
+      "Saumon",
+      "Crème ciboulette"
     ]
   ]
 }

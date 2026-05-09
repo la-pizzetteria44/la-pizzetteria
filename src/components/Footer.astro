@@ -1,6 +1,7 @@
 ---
-import { Phone } from "@lucide/astro";
-import FBLogo from "../../public/images/Facebook_Logo.png";
+import { MoveRight, Phone } from "@lucide/astro";
+import FBLogo from "../../public/images/facebook_logo.png";
+import InstagramLogo from "../../public/images/instagram_logo.svg";
 
 import Map from "./sections/Map.astro";
 
@@ -20,7 +21,10 @@ const { formattedDays } = Astro.props;
             <Phone size={18} />
             <span>02 28 02 88 29</span>
             </a>
-            <Map />
+            <a href="https://maps.google.com/?q=La+Pizzetteria" target="_blank" class="footer-map">
+                Voir l'itinéraire <MoveRight size={20} />
+            </a>
+            <!-- <Map /> -->
         </div>
 
         <!-- HORAIRES -->
@@ -55,6 +59,15 @@ const { formattedDays } = Astro.props;
         <!-- SOCIAL -->
         <div class="footer__social">
             <a
+                href="https://www.instagram.com/lapizzetteria44/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Aller sur notre page instagram"
+                class="social-link"
+                >
+                <img src={InstagramLogo.src} alt="Logo de Instagram" class="social__icon"/>
+            </a>
+            <a
                 href="https://www.facebook.com/lapizzetteria44/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -72,7 +85,7 @@ const { formattedDays } = Astro.props;
                 <a href="legal">Mentions légales</a>
                 <a href="policy">Confidentialité</a>
             </div>
-            <p class="credit">Site réalisé par <a href="https://www.romain-fournier.com" target="_blank" rel="noopener noreferrer" aria-label="Visiter le site de Romain Fournier" title="Visiter le site de Romain Fournier">Romain Fournier</a></p>
+            <p class="credit">Site réalisé par <a href="https://www.romainfournier.com" target="_blank" rel="noopener noreferrer" aria-label="Visiter le site de Romain Fournier" title="Visiter le site de Romain Fournier">Romain Fournier</a></p>
         </div>
 
         

@@ -8,6 +8,10 @@
     overflow: hidden;
 }
 
+.reviews h2 {
+    text-align: center;
+}
+
 .reviews__card {
     padding: 1rem;
     display: flex;

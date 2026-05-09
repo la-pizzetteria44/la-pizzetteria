@@ -9,6 +9,7 @@ import Hero from '../components/Hero.astro';
 import Review from '../components/sections/Review.astro';
 import Highlight from '../components/sections/Highlight.astro';
 import Selection from '../components/sections/Selection.astro';
+import Presentation from '../components/sections/Presentation.astro';
 
 
 const starters = (Object.values(import.meta.glob('../content/starters/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
@@ -45,7 +46,9 @@ desserts.sort((a,b) => a.name.localeCompare(b.name));
     
     <div class="container-secondary">
    
-    <!-- REVIEWS -->
+    
+    <Presentation html={html} infos={infos}/>
+
     <Review reviews={reviews} />
 
 

@@ -1,0 +1,12 @@
+{
+  "highlight": false,
+  "name": "Margherita",
+  "base": "sauce-tomate-mozzarella",
+  "ingredients": [
+    [
+      "Basilic"
+    ]
+  ],
+  "image": "/images/pizzas/marguerita.jpg",
+  "price": 8
+}

@@ -1,12 +1,12 @@
 {
   "highlight": false,
-  "base": "sauce-tomate",
-  "name": "QQ",
-  "image": "/images/pizzas/al-pesto.webp",
-  "price": 444,
+  "base": "sauce-tomate-mozzarella",
+  "name": "Bambino",
+  "image": "/images/pizzas/bambino.jpg",
+  "price": 8,
   "ingredients": [
     [
-      "Aubergines"
+      "Jambon blanc"
     ]
   ]
 }

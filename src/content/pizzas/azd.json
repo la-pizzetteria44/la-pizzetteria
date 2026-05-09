@@ -1,12 +1,14 @@
 {
   "highlight": false,
-  "name": "azd",
-  "base": "mozzarella",
+  "name": "4 Formaggi",
+  "base": "sauce-tomate-mozzarella",
   "ingredients": [
     [
-      "Aubergines"
+      "Gorgonzola",
+      "Chèvre",
+      "Parmesan"
     ]
   ],
-  "image": "/images/pizzas/abruzzes.jpg",
-  "price": 13
+  "image": "/images/pizzas/4-formaggi.jpg",
+  "price": 11.9
 }

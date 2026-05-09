@@ -205,6 +205,7 @@ body:has(.header__toggle:checked) {
 
 .items-list__text {
     font-style: italic;
+    font-size: 1.4rem;
 }
 /* .items-list__price {
     align-self: flex-end;

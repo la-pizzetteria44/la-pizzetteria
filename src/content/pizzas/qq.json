@@ -1,0 +1,12 @@
+{
+  "highlight": false,
+  "base": "sauce-tomate",
+  "name": "QQ",
+  "image": "/images/pizzas/al-pesto.webp",
+  "price": 444,
+  "ingredients": [
+    [
+      "Aubergines"
+    ]
+  ]
+}

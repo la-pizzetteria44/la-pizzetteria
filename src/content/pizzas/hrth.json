@@ -1,0 +1,12 @@
+{
+  "highlight": false,
+  "name": "hrth",
+  "base": "sauce-tomate-mozzarella",
+  "image": "/images/pizzas/bolzano.jpg",
+  "price": 23,
+  "ingredients": [
+    [
+      "Champignons"
+    ]
+  ]
+}

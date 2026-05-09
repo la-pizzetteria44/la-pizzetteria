@@ -2,7 +2,19 @@
 	display: flex;
 	gap: 0.5rem;
 	margin: 1.5rem 0;
+    flex-direction: column;
 	flex-wrap: wrap;
+}
+
+.filters select {
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #f3f4f6;
+    font-family: inherit;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .filters button {
@@ -37,4 +49,3 @@
   background: var(--color-primary-hover);
   color: #fff;
 }
-

@@ -1,0 +1,12 @@
+{
+  "highlight": false,
+  "name": "azd",
+  "base": "mozzarella",
+  "ingredients": [
+    [
+      "Aubergines"
+    ]
+  ],
+  "image": "/images/pizzas/abruzzes.jpg",
+  "price": 13
+}

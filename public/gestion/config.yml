@@ -43,15 +43,16 @@ collections:
       - label: "Base"
         name: "base"
         widget: "select"
-        multiple: true
+        multiple: false
         options:
-            - { label: "Base sauce tomate", value: "Base sauce tomate" }
-            - { label: "Base mozzarella", value: "Base mozzarella" }
-            - { label: "Base sauce tomate & mozzarella", value: "Base sauce tomate & mozzarella" }
-        required: false
+          - { label: "Sauce tomate", value: "sauce-tomate" }
+          - { label: "Mozzarella", value: "mozzarella" }
+          - { label: "Sauce tomate & mozzarella", value: "sauce-tomate-mozzarella" }
+        required: true
       - label: "Ingrédients"
         name: "ingredients"
         widget: "list"
+        required: true
         field:
             label: "Ingrédient"
             name: "ingredient"
@@ -104,7 +105,7 @@ collections:
               - "Thon"
               - "Thym"
               - "Tomates cerise"
-
+            required: true
       - { label: "Image", name: "image", widget: "image", required: true }
       - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
       - label: "Tags"

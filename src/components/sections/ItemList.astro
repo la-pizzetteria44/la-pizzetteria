@@ -1,6 +1,8 @@
 ---
 import { Leaf, Flame, Ham } from "@lucide/astro";
 const { title, items } = Astro.props;
+console.log(items[0]
+);
 ---
 
 <section
@@ -13,9 +15,35 @@ const { title, items } = Astro.props;
         {
             title === "Pizzas" && (
                 <div class="filters filters-tags">
-                    <button data-filter="all" class="active">Tous</button>
-                    <button data-filter="végétarien"><span class="icon"><Leaf size={16}/></span> Végé</button>
-                    <button data-filter="épicé"><span class="icon"><Flame size={16}/></span> Épicé</button>
+                    <div class="filter-top">
+                    
+                        <button data-filter="all" class="active">
+                            Toutes les pizzas
+                        </button>
+                        
+                    
+                        <button data-filter="végétarien">
+                            <span class="icon">
+                                <Leaf size={16}/>
+                            </span>
+                            Végé
+                        </button>
+                        <button data-filter="épicé">
+                            <span class="icon">
+                                <Flame size={16}/>
+                            </span>
+                            Épicé
+                        </button>
+                    </div>
+                    <div class="filter-bottom">
+                        
+                    <select name="base" id="base-filter">
+                        <option value="all">Toutes les bases</option>
+                        <option value="sauce-tomate">Sauce tomate</option>
+                        <option value="mozzarella">Mozzarella</option>
+                        <option value="sauce-tomate-mozzarella">Sauce tomate & mozzarella</option>
+                    </select>
+                    </div>
                 </div>
             )
         }
@@ -42,8 +70,14 @@ const { title, items } = Astro.props;
 		<div class="items-list">
 			{items.map((item: {
             [x: string]: unknown; tags: any[]; image: string | null | undefined; name: unknown; highlight: any; description: string , ingredients: string[] ; price: number; formats: { label: string; price: number }[] 
-            }) => (
-				<article class="card items-list__item" data-tags={item.tags?.join(",")} data-category={item.category}>
+            }) => {
+                const baseLabel =
+                    typeof item.base === "string"
+                        ? `Base ${item.base.replaceAll("-", " ")}`
+                        : "";
+
+                return      (
+				<article class="card items-list__item" data-base={item.base || "none"} data-tags={item.tags?.join(",")} data-category={item.category}>
 					<img src={item.image} alt={item.name} loading="lazy" class="items-list__image" />
                     <div class="items-list__content">
                         <h3 class="items-list__title">
@@ -55,7 +89,12 @@ const { title, items } = Astro.props;
                         </h3>
                         <p class="items-list__text">
                             {title === "Pizzas" || title === "Plateaux" ? (
-                                <span>{item.base} · {item.ingredients.flat().map((i) => i.trim()).join(" · ")}</span>
+                                <span>
+                                    {item.base
+                                        ? `Base ${item.base.replaceAll("-", " ")} · `
+                                        : ""}
+                                    {item.ingredients.flat().map((i) => i.trim()).join(" · ")}
+                                    </span>
                                 ) : 
                                 <span>{item.description}</span>
                                 }</p>
@@ -79,7 +118,10 @@ const { title, items } = Astro.props;
                         }
                     </div>
 				</article>
-			))}
+			)
+            }
+
+       )}
             <p class="no-results" hidden>Aucun résultat</p>
 		</div>
 	</section>

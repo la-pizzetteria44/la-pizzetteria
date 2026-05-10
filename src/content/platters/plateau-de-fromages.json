@@ -1,0 +1,24 @@
+{
+  "name": "Plateau de fromages",
+  "image": "/images/platters/tapas.jpg",
+  "formats": [
+    {
+      "label": "2 personnes",
+      "price": 18
+    },
+    {
+      "label": "4 personnes",
+      "price": 31
+    }
+  ],
+  "ingredients": [
+    [
+      "Scarmoza",
+      "Taleggio",
+      "Gorgonzola",
+      "Beurre",
+      "olives",
+      "Tomates cerise"
+    ]
+  ]
+}

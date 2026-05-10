@@ -1,0 +1,9 @@
+{
+  "name": "Cristalline",
+  "image": "/images/drinks/san_pellegrino.webp",
+  "category": "Eau",
+  "price": 1,
+  "tags": [
+    "Sans alcool"
+  ]
+}

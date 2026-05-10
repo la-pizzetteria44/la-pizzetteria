@@ -1,0 +1,9 @@
+{
+  "name": "Limoncello",
+  "image": "/images/drinks/vin-rouge-lilium.jpg",
+  "tags": [
+    "Avec alcool"
+  ],
+  "category": "Digestif",
+  "price": 22
+}

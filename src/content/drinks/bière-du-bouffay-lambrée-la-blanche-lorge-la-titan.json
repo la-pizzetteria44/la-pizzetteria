@@ -1,0 +1,9 @@
+{
+  "name": "Bière du Bouffay - L'Ambrée - La Blanche - L'Orge - La Titan",
+  "image": "/images/drinks/moretti.webp",
+  "category": "Bière",
+  "price": 4,
+  "tags": [
+    "Avec alcool"
+  ]
+}

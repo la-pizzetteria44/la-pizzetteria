@@ -11,5 +11,8 @@
     ]
   ],
   "image": "/images/pizzas/italia.jpg",
-  "price": 13.4
+  "price": 13.4,
+  "tags": [
+    "Charcuterie"
+  ]
 }

@@ -1,8 +1,7 @@
 {
-  "category": "Soda",
-  "name": "Coca cola - Coca cola sans sucre",
-  "description": "...",
+  "name": "Ice Tea",
   "image": "/images/drinks/coca-cola.jpg",
+  "category": "Soda",
   "price": 2,
   "tags": [
     "Sans alcool"

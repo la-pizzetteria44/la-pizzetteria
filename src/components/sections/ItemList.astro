@@ -1,5 +1,5 @@
 ---
-import { Leaf, Flame, Ham } from "@lucide/astro";
+import { Leaf, Flame, Ham, Fish, Beef } from "@lucide/astro";
 const { title, items } = Astro.props;
 ---
 
@@ -20,6 +20,9 @@ const { title, items } = Astro.props;
                         </button>
                         
                     
+                    </div>
+                    <div class="filter-bottom">
+
                         <button data-filter="végétarien">
                             <span class="icon">
                                 <Leaf size={16}/>
@@ -32,15 +35,33 @@ const { title, items } = Astro.props;
                             </span>
                             Épicé
                         </button>
+                        <button data-filter="charcuterie">
+                            <span class="icon">
+                                <Ham size={16}/>
+                            </span>
+                            Charcuterie
+                        </button>
+                        <button data-filter="viande">
+                            <span class="icon">
+                                <Beef size={16}/>
+                            </span>
+                            Viande
+                        </button>
+                        <button data-filter="poisson">
+                            <span class="icon">
+                                <Fish size={16}/>
+                            </span>
+                            Poisson
+                        </button>
                     </div>
                     <div class="filter-bottom">
                         
-                    <select name="base" id="base-filter">
-                        <option value="all">Toutes les bases</option>
-                        <option value="sauce-tomate">Sauce tomate</option>
-                        <option value="mozzarella">Mozzarella</option>
-                        <option value="sauce-tomate-mozzarella">Sauce tomate & mozzarella</option>
-                    </select>
+                        <select name="base" id="base-filter">
+                            <option value="all">Toutes les bases</option>
+                            <option value="sauce-tomate">Sauce tomate</option>
+                            <option value="mozzarella">Mozzarella</option>
+                            <option value="sauce-tomate-mozzarella">Sauce tomate & mozzarella</option>
+                        </select>
                     </div>
                 </div>
             )
@@ -50,16 +71,24 @@ const { title, items } = Astro.props;
             title === "Boissons" && (
                 <>
                     <div class="filters filters-main">
+                         <div class="filter-top">
+
                         <button data-filter="all" class="active">Tous</button>
-                        <button data-filter="Vin">Vin</button>
-                        <button data-filter="Bière">Bière</button>
-                        <button data-filter="Soda">Soda</button>
-                        <button data-filter="Eau">Eau</button>
+                         </div>
+                        <div class="filter-bottom">
+                            <button data-filter="Vin">Vin</button>
+                            <button data-filter="Bière">Bière</button>
+                            <button data-filter="Soda">Soda</button>
+                            <button data-filter="Eau">Eau</button>
+                        </div>
                     </div>
 
                     <div class="filters filters-tags">
+                        <div class="filter-bottom">
+
                         <button data-filter="Avec alcool">Avec alcool</button>
                         <button data-filter="Sans alcool">Sans alcool</button>
+                        </div>
                     </div>
                 </>
             )

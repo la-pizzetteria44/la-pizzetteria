@@ -1,0 +1,9 @@
+{
+  "name": "Oasis",
+  "category": "Soda",
+  "price": 2,
+  "tags": [
+    "Sans alcool"
+  ],
+  "image": "/images/drinks/coca-cola.jpg"
+}

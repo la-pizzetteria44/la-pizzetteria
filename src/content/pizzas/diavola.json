@@ -8,5 +8,9 @@
     ]
   ],
   "image": "/images/pizzas/diavola.jpg",
-  "price": 10.8
+  "price": 10.8,
+  "tags": [
+    "Charcuterie",
+    "Épicé"
+  ]
 }

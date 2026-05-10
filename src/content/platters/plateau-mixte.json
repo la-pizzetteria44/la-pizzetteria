@@ -1,0 +1,29 @@
+{
+  "name": "Plateau mixte",
+  "image": "/images/platters/tapas.jpg",
+  "formats": [
+    {
+      "label": "2 personnes",
+      "price": 26
+    },
+    {
+      "label": "4 personnes",
+      "price": 47
+    }
+  ],
+  "ingredients": [
+    [
+      "Scarmoza",
+      "Taleggio",
+      "Gorgonzola",
+      "Roquette",
+      "Jambon cru",
+      "Speck",
+      "Pancetta",
+      "Spaniata",
+      "Beurre",
+      "olives",
+      "Tomates cerise"
+    ]
+  ]
+}

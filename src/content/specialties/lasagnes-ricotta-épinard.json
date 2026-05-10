@@ -1,0 +1,16 @@
+{
+  "name": "Lasagnes ricotta épinard",
+  "image": "/images/specialties/lasagne_bolognese.webp",
+  "type": "Pâtes",
+  "formats": [
+    {
+      "label": "1 personne",
+      "price": 9.5
+    },
+    {
+      "label": "8 personnes",
+      "price": 65
+    }
+  ],
+  "description": "Pates garnis de ricotta et épinards"
+}

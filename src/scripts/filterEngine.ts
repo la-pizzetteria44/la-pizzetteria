@@ -22,7 +22,6 @@ export function initFilters(root: HTMLElement) {
   buttons.forEach(button => {
     button.addEventListener("click", () => {
       const filter = button.dataset.filter!;
-        console.log("Clicked filter:", filter);
       const isCategory = button.closest(".filters-main");
 
       if (isCategory) {

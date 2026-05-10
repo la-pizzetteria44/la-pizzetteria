@@ -2,16 +2,25 @@
 import "../styles/sections/hero.css";
 import { Phone } from '@lucide/astro';
 
-
-const { infos } = Astro.props;
+const { infos, special } = Astro.props;
 ---
 
 <section class="hero">
-        <img class="hero__img" src={infos.cover_image} alt="Restaurant - cuisine maison" width="800" height="500" loading="eager" fetchpriority="high"/>
+    <img class="hero__img" src={infos.cover_image} alt="Restaurant - cuisine maison" width="800" height="500" loading="eager" fetchpriority="high"/>
+    
+    <div class="hero_overlay">
+        
+        <div class="hero__content">
+                {
+                    special?.enabled && (
+                        <div class="hero__warning">
+                            <p class="hero__warning__text">{special.content}</p>
+                            <hr class="hero__warning__divider" />
+                        </div>
+                    )
+                }
+               
 
-        <div class="hero_overlay">
-
-            <div class="hero__content">
                 <h1 class="hero__title">{infos.title}</h1>
                 <p class="hero__subtitle">{infos.subtitle}</p>
             </div>

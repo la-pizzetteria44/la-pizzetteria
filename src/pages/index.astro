@@ -2,6 +2,7 @@
 import {marked} from 'marked';
 
 import infos from '../content/infos.json';
+import special from '../content/information/special.json';
 
 import Layout from '../layouts/Layout.astro';
 
@@ -35,7 +36,7 @@ desserts.sort((a,b) => a.name.localeCompare(b.name));
     
 <main id="home">
 
-    <Hero infos={infos}/>	
+    <Hero infos={infos} special={special}/>	
 
     <!-- HIGHLIGHT -->
     {dishOfTheMoment && (

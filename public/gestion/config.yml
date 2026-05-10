@@ -222,7 +222,6 @@ collections:
                   - "Jambon cru"
                   - "Tomates cerise"
 
-
   # 🔹 DESSERTS
   - name: "desserts"
     label: "Desserts"
@@ -339,3 +338,21 @@ collections:
           - { label: "Vendredi", name: "vendredi", widget: "object", collapsed: true, fields: *day_fields }
           - { label: "Samedi", name: "samedi", widget: "object", collapsed: true, fields: *day_fields }
           - { label: "Dimanche", name: "dimanche", widget: "object", collapsed: true, fields: *day_fields }
+  
+  - name: "special"
+    label: "Information spéciale"
+    files:
+      - file: "src/content/information/special.json"
+        create: true
+        name: "special"
+        label: "Information spéciale"
+        widget: "object"
+        fields:
+          - label: "Activer le message d'avertissement"
+            name: "enabled"
+            widget: "boolean"
+            default: false
+            required: false
+          - label: "Contenu du message"
+            name: "content"
+            widget: "string"

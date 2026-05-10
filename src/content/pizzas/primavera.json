@@ -1,0 +1,20 @@
+{
+  "highlight": false,
+  "name": "Primavera",
+  "base": "mozzarella",
+  "image": "/images/pizzas/primavera.webp",
+  "ingredients": [
+    [
+      "Mozzarella billes",
+      "Salade mixte",
+      "Parmesan",
+      "Jambon cru",
+      "Tomates cerise",
+      "Réduction balsamique"
+    ]
+  ],
+  "price": 14.9,
+  "tags": [
+    "Charcuterie"
+  ]
+}

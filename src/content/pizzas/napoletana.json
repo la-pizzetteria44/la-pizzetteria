@@ -1,0 +1,17 @@
+{
+  "highlight": false,
+  "name": "Napoletana",
+  "base": "sauce-tomate-mozzarella",
+  "ingredients": [
+    [
+      "Anchois",
+      "Câpres",
+      "Olives"
+    ]
+  ],
+  "image": "/images/pizzas/napoletana.jpg",
+  "price": 10.5,
+  "tags": [
+    "Poisson"
+  ]
+}

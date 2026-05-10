@@ -1,0 +1,20 @@
+{
+  "highlight": false,
+  "name": "Roma",
+  "base": "sauce-tomate-mozzarella",
+  "image": "/images/pizzas/roma.jpg",
+  "ingredients": [
+    [
+      "Jambon blanc",
+      "Chorizo",
+      "Champignons",
+      "Artichauts",
+      "Poivrons",
+      "œuf"
+    ]
+  ],
+  "price": 13.9,
+  "tags": [
+    "Charcuterie"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "highlight": false,
+  "name": "Abruzzes",
+  "base": "mozzarella",
+  "image": "/images/pizzas/abruzzes.jpg",
+  "ingredients": [
+    [
+      "Scarmoza fumée",
+      "Jambon cru",
+      "Roquette",
+      "Tomates cerise"
+    ]
+  ],
+  "price": 13.9,
+  "tags": [
+    "Charcuterie"
+  ]
+}

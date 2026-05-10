@@ -1,0 +1,17 @@
+{
+  "highlight": false,
+  "name": "Pugliese",
+  "base": "sauce-tomate-mozzarella",
+  "image": "/images/pizzas/pugliese.jpg",
+  "tags": [
+    "Poisson"
+  ],
+  "price": 10.9,
+  "ingredients": [
+    [
+      "Anchois",
+      "Oignons",
+      "Olives"
+    ]
+  ]
+}

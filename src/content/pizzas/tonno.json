@@ -1,0 +1,18 @@
+{
+  "highlight": false,
+  "name": "Tonno",
+  "base": "sauce-tomate-mozzarella",
+  "ingredients": [
+    [
+      "Sauce persillade",
+      "Thon",
+      "Oignons",
+      "Olives"
+    ]
+  ],
+  "image": "/images/pizzas/tonno.jpg",
+  "price": 11.3,
+  "tags": [
+    "Poisson"
+  ]
+}

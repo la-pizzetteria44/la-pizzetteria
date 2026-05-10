@@ -1,0 +1,16 @@
+{
+  "highlight": false,
+  "name": "Regina",
+  "base": "sauce-tomate-mozzarella",
+  "image": "/images/pizzas/regina.jpg",
+  "ingredients": [
+    [
+      "Jambon blanc",
+      "Champignons"
+    ]
+  ],
+  "price": 13.9,
+  "tags": [
+    "Charcuterie"
+  ]
+}

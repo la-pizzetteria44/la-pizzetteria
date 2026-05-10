@@ -1,0 +1,18 @@
+{
+  "highlight": false,
+  "name": "Speciale",
+  "base": "mozzarella",
+  "image": "/images/pizzas/speciale.webp",
+  "ingredients": [
+    [
+      "Jambon cru",
+      "Roquette",
+      "Burrata",
+      "Tomates cerise"
+    ]
+  ],
+  "price": 14,
+  "tags": [
+    "Charcuterie"
+  ]
+}

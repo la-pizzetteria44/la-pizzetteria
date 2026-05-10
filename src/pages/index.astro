@@ -13,8 +13,8 @@ import Selection from '../components/sections/Selection.astro';
 import Presentation from '../components/sections/Presentation.astro';
 
 
-const starters = (Object.values(import.meta.glob('../content/starters/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
 const pizzas = (Object.values(import.meta.glob('../content/pizzas/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
+const platters = (Object.values(import.meta.glob('../content/platters/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
 const specialties = (Object.values(import.meta.glob('../content/specialties/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
 const drinks = (Object.values(import.meta.glob('../content/drinks/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
 const desserts = (Object.values(import.meta.glob('../content/desserts/*.json', { eager: true })) as Array<{ default: any }>).map(p => p.default);
@@ -25,8 +25,8 @@ const dishOfTheMoment = pizzas.find(p => p.highlight) || null;
 const html = marked.parse(infos.description);
 
 // tri
-starters.sort((a,b) => a.name.localeCompare(b.name));
 pizzas.sort((a,b) => a.name.localeCompare(b.name));
+platters.sort((a,b) => a.name.localeCompare(b.name));
 specialties.sort((a,b) => a.name.localeCompare(b.name));
 drinks.sort((a,b) => a.name.localeCompare(b.name));
 desserts.sort((a,b) => a.name.localeCompare(b.name));   
@@ -43,7 +43,7 @@ desserts.sort((a,b) => a.name.localeCompare(b.name));
     <Highlight dishOfTheMoment={dishOfTheMoment} />
     )}
 	
-    <Selection starters={starters} specialties={specialties} drinks={drinks} desserts={desserts}/>
+    <Selection pizzas={pizzas} platters={platters} specialties={specialties} drinks={drinks} desserts={desserts}/>
     
     <div class="container-secondary">
    

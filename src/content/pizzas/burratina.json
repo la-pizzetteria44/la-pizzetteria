@@ -1,0 +1,17 @@
+{
+  "highlight": false,
+  "name": "Burratina",
+  "base": "mozzarella",
+  "image": "/images/pizzas/burratina.webp",
+  "ingredients": [
+    [
+      "Burrata",
+      "Basilic",
+      "Tomates cerise"
+    ]
+  ],
+  "price": 13,
+  "tags": [
+    "Végétarien"
+  ]
+}

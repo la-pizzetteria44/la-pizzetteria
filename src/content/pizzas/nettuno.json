@@ -1,0 +1,20 @@
+{
+  "highlight": false,
+  "name": "Nettuno",
+  "base": "sauce-tomate-mozzarella",
+  "image": "/images/pizzas/nettuno.jpg",
+  "ingredients": [
+    [
+      "Thon",
+      "Poivrons",
+      "Artichauts",
+      "œuf",
+      "Sauce persillade",
+      "Olives"
+    ]
+  ],
+  "price": 12.9,
+  "tags": [
+    "Poisson"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "highlight": false,
+  "name": "Rucola",
+  "base": "sauce-tomate-mozzarella",
+  "ingredients": [
+    [
+      "Roquette",
+      "Parmesan"
+    ]
+  ],
+  "image": "/images/pizzas/rucola.jpg",
+  "price": 8.5,
+  "tags": [
+    "Végétarien"
+  ]
+}

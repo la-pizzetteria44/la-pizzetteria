@@ -1,0 +1,17 @@
+{
+  "highlight": false,
+  "name": "Carbonara",
+  "base": "mozzarella",
+  "ingredients": [
+    [
+      "Crème carbonara (guanciale + œuf + pecorino)",
+      "Pancetta",
+      "Oignons"
+    ]
+  ],
+  "image": "/images/pizzas/carbonara.jpg",
+  "price": 14.3,
+  "tags": [
+    "Charcuterie"
+  ]
+}

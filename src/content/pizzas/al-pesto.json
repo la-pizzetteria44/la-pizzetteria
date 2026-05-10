@@ -1,0 +1,19 @@
+{
+  "highlight": false,
+  "name": "Al Pesto",
+  "base": "mozzarella",
+  "image": "/images/pizzas/al-pesto.jpg",
+  "ingredients": [
+    [
+      "Pesto maison",
+      "Pecorino",
+      "Noix",
+      "Basilic",
+      "Tomates cerise"
+    ]
+  ],
+  "price": 13,
+  "tags": [
+    "Végétarien"
+  ]
+}

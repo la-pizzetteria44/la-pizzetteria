@@ -1,0 +1,19 @@
+{
+  "highlight": false,
+  "name": "Vegetariana",
+  "base": "sauce-tomate-mozzarella",
+  "ingredients": [
+    [
+      "Champignons",
+      "Poivrons",
+      "Artichauts",
+      "Aubergines",
+      "Olives"
+    ]
+  ],
+  "image": "/images/pizzas/vegetariana.jpg",
+  "price": 12.5,
+  "tags": [
+    "Végétarien"
+  ]
+}

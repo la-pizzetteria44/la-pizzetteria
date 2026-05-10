@@ -1,0 +1,20 @@
+{
+  "highlight": false,
+  "name": "Pistacchio",
+  "base": "mozzarella",
+  "ingredients": [
+    [
+      "Crème de pistache maison",
+      "Jambon cru",
+      "Parmesan",
+      "Pistaches",
+      "Basilic",
+      "Tomates cerise"
+    ]
+  ],
+  "image": "/images/pizzas/pistacchio.webp",
+  "price": 14.5,
+  "tags": [
+    "Charcuterie"
+  ]
+}

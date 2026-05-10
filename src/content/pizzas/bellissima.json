@@ -1,0 +1,20 @@
+{
+  "highlight": false,
+  "name": "Bellissima",
+  "base": "mozzarella",
+  "image": "/images/pizzas/bellissima.jpg",
+  "ingredients": [
+    [
+      "Lardons",
+      "Taleggio",
+      "Pommes de terre",
+      "Oignons",
+      "Crème fraîche",
+      "œuf"
+    ]
+  ],
+  "price": 13.5,
+  "tags": [
+    "Viande"
+  ]
+}

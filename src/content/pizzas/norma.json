@@ -1,0 +1,17 @@
+{
+  "highlight": false,
+  "name": "Norma",
+  "base": "sauce-tomate-mozzarella",
+  "ingredients": [
+    [
+      "Jambon blanc",
+      "Aubergines",
+      "Olives"
+    ]
+  ],
+  "image": "/images/pizzas/norma.jpg",
+  "price": 11.5,
+  "tags": [
+    "Charcuterie"
+  ]
+}

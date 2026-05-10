@@ -1,0 +1,17 @@
+{
+  "highlight": false,
+  "name": "Bolognese",
+  "base": "mozzarella",
+  "image": "/images/pizzas/bolognaise.jpg",
+  "price": 12.8,
+  "tags": [
+    "Viande"
+  ],
+  "ingredients": [
+    [
+      "Sauce bolognaise maison",
+      "Copeaux de Parmesan",
+      "Tomates cerise"
+    ]
+  ]
+}

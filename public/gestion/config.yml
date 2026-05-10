@@ -22,7 +22,9 @@ collections:
           - { label: "Ville", name: "city", widget: "string", default: "Nantes" }
           - { label: "URL", name: "site_url", widget: "string", default: "https://astro-decap-template.netlify.app" }
           - { label: "Sous-titre", name: "subtitle", widget: "string", default: "Cuisine maison • Produits frais • Sur place & à emporter" }
-          - { label: "Description", name: "description", widget: "markdown", default: "Pizzaïolo Edmondo, dit Eddy, a mis son talent au service de vos papilles pour créer « La Pizzetteria » à Aigrefeuille-sur-Maine (44140).Aujourd’hui il passe la main à son jeune « padawan » Guillaume qu’il a su former et qui continuera à mettre en valeur les produits italien.Laissez vous tenter par nos pizzas et desserts faits maison dans la tradition transalpine, ainsi que par nos vins et bières importés directement d’Italie. Nous sommes très fiers de vous proposer vos pizzas italiennes préférées faites maison."
+          - { label: "Description", name: "description", widget: "markdown", default: "Pizzaïolo Edmondo, dit Eddy, a mis son talent au service de vos papilles pour créer « La Pizzetteria » à Aigrefeuille-sur-Maine (44140).Aujourd’hui il passe la main à son jeune « padawan » Guillaume qu’il a su formé et qui continuera à mettre en valeur les produits italien.Laissez vous tenter par nos pizzas et desserts faits maison dans la tradition transalpine, ainsi que par nos vins et bières importés directement d’Italie. Nous sommes très fiers de vous proposer vos pizzas italiennes préférées faites maison."
+          }
+          - { label: "Description Google", name: "google_description", widget: "markdown", default: "Pizzeria artisanale à Aigrefeuille-sur-Maine (44140) – pizzas maison, pasta box et spécialités italiennes à emporter. Commande rapide par téléphone."
           }
           - { label: "Image de couverture", name: "cover_image", widget: "image", required: false }
 

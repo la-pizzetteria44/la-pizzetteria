@@ -531,3 +531,37 @@ table {
 .footer__hours tr + tr {
   border-top: 1px solid rgba(255,255,255,0.05); /* optionnel très léger */
 }
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    header {
+        justify-content: space-between;
+    }
+    .header__burger {
+        display: none;
+    }
+    .header__nav {
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        padding: 0;
+        /* position: static;
+        flex-direction: row;
+        background: transparent;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        padding: 0; */
+    }
+    /* header {
+        padding: 1rem 2rem;
+    }
+
+
+    .header__toggle {
+        display: none;
+    } */
+}

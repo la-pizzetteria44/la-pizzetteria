@@ -12,14 +12,14 @@ const { pizzas, platters, specialties, drinks, desserts } = Astro.props;
 
         <div class="selection-list">
         
-            <!-- {starters.slice(0,2).map((starter: { image: string | null | undefined; name: unknown; }) => (
+            {pizzas.slice(0,1).map((pizza: { image: string | null | undefined; name: unknown; }) => (
                 <article class="card selection__card">
-                    <img src={starter.image} alt={starter.name} />
-                    <h3>{starter.name}</h3>
+                    <img src={pizza.image} alt={pizza.name} />
+                    <h3>{pizza.name}</h3>
                 </article>
             ))}
             
-            {specialties.slice(0,2).map((specialty: { image: string | null | undefined; name: unknown; price: string | number }) => (
+            {specialties.slice(0,1).map((specialty: { image: string | null | undefined; name: unknown; price: string | number }) => (
                 <article class="card selection__card">
                     <img src={specialty.image} alt={specialty.name} />
                     <h3>{specialty.name}</h3>
@@ -27,41 +27,19 @@ const { pizzas, platters, specialties, drinks, desserts } = Astro.props;
                 </article>
             ))}
 
-            {drinks.slice(0,2).map((drink: { image: string | null | undefined; name: unknown; }) => (
+            {drinks.slice(0,1).map((drink: { image: string | null | undefined; name: unknown; }) => (
                 <article class="card selection__card">
                     <img src={drink.image} alt={drink.name} />
                     <h3>{drink.name}</h3>
                 </article>
-            ))} -->
-
-                <article class="card">
-                    <img src={pizzas[Math.floor(Math.random() * pizzas.length)].image} alt={pizzas[Math.floor(Math.random() * pizzas.length)].name} />
-                    <h3>{pizzas[Math.floor(Math.random() * pizzas.length)].name}</h3>
-                </article>
-                <article class="card">
-                    <img src={platters[Math.floor(Math.random() * platters.length)].image} alt={platters[Math.floor(Math.random() * platters.length)].name} />
-                    <h3>{platters[Math.floor(Math.random() * platters.length)].name}</h3>
-                </article>
-                <article class="card">
-                    <img src={specialties[Math.floor(Math.random() * specialties.length)].image} alt={specialties[Math.floor(Math.random() * specialties.length)].name} />
-                    <h3>{specialties[Math.floor(Math.random() * specialties.length)].name}</h3>
-                </article>
-                <article class="card">
-                    <img src={desserts[Math.floor(Math.random() * desserts.length)].image} alt={desserts[Math.floor(Math.random() * desserts.length)].name} />
-                    <h3>{desserts[Math.floor(Math.random() * desserts.length)].name}</h3>
-                </article>
-                <article class="card">
-                    <img src={drinks[Math.floor(Math.random() * drinks.length)].image} alt={drinks[Math.floor(Math.random() * drinks.length)].name} />
-                    <h3>{drinks[Math.floor(Math.random() * drinks.length)].name}</h3>
-                </article>
-          
-
-            <!-- {desserts.slice(0,2).map((dessert: { image: string | null | undefined; name: unknown; }) => ( 
+            ))} 
+         
+            {desserts.slice(0,1).map((dessert: { image: string | null | undefined; name: unknown; }) => ( 
                 <article class="card">
                     <img src={dessert.image} alt={dessert.name} />
                     <h3>{dessert.name}</h3>
                 </article>
-            ))} -->
+            ))}
         </div>
     
         <div class="cta selection__cta">

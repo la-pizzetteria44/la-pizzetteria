@@ -25,7 +25,7 @@ const {dishOfTheMoment} = Astro.props;
                 <h3>{dishOfTheMoment.name}</h3>
 
                 <p class="highlight__ingredients">
-                    {dishOfTheMoment.ingredients?.join(", ")}
+                    Base {dishOfTheMoment.base.replaceAll("-", " ")} · {dishOfTheMoment.ingredients.flat().map((i) => i.trim()).join(" · ")}
                 </p>
                 
                 <p class="highlight__price">

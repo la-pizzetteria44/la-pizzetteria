@@ -106,21 +106,21 @@
 
 .reviews__card {
     flex: 0 0 80%;
-    max-width: 80%;
+    /* max-width: 80%; */
     scroll-snap-align: start;
 }
 
 @media (min-width: 768px) {
     .reviews__card {
         flex: 0 0 45%;
-        max-width: 45%;
+        /* max-width: 45%; */
     }
 }
 
 @media (min-width: 1024px) {
     .reviews__card {
         flex: 0 0 30%;
-        max-width: 30%;
+        /* max-width: 30%; */
     }
 }
 
@@ -148,3 +148,61 @@
 .reviews__nav--next {
     right: -10px;
 }
+
+.reviews__carousel {
+    position: relative;
+}
+
+.reviews__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+}
+
+.reviews__nav--prev {
+    left: -10px;
+}
+
+.reviews__nav--next {
+    right: -10px;
+}
+
+/* Option UX moderne */
+@media (hover: hover) {
+    .reviews__nav {
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .reviews__carousel:hover .reviews__nav {
+        opacity: 1;
+    }
+}
+
+/* .reviews__carousel::before,
+.reviews__carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+} */
+
+/* .reviews__carousel::before {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.reviews__carousel::after {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+} */

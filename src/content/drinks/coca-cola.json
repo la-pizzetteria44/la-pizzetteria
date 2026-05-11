@@ -6,5 +6,6 @@
   "price": 2,
   "tags": [
     "Sans alcool"
-  ]
+  ],
+  "isFavorite": false
 }

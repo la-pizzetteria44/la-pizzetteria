@@ -1,18 +1,27 @@
 ---
 import "../../styles/sections/selection.css";
 
-const { pizzas, platters, specialties, drinks, desserts } = Astro.props;
+const { pizzas, platters, specialties, drinks, desserts, suggestions } = Astro.props;
 // const randomNbr = Math.floor(Math.random() * 2);
-// console.log(randomNbr);
+console.log(suggestions);
 ---
  
  <!-- SELECTION  -->
      <section class="selection">
-        <h2>Un petit plus ?</h2>
+        <h2>Nos favoris</h2>
+        <p>Les incontournables de La Pizzetteria</p>
 
         <div class="selection-list">
-        
-            {pizzas.slice(0,1).map((pizza: { image: string | null | undefined; name: unknown; }) => (
+            {
+                suggestions.map((item: { image: string | null | undefined; name: unknown; price: string | number }) => (
+                    <article class="card selection__card">
+                        <img src={item.image} alt={item.name} />
+                        <h3>{item.name}</h3>
+                        <p>{item.price}</p>
+                    </article>
+                ))
+            }
+            <!-- {pizzas.slice(0,1).map((pizza: { image: string | null | undefined; name: unknown; }) => (
                 <article class="card selection__card">
                     <img src={pizza.image} alt={pizza.name} />
                     <h3>{pizza.name}</h3>
@@ -39,7 +48,7 @@ const { pizzas, platters, specialties, drinks, desserts } = Astro.props;
                     <img src={dessert.image} alt={dessert.name} />
                     <h3>{dessert.name}</h3>
                 </article>
-            ))}
+            ))} -->
         </div>
     
         <div class="cta selection__cta">

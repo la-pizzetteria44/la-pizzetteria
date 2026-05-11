@@ -5,5 +5,6 @@
     "Avec alcool"
   ],
   "category": "Digestif",
-  "price": 22
+  "price": 22,
+  "isFavorite": true
 }

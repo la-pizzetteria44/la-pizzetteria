@@ -29,7 +29,25 @@ pizzas.sort((a,b) => a.name.localeCompare(b.name));
 platters.sort((a,b) => a.name.localeCompare(b.name));
 specialties.sort((a,b) => a.name.localeCompare(b.name));
 drinks.sort((a,b) => a.name.localeCompare(b.name));
-desserts.sort((a,b) => a.name.localeCompare(b.name));   
+desserts.sort((a,b) => a.name.localeCompare(b.name));
+
+// const allItems = [...pizzas, ...platters, ...specialties, ...drinks, ...desserts];
+const allItems = [...drinks];
+console.log(allItems);
+const suggestionsRaw = allItems
+  .filter(item => item.isFavorite)
+//   .sort((a, b) => (a.data.suggestionOrder || 0) - (b.data.suggestionOrder || 0));
+
+const suggestions = [];
+const usedCategories = new Set();
+
+for (const item of suggestionsRaw) {
+  if (!usedCategories.has(item.category)) {
+    suggestions.push(item);
+    usedCategories.add(item.category);
+  }
+  if (suggestions.length === 4) break;
+}
 ---
 <Layout>
 
@@ -43,7 +61,7 @@ desserts.sort((a,b) => a.name.localeCompare(b.name));
     <Highlight dishOfTheMoment={dishOfTheMoment} />
     )}
 	
-    <Selection pizzas={pizzas} platters={platters} specialties={specialties} drinks={drinks} desserts={desserts}/>
+    <Selection suggestions={suggestions} pizzas={pizzas} platters={platters} specialties={specialties} drinks={drinks} desserts={desserts}/>
     
     <div class="container-secondary">
    

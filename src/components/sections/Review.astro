@@ -51,6 +51,31 @@ const { reviews } = Astro.props;
     const track = document.querySelector(".reviews__track");
     const prev = document.querySelector(".reviews__nav--prev");
     const next = document.querySelector(".reviews__nav--next");
+    let autoScroll;
+
+const startAutoScroll = () => {
+    autoScroll = setInterval(() => {
+        track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+    }, 5000); // 5s = bon équilibre lecture
+};
+
+const stopAutoScroll = () => {
+    clearInterval(autoScroll);
+};
+
+// START
+startAutoScroll();
+
+// STOP au hover (desktop)
+track.addEventListener("mouseenter", stopAutoScroll);
+track.addEventListener("mouseleave", startAutoScroll);
+
+// STOP si interaction utilisateur
+next.addEventListener("click", stopAutoScroll);
+prev.addEventListener("click", stopAutoScroll);
+
+// STOP au touch (mobile)
+track.addEventListener("touchstart", stopAutoScroll);
 
     if (!track || !prev || !next) {
         throw new Error("Required review elements not found");

@@ -1,10 +1,11 @@
 {
-  "name": "Terrazza d'Italia Veroneze - blanc",
+  "name": "Terrazza d'Italia Veroneze",
   "image": "/images/drinks/vin-rouge-lilium.jpg",
   "category": "Vin",
   "price": 15,
   "tags": [
     "Avec alcool"
   ],
-  "isFavorite": false
+  "isFavorite": false,
+  "description": "Vin blanc italien"
 }

@@ -2,5 +2,6 @@
   "name": "Tiramisu",
   "description": "Dessert traditionnel italien à base de café",
   "image": "/images/desserts/tiramisu.jpg",
-  "price": 4.2
+  "price": 4.2,
+  "isFavorite": false
 }

@@ -1,7 +1,7 @@
 {
   "category": "Soda",
-  "name": "Coca cola - Coca cola sans sucre",
-  "description": "...",
+  "name": "Sodas",
+  "description": "Coca-Cola, Orangina, Ice Tea, Oasis",
   "image": "/images/drinks/coca-cola.jpg",
   "price": 2,
   "tags": [

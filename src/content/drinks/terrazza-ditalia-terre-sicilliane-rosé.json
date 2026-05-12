@@ -1,10 +1,11 @@
 {
-  "name": "Terrazza d'Italia Terre Sicilliane - rosé",
+  "name": "Terrazza d'Italia Terre Sicilliane",
   "image": "/images/drinks/vin-rouge-lilium.jpg",
   "category": "Vin",
   "price": 15,
   "tags": [
     "Avec alcool"
   ],
-  "isFavorite": false
+  "isFavorite": false,
+  "description": "Vin rosé sicilien"
 }

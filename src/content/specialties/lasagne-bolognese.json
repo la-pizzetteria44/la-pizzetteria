@@ -12,5 +12,5 @@
   "name": "Lasagne Bolognese",
   "description": "Plat en couche de pates, sauce béchamel et sauce bolognaise maison",
   "image": "/images/specialties/lasagne_bolognese.webp",
-  "type": "Pâtes"
+  "type": "Pâtes","isFavorite": false
 }

@@ -1,10 +1,11 @@
 {
-  "name": "Montepulciano d'Abruzzo - rouge ",
+  "name": "Montepulciano d'Abruzzo",
   "image": "/images/drinks/vin-rouge-lilium.jpg",
   "category": "Vin",
   "price": 13,
   "tags": [
     "Avec alcool"
   ],
-  "isFavorite": false
+  "isFavorite": false,
+  "description": "Vin rouge italien"
 }

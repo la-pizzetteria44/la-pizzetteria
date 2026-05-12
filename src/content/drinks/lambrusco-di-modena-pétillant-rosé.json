@@ -1,10 +1,11 @@
 {
-  "name": "Lambrusco di Modena pétillant - rosé",
+  "name": "Lambrusco di Modena",
   "image": "/images/drinks/vin-rouge-lilium.jpg",
   "category": "Vin",
   "tags": [
     "Avec alcool"
   ],
   "price": 11.5,
-  "isFavorite": false
+  "isFavorite": false,
+  "description": "Vin rosé italien pétillant"
 }

@@ -21,7 +21,7 @@ const { title, items } = Astro.props;
                         
                     
                     </div>
-                    <div class="filter-bottom">
+                    <div class="filter-middle">
 
                         <button data-filter="végétarien">
                             <span class="icon">
@@ -75,7 +75,7 @@ const { title, items } = Astro.props;
 
                         <button data-filter="all" class="active">Tous</button>
                          </div>
-                        <div class="filter-bottom">
+                        <div class="filter-middle">
                             <button data-filter="Vin">Vin</button>
                             <button data-filter="Bière">Bière</button>
                             <button data-filter="Soda">Soda</button>
@@ -104,15 +104,15 @@ const { title, items } = Astro.props;
                         : "";
 
                 return      (
-				<article class="card items-list__item" data-base={item.base || "none"} data-tags={item.tags?.join(",")} data-category={item.category}>
-					<img src={item.image} alt={item.name} loading="lazy" class="items-list__image" />
+				<article class="items-list__item" data-base={item.base || "none"} data-tags={item.tags?.join(",")} data-category={item.category} data-highlight={item.highlight ? "true" : "false"}>
+                    {
+                        title !== "Boissons" && <img src={item.image} alt={item.name} loading="lazy" class="items-list__image" />
+                    }
                     <div class="items-list__content">
                         <h3 class="items-list__title">
-                            {item.name}
-                            {item.highlight && <span> ⭐</span>}
-                            {item.tags?.includes("végétarien") && <span class="icon"><Leaf size={16}/></span>}
-                            {item.tags?.some(tag => tag.toLowerCase().includes("épicé")) && <span class="icon"><Flame size={16}/></span>}
-                            {item.tags?.some(tag => tag.toLowerCase().includes("végétarien")) && <span class="icon"><Leaf size={16}/></span>}
+                            <span>{item.name}</span> {item.tags?.some(tag => tag.toLowerCase().includes("épicé")) && <span class="icon"><Flame size={16}/></span>}
+                            {item.tags?.some(tag => tag.toLowerCase().includes("végétarien")) && <span class="icon"><Leaf size={16}/></span>} {(title !== "Spécialités" && title !== "Plateaux") && <span class="items-list__price">{item?.price?.toFixed(2)}€</span>}
+                            
                         </h3>
                         <p class="items-list__text">
                             {title === "Pizzas" || title === "Plateaux" ? (
@@ -126,7 +126,7 @@ const { title, items } = Astro.props;
                                 <span>{item.description}</span>
                                 }</p>
                         {
-                            title === "Spécialités" || title === "Plateaux" ? (
+                            title === "Spécialités" || title === "Plateaux" && (
                                 
                                     item.formats.map((format: { label: string; price: number }) => (
                                         <div class="items-list__format">
@@ -138,10 +138,9 @@ const { title, items } = Astro.props;
                                         </div>
                                     ))
                                 
-                            ) : (
-                                <p class="items-list__price">{item?.price?.toFixed(2)}€</p>
+                            )  
 
-                            )
+                            
                         }
                     </div>
 				</article>

@@ -1,10 +1,11 @@
 {
   "category": "Vin",
-  "name": "Lilium - rouge",
+  "name": "Lilium",
   "price": 16,
   "tags": [
     "Avec alcool"
   ],
   "image": "/images/drinks/vin-rouge-lilium.jpg",
-  "isFavorite": false
+  "isFavorite": false,
+  "description": "Vin rouge italien"
 }

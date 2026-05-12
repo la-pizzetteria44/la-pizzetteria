@@ -1,10 +1,11 @@
 {
-  "name": "Lambrusco Grasparossa pétillant - rouge",
+  "name": "Lambrusco Grasparossa",
   "image": "/images/drinks/vin-rouge-lilium.jpg",
   "category": "Vin",
   "price": 11.5,
   "tags": [
     "Avec alcool"
   ],
-  "isFavorite": false
+  "isFavorite": false,
+  "description": "Vin rouge italien pétillant"
 }

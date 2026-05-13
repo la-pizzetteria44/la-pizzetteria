@@ -32,7 +32,7 @@
 }
 
 .highlight__img {
-	max-width: 100%;
+	width: 100%;
     max-height: 300px;
     border-radius: 1rem 1rem 0 0;
 }

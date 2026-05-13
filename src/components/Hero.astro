@@ -6,26 +6,28 @@ const { infos, special } = Astro.props;
 ---
 
 <section class="hero">
-    <img class="hero__img" src={infos.cover_image} alt="Restaurant - cuisine maison" width="800" height="500" loading="eager" fetchpriority="high"/>
-    
-    <div class="hero_overlay">
-        
-        <div class="hero__content">
-                {
-                    special?.enabled && (
-                        <div class="hero__warning">
-                            <p class="hero__warning__text">{special.content}</p>
-                            <hr class="hero__warning__divider" />
-                        </div>
-                    )
-                }
-               
-
-                <h1 class="hero__title">{infos.title}</h1>
-                <p class="hero__subtitle">· {infos.subtitle} ·</p>
-            </div>
+    <div class="hero__top">
+            <div class="hero__content">
+            {
+                special?.enabled && (
+                    <div class="hero__warning">
+                        <p class="hero__warning__text">{special.content}</p>
+                        <hr class="hero__warning__divider" />
+                    </div>
+                )
+            }
             
-            <div class="cta hero__cta">
+            <h1 class="hero__title">{infos.title}</h1>
+            <p class="hero__subtitle">· {infos.subtitle} ·</p>
+        </div>
+            
+    </div>
+    <div class="hero__img">
+        <img class="hero__img" src={infos.cover_image} alt="Restaurant - cuisine maison"  loading="eager" fetchpriority="high"/>
+
+    </div>
+    <div class="hero_bottom">
+        <div class="cta hero__cta">
                 <a href="tel:0228028829" class="btn btn--primary" title="Nous appeler" aria-label="Appeler la pizzetteria"><Phone size={24}/>
                     <span>Commander</span>
                 </a>
@@ -33,5 +35,8 @@ const { infos, special } = Astro.props;
                     <span>Voir le menu</span>
                 </a>
             </div>
-        </div>
+    </div>
+    <!-- <div class="hero_overlay"> -->
+        
+  
 </section>

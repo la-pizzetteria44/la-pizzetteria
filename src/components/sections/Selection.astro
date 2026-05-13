@@ -2,7 +2,6 @@
 import "../../styles/sections/selection.css";
 
 const { pizzas, platters, specialties, drinks, desserts, suggestions } = Astro.props;
-// const randomNbr = Math.floor(Math.random() * 2);
 console.log(suggestions);
 ---
  
@@ -17,38 +16,10 @@ console.log(suggestions);
                     <article class="card selection__card">
                         <img src={item.image} alt={item.name} />
                         <h3>{item.name}</h3>
-                        <p>{item.price}</p>
                     </article>
                 ))
             }
-            <!-- {pizzas.slice(0,1).map((pizza: { image: string | null | undefined; name: unknown; }) => (
-                <article class="card selection__card">
-                    <img src={pizza.image} alt={pizza.name} />
-                    <h3>{pizza.name}</h3>
-                </article>
-            ))}
-            
-            {specialties.slice(0,1).map((specialty: { image: string | null | undefined; name: unknown; price: string | number }) => (
-                <article class="card selection__card">
-                    <img src={specialty.image} alt={specialty.name} />
-                    <h3>{specialty.name}</h3>
-                    <p>{specialty.price}</p>
-                </article>
-            ))}
-
-            {drinks.slice(0,1).map((drink: { image: string | null | undefined; name: unknown; }) => (
-                <article class="card selection__card">
-                    <img src={drink.image} alt={drink.name} />
-                    <h3>{drink.name}</h3>
-                </article>
-            ))} 
-         
-            {desserts.slice(0,1).map((dessert: { image: string | null | undefined; name: unknown; }) => ( 
-                <article class="card">
-                    <img src={dessert.image} alt={dessert.name} />
-                    <h3>{dessert.name}</h3>
-                </article>
-            ))} -->
+          
         </div>
     
         <div class="cta selection__cta">

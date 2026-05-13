@@ -173,6 +173,8 @@ body:has(.header__toggle:checked) {
 
 #menu > section {
     padding: 1rem;
+    max-width: 680px;
+    margin: auto;
 }
 
 .items-list{
@@ -652,7 +654,6 @@ table {
 
     .header-status {
         width: 100%;
-        /* margin: auto; */
     }
 
     .filters {

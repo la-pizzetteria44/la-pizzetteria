@@ -31,8 +31,8 @@ specialties.sort((a,b) => a.name.localeCompare(b.name));
 drinks.sort((a,b) => a.name.localeCompare(b.name));
 desserts.sort((a,b) => a.name.localeCompare(b.name));
 
-// const allItems = [...pizzas, ...platters, ...specialties, ...drinks, ...desserts];
-const allItems = [...drinks];
+const allItems = [...pizzas, ...platters, ...specialties, ...drinks, ...desserts];
+// const allItems = [...drinks];
 console.log(allItems);
 const suggestionsRaw = allItems
   .filter(item => item.isFavorite)

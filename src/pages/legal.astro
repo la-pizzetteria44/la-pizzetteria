@@ -1,8 +1,5 @@
 ---
-import { Phone, Map } from "@lucide/astro";
-
 import Layout from '../layouts/Layout.astro';
-import Home from '../components/Home.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import hours from '../content/hours/hours.json';
@@ -36,8 +33,6 @@ const formattedDays = daysOrder.map(dayKey => {
 
 <Layout title="Mentions légales">
 
-    <Header />
-
 <main class="policy-legal">
       <h1>Mentions légales</h1>
 
@@ -45,46 +40,70 @@ const formattedDays = daysOrder.map(dayKey => {
         <h2>Éditeur du site</h2>
         <p>
           Le présent site est édité par :
-          <br /><strong>[Nom de l’établissement]</strong><br />
-          [Adresse complète]<br />
-          📞 [Téléphone]<br />
-          📧 [Email]
+          <br /><strong>La Pizzetteria</strong><br />
+            Société à responsabilité limitée (SARL)<br />
+            SIRET : 927 722 918 00012<br />
+          3 Avenue de la Vendée, 44140 Aigrefeuille-sur-Maine<br />
+          📞 02 28 02 88 29<br />
+          📧 lapizzetteria2@gmail.com
         </p>
       </section>
 
       <section>
         <h2>Directeur de la publication</h2>
-        <p>[Nom du gérant]</p>
+        <p>Guillaume Nodon</p>
       </section>
 
       <section>
         <h2>Hébergement</h2>
         <p>Le site est hébergé par :<br />
-          [Nom hébergeur]<br />
-          [Adresse]<br />
-          <a href="#">Site web</a>
+        Netlify, Inc.<br />
+        2325 3rd Street, Suite 296<br />
+        San Francisco, CA 94107<br />
+        États-Unis<br />
+        <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
+            https://www.netlify.com
+        </a>
         </p>
       </section>
 
       <section>
         <h2>Propriété intellectuelle</h2>
         <p>
-          L’ensemble du contenu du site (textes, images, graphismes, logo, etc.) est la propriété exclusive de [Nom de l’établissement], sauf mention contraire. Toute reproduction, distribution, modification, adaptation, retransmission ou publication de ce contenu est strictement interdite sans l’accord écrit préalable de [Nom de l’établissement].
+          L’ensemble du contenu du site (textes, images, graphismes, logo, etc.) est la propriété exclusive de La Pizzetteria, sauf mention contraire. Toute reproduction, distribution, modification, adaptation, retransmission ou publication de ce contenu est strictement interdite sans l’accord écrit préalable de La Pizzetteria.
         </p>
       </section>
+
+       <section>
+            <h2>Données personnelles</h2>
+            <p>
+             Le site ne collecte aucune donnée personnelle.
+            </p>
+        </section>
+
+          <section>
+            <h2>Cookies</h2>
+             <p>
+                Le site n’utilise actuellement aucun cookie ni outil de suivi.
+                Des outils de mesure d’audience pourront être ajoutés ultérieurement,
+                avec affichage d’un bandeau de consentement conforme à la réglementation.
+            </p>
+        </section>
 
       <section>
         <h2>Responsabilité</h2>
         <p>
-          Les informations présentes sur le site sont fournies à titre indicatif.
-L’éditeur ne saurait être tenu responsable des omissions, inexactitudes ou carences dans la mise à jour.
+            Les informations présentes sur le site sont fournies par l’éditeur à titre indicatif.
+            Celui-ci est seul responsable de leur exactitude et de leur mise à jour.
+            L’éditeur ne saurait être tenu responsable des erreurs, omissions ou d’une indisponibilité du site.
         </p>
       </section>
 
       <section>
         <h2>Crédits</h2>
         <p>
-          Conception et développement du site : Romain Fournier
+          Conception et développement du site : Romain Fournier<br/>
+          Site réalisé avec Astro et hébergé sur Netlify
         </p>
       </section>
   </main>

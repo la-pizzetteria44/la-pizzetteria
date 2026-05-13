@@ -10,5 +10,8 @@
     ]
   ],
   "image": "/images/pizzas/4-formaggi.jpg",
-  "price": 11.9
+  "price": 11.9,
+  "tags": [
+    "Végétarien"
+  ]
 }

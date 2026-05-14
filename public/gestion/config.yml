@@ -305,8 +305,7 @@ collections:
     identifier_field: "author"
     summary: "{{author}} - {{rating}} étoiles"
     fields:
-      - { label: "Nom du client", name: "author", widget: "string" }
-      
+      - { label: "Nom du client", name: "author", widget: "string" }      
       - { label: "Note", name: "rating", widget: "number", value_type: "int", min: 1, max: 5 }
       
       - { label: "Contenu de l'avis", name: "content", widget: "markdown" }

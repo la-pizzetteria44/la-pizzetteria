@@ -105,6 +105,7 @@ const { title, items } = Astro.props;
 
                 return      (
 				<article class="items-list__item" data-base={item.base || "none"} data-tags={item.tags?.join(",")} data-category={item.category} data-highlight={item.highlight ? true : false}>
+                    {item.highlight && <div class="items-list__badge">Pizza du moment</div>}
                     {
                         title !== "Boissons" && <img src={item.image} alt={item.name} loading="lazy" class="items-list__image" />
                     }
@@ -158,3 +159,21 @@ const { title, items } = Astro.props;
     import '../../scripts/initMenu';
 
 </script>
+
+<style>
+    .items-list__item{
+        position: relative;
+    }
+    .items-list__badge{
+        position: absolute;
+        top: -12px;
+        left: -5px;
+        background: var(--color-secondary);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        color: #fff;
+        padding: 0.25rem 0.5rem;
+        font-size: 1.2rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+    }
+</style>

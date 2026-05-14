@@ -2,8 +2,10 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Gestion du site</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://tortue-ninja.netlify.app/gestion/" />
+    <title>Gestion du site</title>
 
     <style>
       body {
@@ -14,41 +16,18 @@
         height: 100vh;
       }
 
-      .logo {
-        font-size: 28px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .subtitle {
-        opacity: 0.7;
-        margin-bottom: 30px;
-      }
-
-      .loader {
-        width: 40px;
-        height: 40px;
-        border: 4px solid rgba(255,255,255,0.2);
-        border-top: 4px solid white;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
     </style>
   </head>
 
   <body>
- 
+      <p style="text-align:center;margin-top:2rem;">
+        Chargement du panneau d'administration...
+    </p>
 
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
        
 <script is:inline>
-  if (typeof window !== "undefined") {
+
     const script = document.createElement("script");
     script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
     document.body.appendChild(script);
@@ -58,7 +37,7 @@
         window.netlifyIdentity.init();
 
         window.netlifyIdentity.on("login", () => {
-          window.location.href = "/admin/";
+          window.location.href = "/gestion/";
         });
 
         const params = new URLSearchParams(window.location.search);
@@ -67,7 +46,7 @@
         }
       }
     };
-  }
+  
 </script>
   </body>
 </html>

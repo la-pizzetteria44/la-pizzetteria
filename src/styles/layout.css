@@ -167,7 +167,6 @@ body:has(.header__toggle:checked) {
 /* FIN HEADER */
 
 #menu {
-    /* background: linear-gradient(135deg, #FFF7ED, #FFEDD5); */
     background: #fff;
 }
 
@@ -553,14 +552,7 @@ table {
         pointer-events: auto;
         padding: 0;
         justify-content: end;
-        width: fit-content
-        /* position: static;
-        flex-direction: row;
-        background: transparent;
-        transform: none;
-        opacity: 1;
-        pointer-events: auto;
-        padding: 0; */
+        width: fit-content;
     }
 
     .header__link {
@@ -573,14 +565,6 @@ table {
         color: #fff;
         transform: scale(1.05);
     }
-    /* header {
-        padding: 1rem 2rem;
-    }
-
-
-    .header__toggle {
-        display: none;
-    } */
 }
 
 
@@ -588,7 +572,6 @@ table {
 
 .items-list__item[data-highlight="true"] {
   background: #fff3e6;
-  /* border-left: 2px solid #000000; */
   padding-left: 10px;
   border-radius: 1rem;
 }

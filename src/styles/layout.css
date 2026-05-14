@@ -54,7 +54,6 @@ header a {
   transition: all 0.3s ease;
 }
 
-/* quand ouvert */
 .header__toggle:checked ~ .header__nav {
   transform: translateY(0);
   opacity: 1;
@@ -76,11 +75,10 @@ header a {
   pointer-events: auto;
 }
 
-.header__call {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.header__call{
+    display: none;
 }
+
 
 .header__call-link {
     color: #fff;
@@ -540,6 +538,12 @@ table {
     header {
         justify-content: space-between;
     }
+
+    .header__call {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
     .header__burger {
         display: none;
     }
@@ -572,8 +576,9 @@ table {
 
 .items-list__item[data-highlight="true"] {
   background: #fff3e6;
-  padding-left: 10px;
+  padding: 0.8rem;
   border-radius: 1rem;
+  transform: scale(1.05);
 }
 .items-list__price {
   margin-left: auto;

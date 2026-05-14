@@ -1,4 +1,5 @@
 ---
+import { Phone } from "@lucide/astro";
 import logo from "../../public/images/logo.png";
 
 import hours from '../content/hours/hours.json';
@@ -20,14 +21,13 @@ import hours from '../content/hours/hours.json';
             <span class="header__status-text">Chargement...</span>
     </a>
 
-    <!-- <div class="header__call">
+    <div class="header__call">
         <a href="tel:0228028829" class="header__call-link" title="Nous appeler" aria-label="Appeler la pizzetteria">
             <Phone class="header__call-icon" size={20} />
             <span class="header__call-text">Commander</span>
         </a>
-    </div> -->
+    </div>
 
-    <!-- Burger toggle (no JS) -->
     <input type="checkbox" id="nav-toggle" class="header__toggle" />
     <label for="nav-toggle" class="header__burger">
         <span></span>
@@ -40,6 +40,7 @@ import hours from '../content/hours/hours.json';
     <nav class="header__nav">
         <a href="/" class="header__link">Accueil</a>
         <a href="/menu" class="header__link">Menu</a>
+        <a href="/#footer-main" class="header__link">Horaires & localisation</a>
     </nav>
 
     

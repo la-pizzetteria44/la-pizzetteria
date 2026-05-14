@@ -10,7 +10,7 @@ const { formattedDays } = Astro.props;
 
 <footer class="footer">
 
-    <div class="footer-main">
+    <div id="footer-main" class="footer-main">
 
         <!-- IDENTITÉ -->
         <div class="footer-block">
@@ -41,19 +41,13 @@ const { formattedDays } = Astro.props;
 
                 </tbody>
             </table>
-            <!-- {formattedDays.map((d: { day: string | any[]; value: unknown; }) => (
-                <p class="footer-hours">
-                <strong>{d.day.slice(0,3)}</strong> — {d.value}
-            </p>
-            ))} -->
         </div>
 
         <!-- NAV -->
         <div class="footer-block">
             <h3>Navigation</h3>
             <a href="home">Accueil du site</a>
-            <a href="menu">Nos produits</a>
-            <a href="visit">Venir chez nous</a>
+            <a href="menu">Notre carte</a>
         </div>
 
         <!-- SOCIAL -->

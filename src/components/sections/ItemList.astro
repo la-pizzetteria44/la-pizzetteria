@@ -96,7 +96,7 @@ const { title, items } = Astro.props;
 
 		<div class="items-list">
 			{items.map((item: {
-            [x: string]: unknown; tags: any[]; image: string | null | undefined; name: unknown; highlight: any; description: string , ingredients: string[] ; price: number; formats: { label: string; price: number }[] 
+            [x: string]: unknown; tags: any[]; image: string | null | undefined; name: string; highlight: any; description: string ; ingredients: string[] ; price: number; formats: { label: string; price: number }[]; base?: string; category?: string
             }) => {
                 const baseLabel =
                     typeof item.base === "string"

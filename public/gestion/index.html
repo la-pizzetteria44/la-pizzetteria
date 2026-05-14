@@ -20,14 +20,16 @@
   </head>
 
   <body>
-      <p style="text-align:center;margin-top:2rem;">
-        Chargement du panneau d'administration...
+    <noscript>
+    <p style="text-align:center;margin-top:2rem;">
+        JavaScript est requis pour accéder à l'administration.
     </p>
+    </noscript>
 
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
        
 <script is:inline>
-
+ 
     const script = document.createElement("script");
     script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
     document.body.appendChild(script);

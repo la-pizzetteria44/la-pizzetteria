@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: Romain-14/la-pizzetteria
+  name: git-gateway
   branch: main
 
 local_backend: true

@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://tortue-ninja.netlify.app
   auth_endpoint: /.netlify/functions/auth
+  auth_type: implicit
 
 # local_backend: true
 

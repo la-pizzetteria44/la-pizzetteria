@@ -3,7 +3,7 @@
   "city": "Aigrefeuille-sur-Maine (44140)",
   "description": "Fondée par Eddy, La Pizzetteria perpétue son savoir-faire grâce à Guillaume.\n\nPizzas artisanales, produits italiens et desserts faits maison vous attendent.\n",
   "cover_image": "/images/pizza_bella.jpg",
-  "site_url": "http://localhost:4321",
+  "site_url": "https://tortue-ninja.netlify.app",
   "subtitle": "Pizzas artisanales et produits italiens à emporter",
   "google_description": "Pizzeria artisanale à Aigrefeuille-sur-Maine (44140) – pizzas maison, pasta et spécialités italiennes à emporter. Commande rapide par téléphone."
 }

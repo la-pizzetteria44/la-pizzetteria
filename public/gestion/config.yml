@@ -3,7 +3,7 @@ backend:
   repo: Romain-14/la-pizzetteria
   branch: main
   base_url: https://tortue-ninja.netlify.app
-  auth_endpoint: /.netlify/functions/auth
+  auth_endpoint: auth
   auth_type: implicit
 
 # local_backend: true

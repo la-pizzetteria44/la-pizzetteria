@@ -1,9 +1,7 @@
 backend:
-  name: github
-  repo: Romain-14/la-pizzetteria
+  name: git-gateway
   branch: main
-  auth_endpoint: https://decap-cms-oauth.netlify.app/auth
-
+ 
 # local_backend: true
 
 media_folder: "public/images/"

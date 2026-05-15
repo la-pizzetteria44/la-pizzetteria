@@ -2,8 +2,7 @@ backend:
   name: github
   repo: Romain-14/la-pizzetteria
   branch: main
-  base_url: https://decap-cms-oauth.netlify.app
-  auth_endpoint: auth
+  auth_endpoint: https://decap-cms-oauth.netlify.app/auth
 
 # local_backend: true
 

@@ -37,12 +37,15 @@
     if (window.netlifyIdentity) {
       window.netlifyIdentity.init();
 
-      const params = new URLSearchParams(window.location.search);
+      const hash = window.location.hash;
 
-      if (params.has("invite_token") || params.has("recovery_token")) {
+      if (
+        hash.includes("invite_token") ||
+        hash.includes("recovery_token")
+      ) {
         setTimeout(() => {
           window.netlifyIdentity.open();
-        }, 500); 
+        }, 500);
       }
 
       window.netlifyIdentity.on("login", () => {

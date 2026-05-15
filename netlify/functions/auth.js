@@ -10,6 +10,7 @@ export async function handler(event) {
       client_id: process.env.GITHUB_CLIENT_ID,
       client_secret: process.env.GITHUB_CLIENT_SECRET,
       code,
+      redirect_uri: "https://tortue-ninja.netlify.app/gestion/"
     }),
   });
 

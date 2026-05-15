@@ -27,32 +27,19 @@
     </noscript>
 
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
-       
-<script>
-  const script = document.createElement("script");
-  script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
-  document.body.appendChild(script);
-
-  script.onload = () => {
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.init();
+        window.netlifyIdentity.on("init", user => {
+        if (!user && window.location.hash.includes("recovery_token")) {
+            window.netlifyIdentity.open();
+        }
+        });
 
-      const hash = window.location.hash;
-
-      if (
-        hash.includes("invite_token") ||
-        hash.includes("recovery_token")
-      ) {
-        setTimeout(() => {
-          window.netlifyIdentity.open();
-        }, 500);
-      }
-
-      window.netlifyIdentity.on("login", () => {
-        window.location.href = "/gestion/";
-      });
+        window.netlifyIdentity.on("login", () => {
+        document.location.href = "/gestion/";
+        });
     }
-  };
-</script>
+    </script>
   </body>
 </html>

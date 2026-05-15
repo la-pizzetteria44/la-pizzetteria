@@ -28,18 +28,27 @@
     <script src="https://unpkg.com/netlify-identity-widget/build/netlify-identity-widget.js"></script>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script >
-        netlifyIdentity.on("login", () => {
-        document.location.href = "/gestion/";
-        });
+        // netlifyIdentity.on("login", () => {
+        // document.location.href = "/gestion/";
+        // });
 
-        const url = new URL(window.location.href);
-        const params = url.searchParams;
+        // const url = new URL(window.location.href);
+        // const params = url.searchParams;
 
-        if (
-        params.has("invite_token") ||
-        params.has("recovery_token")
-        ) {
-        netlifyIdentity.open();
+        // if (
+        // params.has("invite_token") ||
+        // params.has("recovery_token")
+        // ) {
+        // netlifyIdentity.open();
+        // }
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", (user) => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                document.location.href = "/gestion/";
+                });
+            }
+            });
         }
     </script>
   </body>

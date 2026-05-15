@@ -28,27 +28,28 @@
 
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
        
-<script is:inline>
- 
-    const script = document.createElement("script");
-    script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
-    document.body.appendChild(script);
+<script>
+  const script = document.createElement("script");
+  script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  document.body.appendChild(script);
 
-    script.onload = () => {
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.init();
+  script.onload = () => {
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.init();
 
-        window.netlifyIdentity.on("login", () => {
-          window.location.href = "/gestion/";
-        });
+      const params = new URLSearchParams(window.location.search);
 
-        const params = new URLSearchParams(window.location.search);
-        if (params.has("invite_token") || params.has("recovery_token")) {
+      if (params.has("invite_token") || params.has("recovery_token")) {
+        setTimeout(() => {
           window.netlifyIdentity.open();
-        }
+        }, 500); 
       }
-    };
-  
+
+      window.netlifyIdentity.on("login", () => {
+        window.location.href = "/gestion/";
+      });
+    }
+  };
 </script>
   </body>
 </html>

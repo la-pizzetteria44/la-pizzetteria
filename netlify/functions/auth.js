@@ -1,5 +1,20 @@
 export async function handler(event) {
-  const code = event.queryStringParameters.code;
+  let code;
+
+  // 🔥 gérer les 2 cas (GET + POST)
+  if (event.httpMethod === "POST") {
+    const body = JSON.parse(event.body);
+    code = body.code;
+  } else {
+    code = event.queryStringParameters.code;
+  }
+
+  if (!code) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "No code provided" }),
+    };
+  }
 
   const res = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
@@ -10,7 +25,6 @@ export async function handler(event) {
       client_id: process.env.GITHUB_CLIENT_ID,
       client_secret: process.env.GITHUB_CLIENT_SECRET,
       code,
-      redirect_uri: "https://tortue-ninja.netlify.app/gestion/"
     }),
   });
 

@@ -7,14 +7,18 @@ local_backend: true
 media_folder: "public/images/"
 public_folder: "/images/"
 
-collections:
+search: false
 
-  
-  # 🔹 PIZZAS
+collections:
+ 
+  # PIZZAS
   - name: "pizzas"
     label: "Pizzas"
     folder: "src/content/pizzas"
     create: true
+    editor:
+      preview: false
+    sortable_fields: ["name", "price"]
     media_folder: "/public/images/pizzas"
     public_folder: "/images/pizzas"
     extension: "json"
@@ -113,13 +117,15 @@ collections:
     label: "Spécialités"
     folder: "src/content/specialties"
     create: true
+    editor:
+      preview: false
     media_folder: "/public/images/specialties"
     public_folder: "/images/specialties"
     extension: "json"
     format: "json"
     slug: "{{slug}}"
     identifier_field: "name"
-    summary: "{{name}} ({{fields.formats.length}} formats)"
+    summary: "{{name}}"
     sortable_fields: ["name", "price"]
     fields:
         - { label: "Nom", name: "name", widget: "string" }
@@ -156,21 +162,23 @@ collections:
     label: "Plateaux"
     folder: "src/content/platters"
     create: true
+    editor:
+      preview: false
     media_folder: "/public/images/platters"
     public_folder: "/images/platters"
     extension: "json"
     format: "json"
     slug: "{{slug}}"
-    identifier_field: "name" # 🔥 IMPORTANT
-    summary: "{{name}}" # 🔥 IMPORTANT
+    identifier_field: "name"
+    summary: "{{name}}"
     sortable_fields: ["name"]
     fields:
-        - { label: "Nom du produit", name: "name", widget: "string" }
+        - { label: "Nom", name: "name", widget: "string" }
         - { label: "Image", name: "image", widget: "image" }
         - label: "Formats"
           name: "formats"
           widget: "list"
-          summary: "{{fields.label}} - {{fields.price}}€"
+          summary: "{{fields.label}}"
           fields:
             - label: "Nom du format"
               name: "label"
@@ -222,11 +230,14 @@ collections:
     media_folder: "/public/images/desserts"
     public_folder: "/images/desserts"
     create: true
+    editor:
+      preview: false
     extension: "json"
     format: "json"
     slug: "{{slug}}"
     identifier_field: "name"
     summary: "{{name}} - {{price}}€"
+    sortable_fields: ["name", "price"]
     fields:
       - { label: "Nom", name: "name", widget: "string" }
       - { label: "Description", name: "description", widget: "string", required: false }
@@ -238,6 +249,7 @@ collections:
         widget: "boolean",
         default: false,
         hint: "Cochez pour mettre ce dessert en avant sur la page d'accueil"}
+
   # 🔹 BOISSONS
   - name: "drinks"
     label: "Boissons"
@@ -245,11 +257,14 @@ collections:
     media_folder: "/public/images/drinks"
     public_folder: "/images/drinks"
     create: true
+    editor:
+      preview: false
     extension: "json"
     format: "json"
     slug: "{{slug}}"
     identifier_field: "name"
     summary: "{{name}} - {{price}}€"
+    sortable_fields: ["name", "price"]
     fields:
       - { label: "Nom", name: "name", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
@@ -276,16 +291,20 @@ collections:
         widget: "boolean",
         default: false,
         hint: "Cochez pour mettre cette boisson en avant sur la page d'accueil"}
+  
   # AVIS GOOGLE
   - name: "reviews"
     label: "Avis clients"
     folder: "src/content/reviews"
     create: true
+    editor:
+      preview: false
     extension: "json"
     format: "json"
     slug: "{{slug}}"
     identifier_field: "author"
     summary: "{{author}} - {{rating}} étoiles"
+    sortable_fields: ["author", "rating"]
     fields:
       - { label: "Nom du client", name: "author", widget: "string" }      
       - { label: "Note", name: "rating", widget: "number", value_type: "int", min: 1, max: 5 }
@@ -298,14 +317,13 @@ collections:
       
       - { label: "Mettre en avant", name: "featured", widget: "boolean", default: false }
 
-  # 🔹 HORAIRES
+  # HORAIRES
   - name: "hours"
     label: "Horaires"
     files:
       - file: "src/content/hours/hours.json"
         name: "hours"
         label: "Horaires"
-        widget: "object"
         fields:
           - label: "Lundi"
             name: "lundi"
@@ -364,10 +382,8 @@ collections:
     label: "Message exceptionnel"
     files:
       - file: "src/content/information/special.json"
-        create: true
         name: "special"
         label: "Modifier le message"
-        widget: "object"
         fields:
           - label: "Activer le message d'exceptionnel"
             name: "enabled"

@@ -1,8 +1,8 @@
 ---
 import "../../styles/sections/selection.css";
 
-const { pizzas, platters, specialties, drinks, desserts, suggestions } = Astro.props;
-console.log(suggestions);
+const { suggestions } = Astro.props;
+
 ---
  
  <!-- SELECTION  -->
@@ -12,7 +12,7 @@ console.log(suggestions);
 
         <div class="selection-list">
             {
-                suggestions.map((item: { image: string | null | undefined; name: unknown; price: string | number }) => (
+                suggestions.map((item: { image: string | null | undefined; name: string; price: string | number }) => (
                     <article class="card selection__card">
                         <img src={item.image} alt={item.name} />
                         <h3>{item.name}</h3>

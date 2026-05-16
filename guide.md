@@ -1,74 +1,31 @@
-# 🍕 Guide d'utilisation du site – La Pizzetteria
+# Guide d'utilisation du panneau d'administration – La Pizzetteria
 
-## 🔐 Accès à l'administration
+## Accès à l'interface d'administration
 
 Rendez-vous sur :
 👉 https://la-pizzetteria.fr/gestion
 
 Connectez-vous avec vos identifiants.
+Pensez à bien vous déconnecter pour renforcer la sécurité :
+
+- cliquer sur l'image du profil en haut à droite de l'interface, puis sur "logout"
 
 ---
 
-## ✏️ Modifier le menu
+## Présentation de l'interface
 
-1. Cliquez sur **"Menu"**
-2. Choisissez une catégorie (Pizzas, Boissons, etc.)
-3. Cliquez sur un élément pour le modifier
+Bandeau blanc en haut -> Menu de navigation
 
----
+- Contents : vos produits
+- Media : vos images déjà soumises lors d'ajout/modification de produits
+- Quick add : accès direct à une collection spécifique pour ajouter un produit
+- profile (image) : permets de vous déconnecter
 
-## ➕ Ajouter un produit
+Bloc gauche "Collections" -> accès à tous les produits/données
 
-1. Cliquez sur **"New"**
-2. Remplissez :
+Bandeau central haut -> nom de la collection choisie et boutons pour ajouter un produit avec "New Pizzas" si collections "Pizzas" est selectionnée
 
-   * Nom
-   * Description
-   * Prix
-   * Image
-3. Cliquez sur **"Publish"**
-
----
-
-## 🖼️ Ajouter une image
-
-* Cliquez sur le champ image
-* Importez une photo
-* Validez
-
-💡 Conseil : utilisez des images carrées de bonne qualité
-
----
-
-## ⭐ Mettre en avant un produit
-
-Activez l'option :
-👉 "Mise en avant" / "Pizza du moment"
-
----
-
-## 💾 Sauvegarder
-
-* **Publish** → visible sur le site
-* **Save Draft** → brouillon
-
----
-
-## 📞 Modifier les infos (horaires, téléphone)
-
-Ces informations sont dans :
-👉 Paramètres du site / fichier dédié
-
-(Si besoin, me contacter)
-
----
-
-## ⚠️ Important
-
-* Toute modification est visible immédiatement après publication
-* Vérifiez toujours avant de publier
-
----
+Remplisser les champs, et valider la publication en cliquant sur "Publish" -> "Publish now" dans le bandeau en haut
 
 ## 🧑‍💻 Support
 

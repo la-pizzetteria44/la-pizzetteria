@@ -2,31 +2,14 @@ backend:
   name: git-gateway
   branch: main
  
-# local_backend: true
+local_backend: true
 
 media_folder: "public/images/"
 public_folder: "/images/"
 
 collections:
 
-  # 🔹 INFOS GÉNÉRALES (fichier unique)
-  - name: "infos"
-    label: "Informations générales"
-    files:
-      - file: "src/content/infos.json"
-        name: "infos"
-        label: "Informations générales"
-        fields:
-          - { label: "Titre", name: "title", widget: "string", default: "Gastro-Resto" }
-          - { label: "Ville", name: "city", widget: "string", default: "Nantes" }
-          - { label: "URL", name: "site_url", widget: "string", default: "https://astro-decap-template.netlify.app" }
-          - { label: "Sous-titre", name: "subtitle", widget: "string", default: "Cuisine maison • Produits frais • Sur place & à emporter" }
-          - { label: "Description", name: "description", widget: "markdown", default: "Pizzaïolo Edmondo, dit Eddy, a mis son talent au service de vos papilles pour créer « La Pizzetteria » à Aigrefeuille-sur-Maine (44140).Aujourd’hui il passe la main à son jeune « padawan » Guillaume qu’il a su formé et qui continuera à mettre en valeur les produits italien.Laissez vous tenter par nos pizzas et desserts faits maison dans la tradition transalpine, ainsi que par nos vins et bières importés directement d’Italie. Nous sommes très fiers de vous proposer vos pizzas italiennes préférées faites maison."
-          }
-          - { label: "Description Google", name: "google_description", widget: "markdown", default: "Pizzeria artisanale à Aigrefeuille-sur-Maine (44140) – pizzas maison, pasta box et spécialités italiennes à emporter. Commande rapide par téléphone."
-          }
-          - { label: "Image de couverture", name: "cover_image", widget: "image", required: false }
-
+  
   # 🔹 PIZZAS
   - name: "pizzas"
     label: "Pizzas"
@@ -358,16 +341,35 @@ collections:
           - { label: "Samedi", name: "samedi", widget: "object", collapsed: true, fields: *day_fields }
           - { label: "Dimanche", name: "dimanche", widget: "object", collapsed: true, fields: *day_fields }
   
+  # PARAMETRES DU SITE
+  - name: "infos"
+    label: "Paramètres du site"
+    files:
+      - file: "src/content/infos.json"
+        name: "infos"
+        label: "Modifier les paramètres du site"
+        fields:
+          - { label: "Titre", name: "title", widget: "string", default: "Gastro-Resto" }
+          - { label: "Ville", name: "city", widget: "string", default: "Nantes" }
+          - { label: "URL", name: "site_url", widget: "string", default: "https://astro-decap-template.netlify.app" }
+          - { label: "Sous-titre", name: "subtitle", widget: "string", default: "Cuisine maison • Produits frais • Sur place & à emporter" }
+          - { label: "Description", name: "description", widget: "markdown", default: "Pizzaïolo Edmondo, dit Eddy, a mis son talent au service de vos papilles pour créer « La Pizzetteria » à Aigrefeuille-sur-Maine (44140).Aujourd’hui il passe la main à son jeune « padawan » Guillaume qu’il a su formé et qui continuera à mettre en valeur les produits italien.Laissez vous tenter par nos pizzas et desserts faits maison dans la tradition transalpine, ainsi que par nos vins et bières importés directement d’Italie. Nous sommes très fiers de vous proposer vos pizzas italiennes préférées faites maison."
+          }
+          - { label: "Description Google", name: "google_description", widget: "markdown", default: "Pizzeria artisanale à Aigrefeuille-sur-Maine (44140) – pizzas maison, pasta box et spécialités italiennes à emporter. Commande rapide par téléphone."
+          }
+          - { label: "Image de couverture", name: "cover_image", widget: "image", required: false }
+
+ # MESSAGES EXCEPTIONNELS 
   - name: "special"
-    label: "Information spéciale"
+    label: "Message exceptionnel"
     files:
       - file: "src/content/information/special.json"
         create: true
         name: "special"
-        label: "Information spéciale"
+        label: "Modifier le message"
         widget: "object"
         fields:
-          - label: "Activer le message d'avertissement"
+          - label: "Activer le message d'exceptionnel"
             name: "enabled"
             widget: "boolean"
             default: false

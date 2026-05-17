@@ -40,7 +40,7 @@
 }
 
 .footer-block p {
-  color: #d1d5db;
+  color: #f0f2f5;
   font-size: 1.3rem;
 }
 
@@ -50,7 +50,7 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  color: #d1d5db;
+  color: #f0f2f5;
   text-decoration: none;
   width: fit-content;
   border-radius: 5px;
@@ -90,7 +90,7 @@
   padding-top: 1rem;
   text-align: center;
   font-size: 1.4rem;
-  color: #9ca3af;
+  color: #f0f2f5;
 }
 
 .footer-legal {
@@ -103,6 +103,7 @@
 .credit {
     margin-top: 0.5rem;
     opacity: 0.7;
+     color: #f0f2f5;
 }
 
 .credit a {
@@ -120,6 +121,7 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 1 1rem;
+  color: #f0f2f5;
 }
 
 .footer-bottom p:first-child {
@@ -136,7 +138,7 @@
 
 .footer-legal a {
     text-decoration: underline;
-    color: #9ca3af;
+    color: #f0f2f5;
 }
 
 .footer__social {

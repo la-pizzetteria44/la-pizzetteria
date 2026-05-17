@@ -94,6 +94,11 @@ collections:
               - "Tomates cerise"
             required: true
       - { label: "Image", name: "image", widget: "image", required: true }
+      - label: "Texte alternatif"
+        name: "alt"
+        widget: "string"
+        required: true
+        hint: "Décris brièvement la pizza (ex: Pizza 4 fromages avec mozzarella, chèvre et parmesan)"
       - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1, required: true }
       - label: "Tags"
         name: "tags"
@@ -131,6 +136,11 @@ collections:
         - { label: "Nom", name: "name", widget: "string" }
         - { label: "Description", name: "description", widget: "string" }
         - { label: "Image", name: "image", widget: "image" }
+        - label: "Texte alternatif"
+          name: "alt"
+          widget: "string"
+          required: true
+          hint: "Décris brièvement la pizza (ex: Pizza 4 fromages avec mozzarella, chèvre et parmesan)"
         - { label: "Type", name: "type", widget: "select", options: ["Antipasti", "Pâtes"] }
         - label: "Formats"
           name: "formats"
@@ -176,6 +186,11 @@ collections:
     fields:
         - { label: "Nom", name: "name", widget: "string" }
         - { label: "Image", name: "image", widget: "image" }
+        - label: "Texte alternatif"
+          name: "alt"
+          widget: "string"
+          required: true
+          hint: "Décris brièvement la pizza (ex: Pizza 4 fromages avec mozzarella, chèvre et parmesan)"
         - label: "Formats"
           name: "formats"
           widget: "list"
@@ -242,8 +257,13 @@ collections:
     sortable_fields: ["name", "price"]
     fields:
       - { label: "Nom", name: "name", widget: "string" }
-      - { label: "Description", name: "description", widget: "string", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "description", widget: "string", required: true }
+      - { label: "Image", name: "image", widget: "image", required: true }
+      - label: "Texte alternatif"
+        name: "alt"
+        widget: "string"
+        required: true
+        hint: "Décris brièvement la pizza (ex: Pizza 4 fromages avec mozzarella, chèvre et parmesan)"
       - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
       - {
         label: "Favoris",
@@ -269,7 +289,12 @@ collections:
     sortable_fields: ["name", "price"]
     fields:
       - { label: "Nom", name: "name", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Image", name: "image", widget: "image", required: true }
+      - label: "Texte alternatif"
+        name: "alt"
+        widget: "string"
+        required: true
+        hint: "Décris brièvement la pizza (ex: Pizza 4 fromages avec mozzarella, chèvre et parmesan)"
       - { label: "Description", name: "description", widget: "string", required: true }
       - label: "Catégorie"
         name: "category"

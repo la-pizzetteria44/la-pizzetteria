@@ -19,13 +19,13 @@ const {dishOfTheMoment} = Astro.props;
 
         <article class="card highlight__card">
             
-            <img class="highlight__img" src={dishOfTheMoment.image} alt={dishOfTheMoment.name} fetchpriority="high"loading="eager" width="400" height="300"/>
+            <img class="highlight__img" src={dishOfTheMoment.image} alt={dishOfTheMoment.alt || dishOfTheMoment.name} fetchpriority="high"loading="eager" width="400" height="300"/>
 
             <div class="highlight__content">
                 <h3 class="items-list__title"><span>{dishOfTheMoment.name}</span> <span class="items-list__price">{dishOfTheMoment.price?.toFixed(2)}€</span></h3>
 
                 <p class="highlight__ingredients">
-                    Base {dishOfTheMoment.base.replaceAll("-", " ")} · {dishOfTheMoment.ingredients.flat().map((i) => i.trim()).join(" · ")}
+                    Base {dishOfTheMoment.base.replaceAll("-", " ")} · {dishOfTheMoment.ingredients.flat().map((i: string) => i.trim()).join(" · ")}
                 </p>
                 
                 

@@ -96,7 +96,7 @@ const { title, items } = Astro.props;
 
 		<div class="items-list">
 			{items.map((item: {
-            [x: string]: unknown; tags: any[]; image: string | null | undefined; name: string; highlight: any; description: string ; ingredients: string[] ; price: number; formats: { label: string; price: number }[]; base?: string; category?: string
+            [x: string]: unknown; tags: any[]; image: string | null | undefined; alt?: string; name: string; highlight: any; description: string ; ingredients: string[] ; price: number; formats: { label: string; price: number }[]; base?: string; category?: string
             }) => {
                 const baseLabel =
                     typeof item.base === "string"
@@ -107,7 +107,7 @@ const { title, items } = Astro.props;
 				<article class="items-list__item" data-base={item.base || "none"} data-tags={item.tags?.join(",")} data-category={item.category} data-highlight={item.highlight ? true : false}>
                     {item.highlight && <div class="items-list__badge">Pizza du moment</div>}
                     {
-                        title !== "Boissons" && <img src={item.image} alt={item.name} loading="lazy" class="items-list__image" />
+                        title !== "Boissons" && <img src={item.image} alt={item.alt || item.name} loading="lazy" class="items-list__image" />
                     }
                     <div class="items-list__content">
                         <h3 class="items-list__title">

@@ -15,7 +15,7 @@ const { reviews } = Astro.props;
             </button>
 
             <div class="reviews__track">
-                {reviews.map((review) => (
+                {reviews.map((review: { content: string; author: unknown; rating: number; source: unknown; }) => (
                     <article class="card reviews__card">
                         <blockquote class="reviews__content">
                             {review.content.substring(0,50) + "..."}
@@ -51,7 +51,11 @@ const { reviews } = Astro.props;
     const track = document.querySelector(".reviews__track");
     const prev = document.querySelector(".reviews__nav--prev");
     const next = document.querySelector(".reviews__nav--next");
-    let autoScroll;
+    let autoScroll: number | undefined;
+
+    if (!track || !prev || !next) {
+        throw new Error("Required review elements not found");
+    }
 
 const startAutoScroll = () => {
     autoScroll = setInterval(() => {

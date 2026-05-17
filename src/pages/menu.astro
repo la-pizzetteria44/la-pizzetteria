@@ -2,40 +2,57 @@
 import Nav from '../components/MenuNav.astro';
 import Layout from '../layouts/Layout.astro';
 import ItemList from '../components/sections/ItemList.astro';
+import infos from '../content/infos.json';
 
-const specialties = Object.values(import.meta.glob('../content/specialties/*.json', { eager: true })).map(p => p.default);
-const pizzas = Object.values(import.meta.glob('../content/pizzas/*.json', { eager: true })).map(p => p.default);
-const drinks = Object.values(import.meta.glob('../content/drinks/*.json', { eager: true })).map(p => p.default);
-const desserts = Object.values(import.meta.glob('../content/desserts/*.json', { eager: true })).map(p => p.default);
-const platters = Object.values(import.meta.glob('../content/platters/*.json', { eager: true })).map(p => p.default);
+import { pizzas, drinks, platters, specialties, desserts } from '../utils/collections';
 
 ---
 
-<Layout title="Menu de la Pizzetteria" description="Découvrez notre menu varié de pizzas, entrées, desserts et boissons. Des saveurs authentiques pour tous les goûts." >
+<Layout title={`Carte & pizzas à emporter | ${infos.title} à ${infos.city}`}
+        canonical={`${infos.site_url}/menu`}>
 
 <main id="menu">
     <!-- STICKY MENU-->
 	<Nav />
 
-	<!-- PIZZAS -->
-
 	<ItemList title="Pizzas" items={pizzas} />
-    
-
-    
-    <!-- PLATEAUX -->
-	<ItemList title="Plateaux" items={platters} />
         
-
+	<ItemList title="Plateaux" items={platters} />
     
-    <!-- SPECIALITÉS -->
 	<ItemList title="Spécialités" items={specialties} />
 	    
-    <!-- DESSERTS -->
-	<ItemList title="Desserts" items={desserts} />
+    <ItemList title="Desserts" items={desserts} />
     
-	    
-    <!-- BOISSONS -->
 	<ItemList title="Boissons" items={drinks} />
 
 </main>
+
+<script>
+    
+// MENU NAV
+// SCROLL SPY
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute("id");
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + id) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}, {
+  threshold: 0.6,
+  rootMargin: "-42px 0px 0px 0px"
+});
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+</script>

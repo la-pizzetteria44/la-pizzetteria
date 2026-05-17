@@ -15,6 +15,8 @@ import "../styles/layout.css";
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+const { title, canonical } = Astro.props;
+
 function formatDay(day: { closed: any; slots?: any[]; }) {
   if (!day || day.closed) return "fermé";
 
@@ -68,19 +70,19 @@ const formattedDays = daysOrder.map(dayKey => {
         type="font/woff2" 
         crossorigin>
         
-        <link rel="canonical" href={infos.site_url} />
+        <link rel="canonical" href={canonical ?? infos.site_url} />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <meta property="og:locale" content="fr_FR" />
-        <meta property="og:url" content={infos.site_url} />
-        <meta property="og:title" content={infos.title} />
+        <meta property="og:url" content={canonical ?? infos.site_url} />
+        <meta property="og:title" content={title ?? infos.title} />
         <meta property="og:description" content={infos.description} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content=`${infos.site_url}${infos.cover_image}` />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={infos.title} />
+        <meta name="twitter:title" content={title ?? infos.title} />
         <meta name="twitter:description" content={infos.description} />
         <meta name="twitter:image" content=`${infos.site_url}${infos.cover_image}` />
         <meta name="theme-color" content="#EA580C" />
@@ -90,7 +92,7 @@ const formattedDays = daysOrder.map(dayKey => {
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-mobile-web-app-title" content={infos.title}>
 
-		<title>{infos.title} à {infos.city} | {infos.subtitle}</title>
+		<title>{title ?? `${infos.title} à ${infos.city} | ${infos.subtitle}`}</title>
 	</head>
 	<body>
         <Header />
@@ -98,8 +100,6 @@ const formattedDays = daysOrder.map(dayKey => {
         <slot />
         
         <Footer formattedDays={formattedDays} />
-
-
         
         <div class="sticky-cta">
             <a href="tel:0228028829"  class="cta call">
@@ -116,181 +116,4 @@ const formattedDays = daysOrder.map(dayKey => {
 
 </html>
 
-<script>
-    
-// MENU NAV
-// SCROLL SPY
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute("id");
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + id) {
-          link.classList.add("active");
-        }
-      });
-    }
-  });
-}, {
-  threshold: 0.6,
-  rootMargin: "-42px 0px 0px 0px"
-});
-
-sections.forEach(section => {
-  observer.observe(section);
-});
-</script>
-
-
-<style is:global>
-
-.cta .btn-cta {
-    color: #333;
-    border: none;
-}
-.cta .btn-cta:hover, .cta .btn-cta:hover svg {
-    color: #fff;
-    stroke: #fff;
-}
-
-.cta .btn-cta.primary {   
-    box-shadow: 0 1px 5px #333;
-    color: var(--color-red);
-}
-.cta .btn-cta.secondary {   
-    box-shadow: 0 2px 5px  #333;
-    /* color: var(--color-green); */
-}
-.cta .btn-cta.secondary:hover { 
-    background-color: var(--color-green);  
-    box-shadow: 0 2px 5px rgba(34, 197, 94, 0.4);
-}
-
-/* 🔥 NAV */
-.menu-nav {
-	position: sticky;
-	top: 50px;
-	background: #fff;
-	display: flex;
-	/* justify-content: center; */
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */    
-	gap: 1rem;
-	padding: 1rem;
-	border-bottom: 1px solid #e5e7eb;
-	z-index: 10;
-    color: #1F2937;
-}
-
-.menu-nav::-webkit-scrollbar {
-  display: none; /* Chrome */
-}
-
-.menu-nav a {
-	text-decoration: none;
-	font-weight: bold;
-	color: #333;
-    /* flex: 0 0 auto; */
-    /* white-space: nowrap; */
-}
-
-.nav-link {
-  position: relative;
-  text-decoration: none;
-  color: black;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #e63946;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-link.active {
-  color: #e63946;
-}
-
-.nav-link.active::after {
-  width: 100%;
-}
-
-
-.btn-cta.primary {
-    background:  #e63946;
-    border: none;
-}
-.btn-cta.secondary {
-    border: 1.5px solid rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(2px);
-}
-
-button.active svg {
-    transform: scale(1.1);
-}
-
-/* POLICY-LEGAL */
-.policy-legal {
-    padding: 4rem 1.5rem;
-    background: #fafafa;
-    max-width: 750px;
-    margin: 0 auto;
-    color: #222;
-    font-family: system-ui, sans-serif;
-    line-height: 1.7;
-}
-
-
-/* TITRE PRINCIPAL */
-.policy-legal h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  text-shadow: none;
-}
-
-/* SECTIONS */
-.policy-legal section {
-  margin-bottom: 2rem;
-}
-
-/* TITRES */
-.policy-legal h2 {
-  font-size: 1.7rem;
-  margin-bottom: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-/* TEXTE */
-.policy-legal p {
-  margin: 0.5rem 0;
-}
-
-/* LIENS */
-.policy-legal a {
-  color: #000;
-  text-decoration: underline;
-}
-
-.policy-legal a:hover {
-  opacity: 0.7;
-}
-
-/* RESPONSIVE */
-
-
-  
-</style>

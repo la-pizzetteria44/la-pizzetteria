@@ -16,6 +16,7 @@
     "@lucide/astro": "^1.11.0",
     "astro": "^6.1.9",
     "marked": "^18.0.2",
-    "netlify-identity-widget": "^2.0.3"
+    "netlify-identity-widget": "^2.0.3",
+    "simple-icons": "^16.20.0"
   }
 }

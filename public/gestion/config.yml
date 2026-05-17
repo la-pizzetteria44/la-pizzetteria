@@ -94,11 +94,11 @@ collections:
               - "Tomates cerise"
             required: true
       - { label: "Image", name: "image", widget: "image", required: true }
-      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
+      - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1, required: true }
       - label: "Tags"
         name: "tags"
         widget: "list"
-        required: false
+        required: true
         field:
           label: "Tag"
           name: "tag"
@@ -112,7 +112,7 @@ collections:
         default: false,
         hint: "Cochez pour mettre cette pizza en avant sur la page d'accueil"}
 
-  # 🔹 SPÉCIALITÉS (antipasti, charcuterie, fromages, pâtes)
+  # SPÉCIALITÉS (antipasti, charcuterie, fromages, pâtes)
   - name: "specialties"
     label: "Spécialités"
     folder: "src/content/specialties"
@@ -157,7 +157,8 @@ collections:
           widget: "boolean",
           default: false,
           hint: "Cochez pour mettre cette spécialité en avant sur la page d'accueil"}  
-  # 🔹 PLATTER (assiettes de charcuterie/fromage à partager)
+  
+  # PLATTER (assiettes de charcuterie/fromage à partager)
   - name: "platters"
     label: "Plateaux"
     folder: "src/content/platters"
@@ -223,7 +224,8 @@ collections:
           widget: "boolean",
           default: false,
           hint: "Cochez pour mettre ce plateau en avant sur la page d'accueil"}
-  # 🔹 DESSERTS
+  
+  # DESSERTS
   - name: "desserts"
     label: "Desserts"
     folder: "src/content/desserts"
@@ -250,7 +252,7 @@ collections:
         default: false,
         hint: "Cochez pour mettre ce dessert en avant sur la page d'accueil"}
 
-  # 🔹 BOISSONS
+  # BOISSONS
   - name: "drinks"
     label: "Boissons"
     folder: "src/content/drinks"
@@ -268,18 +270,16 @@ collections:
     fields:
       - { label: "Nom", name: "name", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "string", required: true }
       - label: "Catégorie"
         name: "category"
         widget: "select"
         options: ["Digestif", "Vin", "Bière", "Soda", "Eau"]
-
       - { label: "Prix (€)", name: "price", widget: "number", value_type: "float", step: 0.1 }
-
       - label: "Tags"
         name: "tags"
         widget: "list"
-        required: false
+        required: true
         field:
           label: "Tag"
           name: "tag"

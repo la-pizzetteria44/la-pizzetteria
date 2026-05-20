@@ -1,5 +1,5 @@
 {
-  "highlight": true,
+  "highlight": false,
   "base": "sauce-tomate-mozzarella",
   "name": "Al Salmone",
   "image": "/images/pizzas/al-Salmone.jpg",
@@ -12,5 +12,6 @@
       "Saumon",
       "Crème ciboulette"
     ]
-  ]
+  ],
+  "alt": "Pizza et sa sauce tomate garnie de saumon et d'une crème a la ciboulette. "
 }

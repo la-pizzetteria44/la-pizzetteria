@@ -1,5 +1,5 @@
 {
-  "highlight": false,
+  "highlight": true,
   "name": "Diavola",
   "base": "sauce-tomate-mozzarella",
   "ingredients": [
@@ -12,5 +12,6 @@
   "tags": [
     "Charcuterie",
     "Épicé"
-  ]
+  ],
+  "alt": "Pizza avec sa sauce tomate et ses tranches de spianata, une charcuterie légèrement épicée."
 }

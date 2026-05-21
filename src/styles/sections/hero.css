@@ -6,6 +6,7 @@
     justify-content: space-between;
     text-align: center;
     height: auto;
+    padding: 1rem;
 }
 .hero__content{
     color: #fff;
@@ -24,6 +25,7 @@
     width: 100%;
     height: 300px;
     object-fit: contain;
+    margin: 1rem auto 2rem;
 }
 
 .hero__cta .btn--primary {

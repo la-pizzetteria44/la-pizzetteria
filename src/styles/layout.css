@@ -238,7 +238,7 @@ body:has(.header__toggle:checked) {
     justify-content: space-evenly;
     gap: 0.5rem;
     flex-basis: 100%;
-     flex: 1;
+    flex: 1;
 }
 
 .items-list__price {

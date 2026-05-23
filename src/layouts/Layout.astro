@@ -47,7 +47,8 @@ const formattedDays = daysOrder.map(dayKey => {
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<meta charset="UTF-8" />
+        <meta charset="UTF-8" />
+        <meta name="google-site-verification" content="WEvpjojEUiURn7IZQTuW6UW1b3Lgd1CYwgwbvjrhnSs" />
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -74,6 +75,7 @@ const formattedDays = daysOrder.map(dayKey => {
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
         <meta property="og:locale" content="fr_FR" />
         <meta property="og:url" content={canonical ?? infos.site_url} />
         <meta property="og:title" content={title ?? infos.title} />
@@ -93,6 +95,33 @@ const formattedDays = daysOrder.map(dayKey => {
         <meta name="apple-mobile-web-app-title" content={infos.title}>
 
 		<title>{title ?? `${infos.title} à ${infos.city} | ${infos.subtitle}`}</title>
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            "name": "La Pizzetteria",
+            "image": "https://lapizzetteria.fr/images/cover.webp",
+            "url": "https://lapizzetteria.fr",
+            "telephone": "+33 2 28 02 88 29",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "3 Avenue de la Vendée",
+                "addressLocality": "Aigrefeuille-sur-Maine",
+                "postalCode": "44140",
+                "addressCountry": "FR"
+            },
+            "servesCuisine": ["Pizza", "Italien"],
+            "priceRange": "€",
+            "takeaway": true,
+            "areaServed": "Aigrefeuille-sur-Maine",
+            "acceptsReservations": false,
+            "hasMenu": "https://lapizzetteria.fr/menu",
+            "sameAs": [
+                "https://maps.app.goo.gl/VSt6TVwn9PhGNGg17",
+                "https://www.instagram.com/lapizzetteria44/"
+            ]
+            }
+            </script>
 	</head>
 	<body>
         <Header />

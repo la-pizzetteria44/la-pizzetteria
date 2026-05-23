@@ -141,11 +141,6 @@ body:has(.header__toggle:checked) {
   overflow: hidden;
 }
 
-/* .header__burger svg {
-    width: 40px;
-    height: 40px;
-} */
-
 .header__link {
   font-size: 1.8rem;
   font-weight: 600;

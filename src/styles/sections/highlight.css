@@ -55,6 +55,10 @@
     padding-bottom: 2rem;
 }
 
+.highlight__cta {
+    padding: 2rem;
+}
+
 .highlight__cta .btn--primary {
     color: #fff;
     background-color: var(--color-primary);

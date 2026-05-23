@@ -21,18 +21,10 @@ const dishOfTheMoment = pizzas.find(p => p.highlight) || null;
 const html = marked.parse(infos.description);
 
 const allItems = [...pizzas, ...platters, ...specialties, ...drinks, ...desserts];
-const suggestionsRaw = allItems.filter(item => item.isFavorite);
 
-const suggestions = [];
-const usedCategories = new Set();
-
-for (const item of suggestionsRaw) {
-  if (!usedCategories.has(item.category)) {
-    suggestions.push(item);
-    usedCategories.add(item.category);
-  }
-  if (suggestions.length === 4) break;
-}
+const suggestions = allItems
+  .filter(item => item.isFavorite)
+  .slice(0, 4);
 ---
 <Layout>
 
@@ -40,12 +32,12 @@ for (const item of suggestionsRaw) {
 <main id="home">
 
     <Hero infos={infos} special={special}/>	
-    <p>test deploy</p>
+    
     {dishOfTheMoment && (
     <Highlight dishOfTheMoment={dishOfTheMoment} />
     )}
 	
-    <Selection suggestions={suggestions} pizzas={pizzas} platters={platters} specialties={specialties} drinks={drinks} desserts={desserts}/>
+    <Selection suggestions={suggestions}/>
     
     <div class="container-secondary">
        

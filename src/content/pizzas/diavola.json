@@ -1,5 +1,5 @@
 {
-  "highlight": true,
+  "highlight": false,
   "name": "Diavola",
   "base": "sauce-tomate-mozzarella",
   "ingredients": [

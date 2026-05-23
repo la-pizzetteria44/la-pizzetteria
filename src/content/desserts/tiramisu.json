@@ -1,7 +1,7 @@
 {
   "name": "Tiramisu",
   "description": "Dessert traditionnel italien à base de café. Existe aussi en gâteaux à partager.",
-  "image": "/images/desserts/tiramisu.jpg",
+  "image": "/images/desserts/panna_cotta.jpg",
   "price": 4.2,
   "isFavorite": false
 }

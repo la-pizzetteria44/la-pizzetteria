@@ -1,7 +1,7 @@
 {
   "name": "Panna Cotta",
   "description": "Avec un coulis de fruits rouges ou caramel beurre salé.",
-  "image": "/images/desserts/panna_cotta.webp",
+  "image": "/images/desserts/panna-cotta.webp",
   "price": 3.7,
   "isFavorite": false
 }

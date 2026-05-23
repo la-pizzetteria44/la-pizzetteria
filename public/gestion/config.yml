@@ -245,11 +245,11 @@ collections:
   - name: "desserts"
     label: "Desserts"
     folder: "src/content/desserts"
-    media_folder: "/public/images/desserts"
-    public_folder: "/images/desserts"
     create: true
     editor:
       preview: false
+    media_folder: "/public/images/desserts"
+    public_folder: "/images/desserts"
     extension: "json"
     format: "json"
     slug: "{{slug}}"

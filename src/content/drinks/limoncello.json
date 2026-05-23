@@ -6,5 +6,6 @@
   ],
   "category": "Digestif",
   "price": 22,
-  "isFavorite": true
+  "isFavorite": false,
+  "description": "Liqueur de citron"
 }

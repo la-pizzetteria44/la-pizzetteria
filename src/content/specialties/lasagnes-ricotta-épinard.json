@@ -1,6 +1,6 @@
 {
   "name": "Lasagnes ricotta épinard",
-  "image": "/images/specialties/lasagne_bolognese.webp",
+  "image": "/images/specialties/lasagne.jpg",
   "type": "Pâtes",
   "formats": [
     {
@@ -12,5 +12,6 @@
       "price": 65
     }
   ],
-  "description": "Pates garnis de ricotta et épinards", "isFavorite": false
+  "description": "Pates garnis de ricotta et épinards",
+  "isFavorite": false
 }
